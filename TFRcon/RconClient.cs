@@ -33,12 +33,13 @@ namespace TFRcon
         // Connect to a Rcon-Server
         public bool Connect(string pIP, ushort pPort, string pPassword)
         {
-            gameServer = ServerQuery.GetServerInstance(EngineType.Source, ip, port);
-            bool hasControl = gameServer.GetControl(password);
+            gameServer = ServerQuery.GetServerInstance(EngineType.Source, pIP, pPort);
+            bool hasControl = gameServer.GetControl(pPassword);
             if (hasControl)
             {
                 isConnected = true;
                 gameRcon = gameServer.Rcon;
+                gameRcon.Enablelogging();
             }
             else
             {
@@ -52,8 +53,11 @@ namespace TFRcon
         // Disconnect from a Rcon-Server
         public void Disconnect()
         {
-            gameServer.Dispose();
-            isConnected = false;
+            if (gameServer != null)
+            {
+                gameServer.Dispose();
+                isConnected = false;
+            }
         }
 
         // Reconnect to the current Rcon-Server
@@ -81,6 +85,12 @@ namespace TFRcon
             {
                 throw new Exception("The command couldn't be sent because you aren't connected to a Rcon-Server");
             }
+        }
+
+        // Returns whether the client is connected
+        public bool IsConnected()
+        {
+            return isConnected;
         }
 
         // Get the current Rcon-IP
