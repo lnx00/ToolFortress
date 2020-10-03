@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolFortress", "ToolFortress\ToolFortress.csproj", "{C17AD1C7-521A-4846-A045-3E5306917D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFRcon", "TFRcon\TFRcon.csproj", "{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C17AD1C7-521A-4846-A045-3E5306917D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C17AD1C7-521A-4846-A045-3E5306917D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C17AD1C7-521A-4846-A045-3E5306917D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C17AD1C7-521A-4846-A045-3E5306917D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F6AF341-BAB7-40D6-833A-883B609D478E}
+	EndGlobalSection
+EndGlobal
