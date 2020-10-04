@@ -96,6 +96,9 @@ namespace ToolFortress.TF2
         public delegate void LobbyUpdateHandler();
         public event LobbyUpdateHandler OnLobbyUpdate = delegate { };
 
+        public delegate void StatusUpdateHandler();
+        public event StatusUpdateHandler OnStatusUpdate = delegate { };
+
         public LogParser() { }
 
         public LogParser(LogReader pLogReader)

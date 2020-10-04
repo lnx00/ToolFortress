@@ -28,7 +28,7 @@ namespace ToolFortress.Modules
         {
             while (spamActive)
             {
-                Game.RconClient.SendCommand(Settings.M_SPAM_COMMAND);
+                Game.SendCommand(Settings.M_SPAM_COMMAND);
                 Thread.Sleep(Settings.M_SPAM_DELAY);
             }
         }

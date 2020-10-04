@@ -23,7 +23,6 @@ namespace ToolFortress
     {
         private bool retryConnection = false;
         private MaterialSkinManager msManager = MaterialSkinManager.Instance;
-        private TFConnect tfConnect = new TFConnect();
 
         // Modules
         private CommandModule commandModule = new CommandModule();
@@ -31,6 +30,7 @@ namespace ToolFortress
         private StatTrakModule statTrakModule = new StatTrakModule();
         private ClassPeekModule classPeekModule = new ClassPeekModule();
         private CommandSpamModule cmdSpamModule = new CommandSpamModule();
+        private ConnectModule connectModule = new ConnectModule();
 
         public MainMenu()
         {
@@ -66,6 +66,10 @@ namespace ToolFortress
             txtSteamID3.Text = Settings.TF2_STEAMID3;
             chkMirrorConsole.Checked = Settings.F_CONSOLE_MIRROR;
             comboTheme.SelectedIndex = Settings.F_THEME_ID;
+
+            // Load constants
+            comboKillsayTaunt.DataSource = Interpreter.Taunts;
+            comboCnTaunt.DataSource = Interpreter.Taunts;
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -123,7 +127,7 @@ namespace ToolFortress
             try
             {
                 // Send command and split response for correct formatting
-                string conResponse = Game.RconClient.SendCommand(txtConsoleInput.Text);
+                string conResponse = Game.SendCommand(txtConsoleInput.Text);
                 string[] resLines = conResponse.Split('\n');
                 foreach (string line in resLines)
                 {
@@ -152,12 +156,15 @@ namespace ToolFortress
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Stop all Modules
+            connectModule.Disable();
+
             // Stop all Threads and disconnect from the game
             retryConnection = false;
-            tfConnect.Disconnect();
             Game.Disconnect();
         }
 
+        // Retry Rcon connection until it succeeds
         private void TryRconConnection()
         {
             // Try to connect to the game
@@ -204,19 +211,7 @@ namespace ToolFortress
             }
         }
 
-        private string Chiffre(string input, int stellen)
-        {
-            string output = string.Empty;
-
-            foreach (char c in input)
-            {
-                char x = (char)(c + stellen);
-                output += x.ToString();
-            }
-
-            return output;
-        }
-
+        // Initlilize Tools (Rcon successfull)
         private void Connected()
         {
             Game.StartInfoRequest();
@@ -228,15 +223,6 @@ namespace ToolFortress
                 {
                     listKillfeed.Items.Add(kf.Killer + " killed " + kf.Target + " with " + kf.Weapon + (kf.Crit ? " (Crit)" : ""));
                 });
-            };
-
-            Game.LogParser.OnChatMessage += (msg) =>
-            {
-                //Console.WriteLine("MSG: " + msg.Message + " by " + msg.Sender);
-                if (msg.Message.StartsWith(" "))
-                {
-                    Game.SendPartyMessage(Chiffre(msg.Message.Substring(1), -3));
-                }
             };
 
             // Handle modules
@@ -273,10 +259,15 @@ namespace ToolFortress
             Settings.F_CONSOLE_MIRROR = chkMirrorConsole.Checked;
         }
 
-        // Change UI Theme
         private void comboTheme_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboTheme.SelectedIndex)
+            SetTheme(comboTheme.SelectedIndex);
+        }
+
+        // Change UI Theme
+        private void SetTheme(int pThemeID)
+        {
+            switch (pThemeID)
             {
                 case 0:
                     msManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -295,6 +286,7 @@ namespace ToolFortress
             }
         }
 
+        // Toogle Killsay Module
         private void chkFunKillsay_CheckedChanged(object sender, EventArgs e)
         {
             if (chkFunKillsay.Checked)
@@ -334,6 +326,7 @@ namespace ToolFortress
         private void chkKillsayClass_CheckedChanged(object sender, EventArgs e)
         {
             Settings.M_KILLSAY_CLASSONLY = chkKillsayClass.Checked;
+            comboKillsayClass.Enabled = chkKillsayClass.Checked;
         }
 
         private void comboKillsayClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -341,6 +334,7 @@ namespace ToolFortress
             Settings.M_KILLSAY_CLASS = (Class)comboKillsayClass.SelectedIndex;
         }
 
+        // Toggle ClassPeek Module
         private void chkClassPeek_CheckedChanged(object sender, EventArgs e)
         {
             if (chkClassPeek.Checked)
@@ -364,10 +358,10 @@ namespace ToolFortress
 
         private void btnShowSettings_Click(object sender, EventArgs e)
         {
-            Game.SendChatMessage(" " + Chiffre("Test lol", 3));
             mainTabControl.SelectedTab = tabSettings;
         }
 
+        // Save Settings
         private void btnSaveSettings_Click(object sender, EventArgs e)
         {
             Settings.RCON_IP = txtRconIP.Text;
@@ -381,65 +375,12 @@ namespace ToolFortress
             Settings.F_THEME_ID = comboTheme.SelectedIndex;
         }
 
-        private void btnSvConnect_Click(object sender, EventArgs e)
-        {
-            //tfConnect.Connect("185.239.236.169", 2063);
-            if (tfConnect.Connect("127.0.0.1", 2063))
-            {
-                btnSvConnect.Enabled = false;
-                btnSvDisconnect.Enabled = true;
-            }
-
-            tfConnect.OnNetworkData += (data) =>
-            {
-                if (data[0] == 3)
-                {
-                    string pText = Encoding.UTF8.GetString(data.Skip(2).Take(data[1]).ToArray());
-                    Console.WriteLine("Broadcast: " + pText);
-                } else if (data[0] == 4)
-                {
-                    int tauntID = data[2];
-                    byte[] timeData = data.Skip(3).Take(data[1]).ToArray();
-                    long binTime = BitConverter.ToInt64(timeData, 0);
-                    DateTime tauntTime = DateTime.FromBinary(binTime);
-                    Console.WriteLine("Taunt " + tauntID + " at " + tauntTime.ToString());
-
-                    Game.RconClient.SendCommand("taunt");
-                    Game.RconClient.SendCommand("say \"Tes" + Environment.NewLine + "t\"");
-                }
-            };
-        }
-
-        private void btnSvDisconnect_Click(object sender, EventArgs e)
-        {
-            if (tfConnect.Disconnect())
-            {
-                btnSvConnect.Enabled = true;
-                btnSvDisconnect.Enabled = false;
-            }
-        }
-
-        private void btnSvUsername_Click(object sender, EventArgs e)
-        {
-            tfConnect.SetUsername(txtSvUsername.Text);
-        }
-
         private void btnSvTaunt_Click(object sender, EventArgs e)
         {
-            byte selectedTaunt = (byte) comboSvTaunt.SelectedIndex;
-            DateTime tauntTime = DateTime.Now.AddSeconds(5);
-            long binTaunTime = tauntTime.ToBinary();
-
-            byte[] timeData = BitConverter.GetBytes(binTaunTime);
-            byte dataLength = (byte)(2 + timeData.Length);
-            byte[] data = new byte[1024];
-            data[0] = 4;
-            data[1] = dataLength;
-            data[2] = selectedTaunt;
-            timeData.CopyTo(data, 3);
-            tfConnect.SendData(data);
+            connectModule.BroadcastMessage("cmd", Interpreter.GetTauntCommand(comboCnTaunt.SelectedItem.ToString()));
         }
 
+        // Toggle Chatspam Module
         private void chkSpamEnable_CheckedChanged(object sender, EventArgs e)
         {
             if (chkSpamEnable.Checked)
@@ -459,6 +400,152 @@ namespace ToolFortress
         private void trackSpamSpeed_Scroll(object sender, EventArgs e)
         {
             Settings.M_SPAM_DELAY = trackSpamSpeed.Value;
+        }
+
+        // Quit the game ("quit" command)
+        private void btnGameQuit_Click(object sender, EventArgs e)
+        {
+            Game.SendCommand("quit");
+            mainTabControl.SelectedTab = tabHome;
+            mainTabControl.Enabled = false;
+            btnStartGame.Enabled = true;
+        }
+
+        // Kill the game (End the Process)
+        private void btnGameKill_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.GetProcessesByName("hl2").First().Kill();
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Error @ KillGame: " + ex.Message);
+            }
+
+            mainTabControl.SelectedTab = tabHome;
+            mainTabControl.Enabled = false;
+            btnStartGame.Enabled = true;
+        }
+
+        private void switchCnEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (switchCnEnable.Checked)
+            {
+                connectModule.Enable();
+                connectModule.OnUserUpdate += UpdateUserList;
+                pnlCnLobby.Enabled = true;
+            } else
+            {
+                connectModule.Disable();
+                connectModule.OnUserUpdate -= UpdateUserList;
+                pnlCnLobby.Enabled = false;
+                pnlCnTools.Enabled = false;
+            }
+        }
+
+        private void UpdateLobbyList()
+        {
+            Dictionary<string, string> lobbyDict = connectModule.GetLobbys();
+            if (lobbyDict.Count == 0) { return; }
+
+            comboCnLobby.Invoke((MethodInvoker)delegate
+            {
+                comboCnLobby.DataSource = new BindingSource(lobbyDict, null);
+                comboCnLobby.DisplayMember = "Value";
+                comboCnLobby.ValueMember = "Key";
+            });
+        }
+
+        private void UpdateUserList()
+        {
+            Dictionary<string, string> userDict = connectModule.GetUsers();
+            listCnUsers.Invoke((MethodInvoker)delegate
+            {
+                listCnUsers.DataSource = new BindingSource(userDict, null);
+                listCnUsers.DisplayMember = "Value";
+                listCnUsers.ValueMember = "Key";
+            });
+        }
+
+        private void btnCnJoin_Click(object sender, EventArgs e)
+        {
+            connectModule.JoinLobby((string) comboCnLobby.SelectedValue);
+
+            pnlCnTools.Enabled = true;
+        }
+
+        private void btnCnCreate_Click(object sender, EventArgs e)
+        {
+            string lobbyName = "Lobby #" + new Random().Next(100, 999);
+            connectModule.CreateLobby(lobbyName);
+            Console.WriteLine("Creating: " + lobbyName);
+
+            UpdateLobbyList();
+            connectModule.GetUsers();
+
+            pnlCnTools.Enabled = true;
+        }
+
+        private void comboCnLobby_MouseDown(object sender, MouseEventArgs e)
+        {
+            UpdateLobbyList();
+        }
+
+        private void btnCnDisonnect_Click(object sender, EventArgs e)
+        {
+            connectModule.Disconnect();
+        }
+
+        private void btnMiscVote1_Click(object sender, EventArgs e)
+        {
+            Game.SendCommand("next_map_vote 0");
+        }
+
+        private void btnMiscVote2_Click(object sender, EventArgs e)
+        {
+            Game.SendCommand("next_map_vote 1");
+        }
+
+        private void btnMiscVote3_Click(object sender, EventArgs e)
+        {
+            Game.SendCommand("next_map_vote 2");
+        }
+
+        private void btnCnMessage_Click(object sender, EventArgs e)
+        {
+            Game.SendPartyMessage("Saying '" + txtCnMessage.Text + "' on all clients...");
+            connectModule.BroadcastMessage("say", txtCnMessage.Text);
+        }
+
+        private void comboMiscExec_MouseDown(object sender, MouseEventArgs e)
+        {
+            comboMiscExec.Items.Clear();
+
+            string[] scriptFiles = Directory.GetFiles(Settings.TF2_FOLDER + @"\tf\cfg\", "*.cfg");
+            foreach (string file in scriptFiles)
+            {
+                comboMiscExec.Items.Add(Path.GetFileName(file));
+            }
+        }
+
+        private void btnMiscExec_Click(object sender, EventArgs e)
+        {
+            string response = Game.SendCommand("exec " + comboMiscExec.SelectedItem.ToString());
+            if (!String.IsNullOrEmpty(response))
+            {
+                Game.SendPartyMessage(response);
+            }
+        }
+
+        private void chkKillsayTaunt_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_TAUNTKILL = chkKillsayTaunt.Checked;
+            comboKillsayTaunt.Enabled = chkKillsayTaunt.Checked;
+        }
+
+        private void comboKillsayTaunt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_TAUNT = comboKillsayTaunt.SelectedItem.ToString();
         }
     }
 }

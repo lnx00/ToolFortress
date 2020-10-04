@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolFortress", "ToolFortres
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFRcon", "TFRcon\TFRcon.csproj", "{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolFortressConnect", "ToolFortressConnect\ToolFortressConnect.csproj", "{C36CCAF1-04D8-43D5-907B-3063D761C021}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA9DB2BF-99DB-42FB-B0D0-C82684A15135}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C36CCAF1-04D8-43D5-907B-3063D761C021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C36CCAF1-04D8-43D5-907B-3063D761C021}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C36CCAF1-04D8-43D5-907B-3063D761C021}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C36CCAF1-04D8-43D5-907B-3063D761C021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

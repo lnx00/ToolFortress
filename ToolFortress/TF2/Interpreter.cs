@@ -23,6 +23,9 @@ namespace ToolFortress.TF2
             Scout, Soldier, Pyro, Demoman, Heavy, Engineer, Medic, Sniper, Spy, Unknown
         }
 
+        public static readonly string[] Taunts = { "Default", "Fresh Brewed Victory", "The High Five!", "Flippin' Awesome", "Square Dance", "Kazotsky Kick",
+        "Conga", "Rock, Paper, Scissors", "The Director's Vision" };
+
         public static Class GetClassByWeapon(string pWeapon)
         {
             if (SCOUT_WEAPONS.Contains(pWeapon)) { return Class.Scout; }
@@ -37,5 +40,19 @@ namespace ToolFortress.TF2
             return Class.Unknown;
         }
 
+        public static string GetTauntCommand(string pTaunt)
+        {
+            string tauntName = pTaunt.Trim();
+            if (tauntName == "Default")
+            {
+                return "taunt";
+            } else if (tauntName.StartsWith("Taunt: "))
+            {
+                return "taunt_by_name " + tauntName;
+            } else
+            {
+                return "taunt_by_name Taunt: " + tauntName;
+            }
+        }
     }
 }

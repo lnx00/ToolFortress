@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupDialog));
             this.txtFolderPath = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnChoosePath = new MaterialSkin.Controls.MaterialButton();
@@ -148,6 +149,7 @@
             this.Controls.Add(this.btnChoosePath);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtFolderPath);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SetupDialog";

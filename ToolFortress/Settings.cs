@@ -16,9 +16,9 @@ namespace ToolFortress
         public static ushort RCON_PORT = 2541;
         public static string TF2_FOLDER = @"G:\Steam\steamapps\common\Team Fortress 2\";
         public static string TF2_STEAMID3 = "[U:1:347654006]";
-        public static string TFC_IP = "185.239.236.169";
-        public static int TFC_Port = 2063;
-        public static string TFC_Username = "Guest";
+        public static string FB_AUTHSECRET = "u4wcpfXoQ1qHiT4szOwuE0l6jUdJaPXS4Y5Z4J99";
+        public static string FB_BASEPATH = "https://tfconnect-6104f.firebaseio.com/";
+        public static string FB_USERNAME = "Guest";
 
         /* FEATURES */
         public static bool F_CONSOLE_MIRROR = true;
@@ -29,12 +29,16 @@ namespace ToolFortress
         public static bool M_KILLSAY_KILL = false;
         public static bool M_KILLSAY_DEATH = false;
         public static bool M_KILLSAY_CLASSONLY = false;
+        public static bool M_KILLSAY_TAUNTKILL = false;
         public static Class M_KILLSAY_CLASS = Class.Scout;
+        public static string M_KILLSAY_TAUNT = "Default";
         public static string M_KILLSAY_KILLMSG = "";
         public static string M_KILLSAY_DEATHMSG = "";
 
         public static string M_SPAM_COMMAND = "";
         public static int M_SPAM_DELAY = 1000;
+
+        public static string[] M_BD_SOURCES = new string[] { "", "" };
 
         /* REGEX */
         public const string REGEX_CHAT = @"(\*DEAD\*)?\s*(\(TEAM\))?\s*(.{1,33}) :  ((?:.|[\r\n])*)";

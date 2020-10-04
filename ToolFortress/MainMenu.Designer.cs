@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
             this.btnShowSettings = new MaterialSkin.Controls.MaterialButton();
@@ -42,6 +43,8 @@
             this.txtSpamCommand = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.comboKillsayTaunt = new MaterialSkin.Controls.MaterialComboBox();
+            this.chkKillsayTaunt = new MaterialSkin.Controls.MaterialCheckbox();
             this.comboKillsayClass = new MaterialSkin.Controls.MaterialComboBox();
             this.chkKillsayClass = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
@@ -52,21 +55,34 @@
             this.chkKillsayKill = new MaterialSkin.Controls.MaterialCheckbox();
             this.chkFunKillsay = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.tabMisc = new System.Windows.Forms.TabPage();
+            this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
+            this.btnMiscExec = new MaterialSkin.Controls.MaterialButton();
+            this.comboMiscExec = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            this.materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnMiscVote3 = new MaterialSkin.Controls.MaterialButton();
+            this.btnMiscVote2 = new MaterialSkin.Controls.MaterialButton();
+            this.btnMiscVote1 = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
             this.tabConnect = new System.Windows.Forms.TabPage();
-            this.comboSvTaunt = new MaterialSkin.Controls.MaterialComboBox();
-            this.btnSvTaunt = new MaterialSkin.Controls.MaterialButton();
-            this.btnSvUsername = new MaterialSkin.Controls.MaterialButton();
-            this.txtSvUsername = new MaterialSkin.Controls.MaterialTextBox();
+            this.pnlCnTools = new MaterialSkin.Controls.MaterialCard();
+            this.btnCnMessage = new MaterialSkin.Controls.MaterialButton();
+            this.txtCnMessage = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel16 = new MaterialSkin.Controls.MaterialLabel();
+            this.comboCnTaunt = new MaterialSkin.Controls.MaterialComboBox();
+            this.btnCnTaunt = new MaterialSkin.Controls.MaterialButton();
+            this.pnlCnLobby = new System.Windows.Forms.Panel();
+            this.btnCnDisonnect = new MaterialSkin.Controls.MaterialButton();
+            this.comboCnLobby = new MaterialSkin.Controls.MaterialComboBox();
+            this.btnCnJoin = new MaterialSkin.Controls.MaterialButton();
+            this.btnCnCreate = new MaterialSkin.Controls.MaterialButton();
+            this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
-            this.listSvUsers = new System.Windows.Forms.ListBox();
-            this.btnSvDisconnect = new MaterialSkin.Controls.MaterialButton();
-            this.btnSvConnect = new MaterialSkin.Controls.MaterialButton();
+            this.listCnUsers = new System.Windows.Forms.ListBox();
+            this.switchCnEnable = new MaterialSkin.Controls.MaterialSwitch();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.tabConsole = new System.Windows.Forms.TabPage();
-            this.txtConsoleOutput = new System.Windows.Forms.TextBox();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.txtConsoleInput = new MaterialSkin.Controls.MaterialTextBox();
-            this.btnSendConsole = new MaterialSkin.Controls.MaterialButton();
             this.tabStats = new System.Windows.Forms.TabPage();
             this.lblKDCounter = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
@@ -80,6 +96,14 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.listKillfeed = new System.Windows.Forms.ListBox();
+            this.tabBotDetector = new System.Windows.Forms.TabPage();
+            this.chkBdEnable = new MaterialSkin.Controls.MaterialSwitch();
+            this.materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
+            this.tabConsole = new System.Windows.Forms.TabPage();
+            this.txtConsoleOutput = new System.Windows.Forms.TextBox();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.txtConsoleInput = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnSendConsole = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.btnSaveSettings = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
@@ -87,6 +111,8 @@
             this.chkMirrorConsole = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.cardLog = new MaterialSkin.Controls.MaterialCard();
+            this.btnGameKill = new MaterialSkin.Controls.MaterialButton();
+            this.btnGameQuit = new MaterialSkin.Controls.MaterialButton();
             this.txtSteamID3 = new MaterialSkin.Controls.MaterialTextBox();
             this.btnGamePicker = new MaterialSkin.Controls.MaterialButton();
             this.txtTFPath = new MaterialSkin.Controls.MaterialTextBox();
@@ -99,17 +125,23 @@
             this.txtRconPort = new MaterialSkin.Controls.MaterialTextBox();
             this.mainTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tfFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
-            this.tabBotDetector = new System.Windows.Forms.TabPage();
             this.mainTabControl.SuspendLayout();
             this.tabHome.SuspendLayout();
             this.tabFun.SuspendLayout();
             this.materialCard4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackSpamSpeed)).BeginInit();
             this.materialCard3.SuspendLayout();
+            this.tabMisc.SuspendLayout();
+            this.materialCard7.SuspendLayout();
+            this.materialCard6.SuspendLayout();
             this.tabConnect.SuspendLayout();
+            this.pnlCnTools.SuspendLayout();
+            this.pnlCnLobby.SuspendLayout();
+            this.materialCard5.SuspendLayout();
+            this.tabStats.SuspendLayout();
+            this.tabBotDetector.SuspendLayout();
             this.tabConsole.SuspendLayout();
             this.materialCard1.SuspendLayout();
-            this.tabStats.SuspendLayout();
             this.tabSettings.SuspendLayout();
             this.materialCard2.SuspendLayout();
             this.cardLog.SuspendLayout();
@@ -120,6 +152,7 @@
             // 
             this.mainTabControl.Controls.Add(this.tabHome);
             this.mainTabControl.Controls.Add(this.tabFun);
+            this.mainTabControl.Controls.Add(this.tabMisc);
             this.mainTabControl.Controls.Add(this.tabConnect);
             this.mainTabControl.Controls.Add(this.tabStats);
             this.mainTabControl.Controls.Add(this.tabBotDetector);
@@ -320,6 +353,8 @@
             // materialCard3
             // 
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.comboKillsayTaunt);
+            this.materialCard3.Controls.Add(this.chkKillsayTaunt);
             this.materialCard3.Controls.Add(this.comboKillsayClass);
             this.materialCard3.Controls.Add(this.chkKillsayClass);
             this.materialCard3.Controls.Add(this.materialLabel9);
@@ -337,11 +372,66 @@
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(418, 273);
+            this.materialCard3.Size = new System.Drawing.Size(418, 315);
             this.materialCard3.TabIndex = 0;
+            // 
+            // comboKillsayTaunt
+            // 
+            this.comboKillsayTaunt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboKillsayTaunt.AutoResize = false;
+            this.comboKillsayTaunt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboKillsayTaunt.Depth = 0;
+            this.comboKillsayTaunt.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboKillsayTaunt.DropDownHeight = 118;
+            this.comboKillsayTaunt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboKillsayTaunt.DropDownWidth = 121;
+            this.comboKillsayTaunt.Enabled = false;
+            this.comboKillsayTaunt.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboKillsayTaunt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboKillsayTaunt.FormattingEnabled = true;
+            this.comboKillsayTaunt.Hint = "Select taunt...";
+            this.comboKillsayTaunt.IntegralHeight = false;
+            this.comboKillsayTaunt.ItemHeight = 29;
+            this.comboKillsayTaunt.Items.AddRange(new object[] {
+            "Scout",
+            "Soldier",
+            "Pyro",
+            "Demoman",
+            "Heavy",
+            "Engineer",
+            "Medic",
+            "Sniper",
+            "Spy"});
+            this.comboKillsayTaunt.Location = new System.Drawing.Point(21, 156);
+            this.comboKillsayTaunt.MaxDropDownItems = 4;
+            this.comboKillsayTaunt.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboKillsayTaunt.Name = "comboKillsayTaunt";
+            this.comboKillsayTaunt.Size = new System.Drawing.Size(380, 35);
+            this.comboKillsayTaunt.TabIndex = 11;
+            this.comboKillsayTaunt.UseTallSize = false;
+            this.comboKillsayTaunt.SelectedIndexChanged += new System.EventHandler(this.comboKillsayTaunt_SelectedIndexChanged);
+            // 
+            // chkKillsayTaunt
+            // 
+            this.chkKillsayTaunt.AutoSize = true;
+            this.chkKillsayTaunt.Depth = 0;
+            this.chkKillsayTaunt.Location = new System.Drawing.Point(256, 75);
+            this.chkKillsayTaunt.Margin = new System.Windows.Forms.Padding(0);
+            this.chkKillsayTaunt.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkKillsayTaunt.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkKillsayTaunt.Name = "chkKillsayTaunt";
+            this.chkKillsayTaunt.Ripple = true;
+            this.chkKillsayTaunt.Size = new System.Drawing.Size(103, 37);
+            this.chkKillsayTaunt.TabIndex = 10;
+            this.chkKillsayTaunt.Text = "Taunt Kill";
+            this.chkKillsayTaunt.UseVisualStyleBackColor = true;
+            this.chkKillsayTaunt.CheckedChanged += new System.EventHandler(this.chkKillsayTaunt_CheckedChanged);
             // 
             // comboKillsayClass
             // 
+            this.comboKillsayClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboKillsayClass.AutoResize = false;
             this.comboKillsayClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.comboKillsayClass.Depth = 0;
@@ -349,10 +439,11 @@
             this.comboKillsayClass.DropDownHeight = 118;
             this.comboKillsayClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboKillsayClass.DropDownWidth = 121;
+            this.comboKillsayClass.Enabled = false;
             this.comboKillsayClass.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.comboKillsayClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.comboKillsayClass.FormattingEnabled = true;
-            this.comboKillsayClass.Hint = "Class";
+            this.comboKillsayClass.Hint = "Select class...";
             this.comboKillsayClass.IntegralHeight = false;
             this.comboKillsayClass.ItemHeight = 29;
             this.comboKillsayClass.Items.AddRange(new object[] {
@@ -384,9 +475,9 @@
             this.chkKillsayClass.MouseState = MaterialSkin.MouseState.HOVER;
             this.chkKillsayClass.Name = "chkKillsayClass";
             this.chkKillsayClass.Ripple = true;
-            this.chkKillsayClass.Size = new System.Drawing.Size(192, 37);
+            this.chkKillsayClass.Size = new System.Drawing.Size(133, 37);
             this.chkKillsayClass.TabIndex = 8;
-            this.chkKillsayClass.Text = "For Class (Death only)";
+            this.chkKillsayClass.Text = "Specific class";
             this.chkKillsayClass.UseVisualStyleBackColor = true;
             this.chkKillsayClass.CheckedChanged += new System.EventHandler(this.chkKillsayClass_CheckedChanged);
             // 
@@ -396,7 +487,7 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
-            this.materialLabel9.Location = new System.Drawing.Point(23, 245);
+            this.materialLabel9.Location = new System.Drawing.Point(23, 290);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(196, 14);
@@ -405,11 +496,13 @@
             // 
             // txtKillsayDeathMsg
             // 
+            this.txtKillsayDeathMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKillsayDeathMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtKillsayDeathMsg.Depth = 0;
             this.txtKillsayDeathMsg.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtKillsayDeathMsg.Hint = "Death Message";
-            this.txtKillsayDeathMsg.Location = new System.Drawing.Point(21, 206);
+            this.txtKillsayDeathMsg.Location = new System.Drawing.Point(21, 251);
             this.txtKillsayDeathMsg.MaxLength = 50;
             this.txtKillsayDeathMsg.MouseState = MaterialSkin.MouseState.OUT;
             this.txtKillsayDeathMsg.Multiline = false;
@@ -422,11 +515,13 @@
             // 
             // txtKillsayMsg
             // 
+            this.txtKillsayMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKillsayMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtKillsayMsg.Depth = 0;
             this.txtKillsayMsg.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtKillsayMsg.Hint = "Kill Message";
-            this.txtKillsayMsg.Location = new System.Drawing.Point(21, 164);
+            this.txtKillsayMsg.Location = new System.Drawing.Point(21, 209);
             this.txtKillsayMsg.MaxLength = 50;
             this.txtKillsayMsg.MouseState = MaterialSkin.MouseState.OUT;
             this.txtKillsayMsg.Multiline = false;
@@ -514,17 +609,211 @@
             this.materialLabel7.TabIndex = 0;
             this.materialLabel7.Text = "Kill/Death Messages";
             // 
+            // tabMisc
+            // 
+            this.tabMisc.BackColor = System.Drawing.SystemColors.Control;
+            this.tabMisc.Controls.Add(this.materialCard7);
+            this.tabMisc.Controls.Add(this.materialCard6);
+            this.tabMisc.Location = new System.Drawing.Point(4, 22);
+            this.tabMisc.Name = "tabMisc";
+            this.tabMisc.Size = new System.Drawing.Size(892, 424);
+            this.tabMisc.TabIndex = 7;
+            this.tabMisc.Text = "Misc";
+            // 
+            // materialCard7
+            // 
+            this.materialCard7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard7.Controls.Add(this.btnMiscExec);
+            this.materialCard7.Controls.Add(this.comboMiscExec);
+            this.materialCard7.Controls.Add(this.materialLabel18);
+            this.materialCard7.Depth = 0;
+            this.materialCard7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard7.Location = new System.Drawing.Point(14, 168);
+            this.materialCard7.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard7.Name = "materialCard7";
+            this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard7.Size = new System.Drawing.Size(321, 145);
+            this.materialCard7.TabIndex = 4;
+            // 
+            // btnMiscExec
+            // 
+            this.btnMiscExec.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMiscExec.AutoSize = false;
+            this.btnMiscExec.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMiscExec.Depth = 0;
+            this.btnMiscExec.DrawShadows = true;
+            this.btnMiscExec.HighEmphasis = true;
+            this.btnMiscExec.Icon = null;
+            this.btnMiscExec.Location = new System.Drawing.Point(17, 93);
+            this.btnMiscExec.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMiscExec.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMiscExec.Name = "btnMiscExec";
+            this.btnMiscExec.Size = new System.Drawing.Size(287, 32);
+            this.btnMiscExec.TabIndex = 4;
+            this.btnMiscExec.Text = "Execute";
+            this.btnMiscExec.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMiscExec.UseAccentColor = false;
+            this.btnMiscExec.UseVisualStyleBackColor = true;
+            this.btnMiscExec.Click += new System.EventHandler(this.btnMiscExec_Click);
+            // 
+            // comboMiscExec
+            // 
+            this.comboMiscExec.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboMiscExec.AutoResize = false;
+            this.comboMiscExec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboMiscExec.Depth = 0;
+            this.comboMiscExec.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboMiscExec.DropDownHeight = 118;
+            this.comboMiscExec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboMiscExec.DropDownWidth = 121;
+            this.comboMiscExec.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboMiscExec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboMiscExec.FormattingEnabled = true;
+            this.comboMiscExec.IntegralHeight = false;
+            this.comboMiscExec.ItemHeight = 29;
+            this.comboMiscExec.Location = new System.Drawing.Point(17, 49);
+            this.comboMiscExec.MaxDropDownItems = 4;
+            this.comboMiscExec.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboMiscExec.Name = "comboMiscExec";
+            this.comboMiscExec.Size = new System.Drawing.Size(287, 35);
+            this.comboMiscExec.TabIndex = 1;
+            this.comboMiscExec.UseAccent = false;
+            this.comboMiscExec.UseTallSize = false;
+            this.comboMiscExec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboMiscExec_MouseDown);
+            // 
+            // materialLabel18
+            // 
+            this.materialLabel18.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel18.AutoSize = true;
+            this.materialLabel18.Depth = 0;
+            this.materialLabel18.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel18.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel18.Location = new System.Drawing.Point(114, 14);
+            this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel18.Name = "materialLabel18";
+            this.materialLabel18.Size = new System.Drawing.Size(92, 24);
+            this.materialLabel18.TabIndex = 0;
+            this.materialLabel18.Text = "Run Script";
+            // 
+            // materialCard6
+            // 
+            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard6.Controls.Add(this.materialLabel15);
+            this.materialCard6.Controls.Add(this.btnMiscVote3);
+            this.materialCard6.Controls.Add(this.btnMiscVote2);
+            this.materialCard6.Controls.Add(this.btnMiscVote1);
+            this.materialCard6.Controls.Add(this.materialLabel14);
+            this.materialCard6.Depth = 0;
+            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard6.Location = new System.Drawing.Point(14, 14);
+            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard6.Name = "materialCard6";
+            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard6.Size = new System.Drawing.Size(321, 145);
+            this.materialCard6.TabIndex = 0;
+            // 
+            // materialLabel15
+            // 
+            this.materialLabel15.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.materialLabel15.AutoSize = true;
+            this.materialLabel15.Depth = 0;
+            this.materialLabel15.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel15.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel15.Location = new System.Drawing.Point(57, 123);
+            this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel15.Name = "materialLabel15";
+            this.materialLabel15.Size = new System.Drawing.Size(206, 17);
+            this.materialLabel15.TabIndex = 1;
+            this.materialLabel15.Text = "Use this if you can\'t vote In-Game";
+            // 
+            // btnMiscVote3
+            // 
+            this.btnMiscVote3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMiscVote3.AutoSize = false;
+            this.btnMiscVote3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMiscVote3.Depth = 0;
+            this.btnMiscVote3.DrawShadows = true;
+            this.btnMiscVote3.HighEmphasis = true;
+            this.btnMiscVote3.Icon = null;
+            this.btnMiscVote3.Location = new System.Drawing.Point(208, 47);
+            this.btnMiscVote3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMiscVote3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMiscVote3.Name = "btnMiscVote3";
+            this.btnMiscVote3.Size = new System.Drawing.Size(70, 70);
+            this.btnMiscVote3.TabIndex = 3;
+            this.btnMiscVote3.Text = "Map 3";
+            this.btnMiscVote3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMiscVote3.UseAccentColor = false;
+            this.btnMiscVote3.UseVisualStyleBackColor = true;
+            this.btnMiscVote3.Click += new System.EventHandler(this.btnMiscVote3_Click);
+            // 
+            // btnMiscVote2
+            // 
+            this.btnMiscVote2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMiscVote2.AutoSize = false;
+            this.btnMiscVote2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMiscVote2.Depth = 0;
+            this.btnMiscVote2.DrawShadows = true;
+            this.btnMiscVote2.HighEmphasis = true;
+            this.btnMiscVote2.Icon = null;
+            this.btnMiscVote2.Location = new System.Drawing.Point(125, 47);
+            this.btnMiscVote2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMiscVote2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMiscVote2.Name = "btnMiscVote2";
+            this.btnMiscVote2.Size = new System.Drawing.Size(70, 70);
+            this.btnMiscVote2.TabIndex = 2;
+            this.btnMiscVote2.Text = "Map 2";
+            this.btnMiscVote2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMiscVote2.UseAccentColor = false;
+            this.btnMiscVote2.UseVisualStyleBackColor = true;
+            this.btnMiscVote2.Click += new System.EventHandler(this.btnMiscVote2_Click);
+            // 
+            // btnMiscVote1
+            // 
+            this.btnMiscVote1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMiscVote1.AutoSize = false;
+            this.btnMiscVote1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMiscVote1.Depth = 0;
+            this.btnMiscVote1.DrawShadows = true;
+            this.btnMiscVote1.HighEmphasis = true;
+            this.btnMiscVote1.Icon = null;
+            this.btnMiscVote1.Location = new System.Drawing.Point(42, 47);
+            this.btnMiscVote1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMiscVote1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMiscVote1.Name = "btnMiscVote1";
+            this.btnMiscVote1.Size = new System.Drawing.Size(70, 70);
+            this.btnMiscVote1.TabIndex = 1;
+            this.btnMiscVote1.Text = "Map 1";
+            this.btnMiscVote1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMiscVote1.UseAccentColor = false;
+            this.btnMiscVote1.UseVisualStyleBackColor = true;
+            this.btnMiscVote1.Click += new System.EventHandler(this.btnMiscVote1_Click);
+            // 
+            // materialLabel14
+            // 
+            this.materialLabel14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel14.AutoSize = true;
+            this.materialLabel14.Depth = 0;
+            this.materialLabel14.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel14.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel14.Location = new System.Drawing.Point(116, 14);
+            this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel14.Name = "materialLabel14";
+            this.materialLabel14.Size = new System.Drawing.Size(88, 24);
+            this.materialLabel14.TabIndex = 0;
+            this.materialLabel14.Text = "Map Vote";
+            // 
             // tabConnect
             // 
             this.tabConnect.BackColor = System.Drawing.SystemColors.Control;
-            this.tabConnect.Controls.Add(this.comboSvTaunt);
-            this.tabConnect.Controls.Add(this.btnSvTaunt);
-            this.tabConnect.Controls.Add(this.btnSvUsername);
-            this.tabConnect.Controls.Add(this.txtSvUsername);
-            this.tabConnect.Controls.Add(this.materialLabel12);
-            this.tabConnect.Controls.Add(this.listSvUsers);
-            this.tabConnect.Controls.Add(this.btnSvDisconnect);
-            this.tabConnect.Controls.Add(this.btnSvConnect);
+            this.tabConnect.Controls.Add(this.pnlCnTools);
+            this.tabConnect.Controls.Add(this.pnlCnLobby);
+            this.tabConnect.Controls.Add(this.materialCard5);
+            this.tabConnect.Controls.Add(this.switchCnEnable);
             this.tabConnect.Controls.Add(this.materialLabel10);
             this.tabConnect.Location = new System.Drawing.Point(4, 22);
             this.tabConnect.Name = "tabConnect";
@@ -532,148 +821,281 @@
             this.tabConnect.TabIndex = 5;
             this.tabConnect.Text = "Connect";
             // 
-            // comboSvTaunt
+            // pnlCnTools
             // 
-            this.comboSvTaunt.AutoResize = false;
-            this.comboSvTaunt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboSvTaunt.Depth = 0;
-            this.comboSvTaunt.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.comboSvTaunt.DropDownHeight = 118;
-            this.comboSvTaunt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboSvTaunt.DropDownWidth = 121;
-            this.comboSvTaunt.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.comboSvTaunt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboSvTaunt.FormattingEnabled = true;
-            this.comboSvTaunt.Hint = "Sync Taunt";
-            this.comboSvTaunt.IntegralHeight = false;
-            this.comboSvTaunt.ItemHeight = 29;
-            this.comboSvTaunt.Items.AddRange(new object[] {
-            "Default",
-            "Conga"});
-            this.comboSvTaunt.Location = new System.Drawing.Point(8, 198);
-            this.comboSvTaunt.MaxDropDownItems = 4;
-            this.comboSvTaunt.MouseState = MaterialSkin.MouseState.OUT;
-            this.comboSvTaunt.Name = "comboSvTaunt";
-            this.comboSvTaunt.Size = new System.Drawing.Size(281, 35);
-            this.comboSvTaunt.TabIndex = 9;
-            this.comboSvTaunt.UseTallSize = false;
+            this.pnlCnTools.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCnTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlCnTools.Controls.Add(this.btnCnMessage);
+            this.pnlCnTools.Controls.Add(this.txtCnMessage);
+            this.pnlCnTools.Controls.Add(this.materialLabel16);
+            this.pnlCnTools.Controls.Add(this.comboCnTaunt);
+            this.pnlCnTools.Controls.Add(this.btnCnTaunt);
+            this.pnlCnTools.Depth = 0;
+            this.pnlCnTools.Enabled = false;
+            this.pnlCnTools.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlCnTools.Location = new System.Drawing.Point(8, 154);
+            this.pnlCnTools.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlCnTools.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlCnTools.Name = "pnlCnTools";
+            this.pnlCnTools.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlCnTools.Size = new System.Drawing.Size(614, 265);
+            this.pnlCnTools.TabIndex = 17;
             // 
-            // btnSvTaunt
+            // btnCnMessage
             // 
-            this.btnSvTaunt.AutoSize = false;
-            this.btnSvTaunt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSvTaunt.Depth = 0;
-            this.btnSvTaunt.DrawShadows = true;
-            this.btnSvTaunt.HighEmphasis = true;
-            this.btnSvTaunt.Icon = null;
-            this.btnSvTaunt.Location = new System.Drawing.Point(8, 242);
-            this.btnSvTaunt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnSvTaunt.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSvTaunt.Name = "btnSvTaunt";
-            this.btnSvTaunt.Size = new System.Drawing.Size(281, 36);
-            this.btnSvTaunt.TabIndex = 8;
-            this.btnSvTaunt.Text = "Sync Taunt";
-            this.btnSvTaunt.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnSvTaunt.UseAccentColor = false;
-            this.btnSvTaunt.UseVisualStyleBackColor = true;
-            this.btnSvTaunt.Click += new System.EventHandler(this.btnSvTaunt_Click);
+            this.btnCnMessage.AutoSize = false;
+            this.btnCnMessage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCnMessage.Depth = 0;
+            this.btnCnMessage.DrawShadows = true;
+            this.btnCnMessage.HighEmphasis = true;
+            this.btnCnMessage.Icon = null;
+            this.btnCnMessage.Location = new System.Drawing.Point(18, 202);
+            this.btnCnMessage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCnMessage.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCnMessage.Name = "btnCnMessage";
+            this.btnCnMessage.Size = new System.Drawing.Size(227, 30);
+            this.btnCnMessage.TabIndex = 19;
+            this.btnCnMessage.Text = "Sync Message";
+            this.btnCnMessage.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCnMessage.UseAccentColor = false;
+            this.btnCnMessage.UseVisualStyleBackColor = true;
+            this.btnCnMessage.Click += new System.EventHandler(this.btnCnMessage_Click);
             // 
-            // btnSvUsername
+            // txtCnMessage
             // 
-            this.btnSvUsername.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSvUsername.Depth = 0;
-            this.btnSvUsername.DrawShadows = true;
-            this.btnSvUsername.HighEmphasis = true;
-            this.btnSvUsername.Icon = null;
-            this.btnSvUsername.Location = new System.Drawing.Point(242, 135);
-            this.btnSvUsername.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnSvUsername.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSvUsername.Name = "btnSvUsername";
-            this.btnSvUsername.Size = new System.Drawing.Size(47, 36);
-            this.btnSvUsername.TabIndex = 7;
-            this.btnSvUsername.Text = "Set";
-            this.btnSvUsername.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnSvUsername.UseAccentColor = false;
-            this.btnSvUsername.UseVisualStyleBackColor = true;
-            this.btnSvUsername.Click += new System.EventHandler(this.btnSvUsername_Click);
+            this.txtCnMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCnMessage.Depth = 0;
+            this.txtCnMessage.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtCnMessage.Hint = "Type message...";
+            this.txtCnMessage.Location = new System.Drawing.Point(17, 157);
+            this.txtCnMessage.MaxLength = 50;
+            this.txtCnMessage.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCnMessage.Multiline = false;
+            this.txtCnMessage.Name = "txtCnMessage";
+            this.txtCnMessage.Size = new System.Drawing.Size(227, 36);
+            this.txtCnMessage.TabIndex = 18;
+            this.txtCnMessage.Text = "";
+            this.txtCnMessage.UseAccent = false;
+            this.txtCnMessage.UseTallSize = false;
             // 
-            // txtSvUsername
+            // materialLabel16
             // 
-            this.txtSvUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSvUsername.Depth = 0;
-            this.txtSvUsername.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtSvUsername.Hint = "Username";
-            this.txtSvUsername.Location = new System.Drawing.Point(8, 135);
-            this.txtSvUsername.MaxLength = 50;
-            this.txtSvUsername.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtSvUsername.Multiline = false;
-            this.txtSvUsername.Name = "txtSvUsername";
-            this.txtSvUsername.Size = new System.Drawing.Size(227, 36);
-            this.txtSvUsername.TabIndex = 6;
-            this.txtSvUsername.Text = "";
-            this.txtSvUsername.UseAccent = false;
-            this.txtSvUsername.UseTallSize = false;
+            this.materialLabel16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel16.AutoSize = true;
+            this.materialLabel16.Depth = 0;
+            this.materialLabel16.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel16.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel16.Location = new System.Drawing.Point(282, 14);
+            this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel16.Name = "materialLabel16";
+            this.materialLabel16.Size = new System.Drawing.Size(50, 24);
+            this.materialLabel16.TabIndex = 17;
+            this.materialLabel16.Text = "Tools";
+            // 
+            // comboCnTaunt
+            // 
+            this.comboCnTaunt.AutoResize = false;
+            this.comboCnTaunt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboCnTaunt.Depth = 0;
+            this.comboCnTaunt.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboCnTaunt.DropDownHeight = 118;
+            this.comboCnTaunt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCnTaunt.DropDownWidth = 121;
+            this.comboCnTaunt.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboCnTaunt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboCnTaunt.FormattingEnabled = true;
+            this.comboCnTaunt.Hint = "Select taunt...";
+            this.comboCnTaunt.IntegralHeight = false;
+            this.comboCnTaunt.ItemHeight = 29;
+            this.comboCnTaunt.Location = new System.Drawing.Point(17, 54);
+            this.comboCnTaunt.MaxDropDownItems = 4;
+            this.comboCnTaunt.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboCnTaunt.Name = "comboCnTaunt";
+            this.comboCnTaunt.Size = new System.Drawing.Size(227, 35);
+            this.comboCnTaunt.TabIndex = 9;
+            this.comboCnTaunt.UseAccent = false;
+            this.comboCnTaunt.UseTallSize = false;
+            // 
+            // btnCnTaunt
+            // 
+            this.btnCnTaunt.AutoSize = false;
+            this.btnCnTaunt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCnTaunt.Depth = 0;
+            this.btnCnTaunt.DrawShadows = true;
+            this.btnCnTaunt.HighEmphasis = true;
+            this.btnCnTaunt.Icon = null;
+            this.btnCnTaunt.Location = new System.Drawing.Point(17, 98);
+            this.btnCnTaunt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCnTaunt.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCnTaunt.Name = "btnCnTaunt";
+            this.btnCnTaunt.Size = new System.Drawing.Size(227, 30);
+            this.btnCnTaunt.TabIndex = 8;
+            this.btnCnTaunt.Text = "Sync Taunt";
+            this.btnCnTaunt.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCnTaunt.UseAccentColor = false;
+            this.btnCnTaunt.UseVisualStyleBackColor = true;
+            this.btnCnTaunt.Click += new System.EventHandler(this.btnSvTaunt_Click);
+            // 
+            // pnlCnLobby
+            // 
+            this.pnlCnLobby.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCnLobby.Controls.Add(this.btnCnDisonnect);
+            this.pnlCnLobby.Controls.Add(this.comboCnLobby);
+            this.pnlCnLobby.Controls.Add(this.btnCnJoin);
+            this.pnlCnLobby.Controls.Add(this.btnCnCreate);
+            this.pnlCnLobby.Enabled = false;
+            this.pnlCnLobby.Location = new System.Drawing.Point(8, 86);
+            this.pnlCnLobby.Name = "pnlCnLobby";
+            this.pnlCnLobby.Size = new System.Drawing.Size(614, 56);
+            this.pnlCnLobby.TabIndex = 16;
+            // 
+            // btnCnDisonnect
+            // 
+            this.btnCnDisonnect.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCnDisonnect.Depth = 0;
+            this.btnCnDisonnect.DrawShadows = true;
+            this.btnCnDisonnect.HighEmphasis = true;
+            this.btnCnDisonnect.Icon = null;
+            this.btnCnDisonnect.Location = new System.Drawing.Point(385, 12);
+            this.btnCnDisonnect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCnDisonnect.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCnDisonnect.Name = "btnCnDisonnect";
+            this.btnCnDisonnect.Size = new System.Drawing.Size(112, 36);
+            this.btnCnDisonnect.TabIndex = 15;
+            this.btnCnDisonnect.Text = "Disconnect";
+            this.btnCnDisonnect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnCnDisonnect.UseAccentColor = true;
+            this.btnCnDisonnect.UseVisualStyleBackColor = true;
+            this.btnCnDisonnect.Click += new System.EventHandler(this.btnCnDisonnect_Click);
+            // 
+            // comboCnLobby
+            // 
+            this.comboCnLobby.AutoResize = false;
+            this.comboCnLobby.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboCnLobby.Depth = 0;
+            this.comboCnLobby.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboCnLobby.DropDownHeight = 118;
+            this.comboCnLobby.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCnLobby.DropDownWidth = 121;
+            this.comboCnLobby.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboCnLobby.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboCnLobby.FormattingEnabled = true;
+            this.comboCnLobby.Hint = "Select lobby...";
+            this.comboCnLobby.IntegralHeight = false;
+            this.comboCnLobby.ItemHeight = 29;
+            this.comboCnLobby.Location = new System.Drawing.Point(5, 13);
+            this.comboCnLobby.MaxDropDownItems = 4;
+            this.comboCnLobby.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboCnLobby.Name = "comboCnLobby";
+            this.comboCnLobby.Size = new System.Drawing.Size(227, 35);
+            this.comboCnLobby.TabIndex = 11;
+            this.comboCnLobby.UseAccent = false;
+            this.comboCnLobby.UseTallSize = false;
+            this.comboCnLobby.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboCnLobby_MouseDown);
+            // 
+            // btnCnJoin
+            // 
+            this.btnCnJoin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCnJoin.Depth = 0;
+            this.btnCnJoin.DrawShadows = true;
+            this.btnCnJoin.HighEmphasis = true;
+            this.btnCnJoin.Icon = null;
+            this.btnCnJoin.Location = new System.Drawing.Point(239, 12);
+            this.btnCnJoin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCnJoin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCnJoin.Name = "btnCnJoin";
+            this.btnCnJoin.Size = new System.Drawing.Size(54, 36);
+            this.btnCnJoin.TabIndex = 13;
+            this.btnCnJoin.Text = "Join";
+            this.btnCnJoin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCnJoin.UseAccentColor = false;
+            this.btnCnJoin.UseVisualStyleBackColor = true;
+            this.btnCnJoin.Click += new System.EventHandler(this.btnCnJoin_Click);
+            // 
+            // btnCnCreate
+            // 
+            this.btnCnCreate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCnCreate.Depth = 0;
+            this.btnCnCreate.DrawShadows = true;
+            this.btnCnCreate.HighEmphasis = true;
+            this.btnCnCreate.Icon = null;
+            this.btnCnCreate.Location = new System.Drawing.Point(301, 12);
+            this.btnCnCreate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCnCreate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCnCreate.Name = "btnCnCreate";
+            this.btnCnCreate.Size = new System.Drawing.Size(76, 36);
+            this.btnCnCreate.TabIndex = 14;
+            this.btnCnCreate.Text = "Create";
+            this.btnCnCreate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnCnCreate.UseAccentColor = false;
+            this.btnCnCreate.UseVisualStyleBackColor = true;
+            this.btnCnCreate.Click += new System.EventHandler(this.btnCnCreate_Click);
+            // 
+            // materialCard5
+            // 
+            this.materialCard5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard5.Controls.Add(this.materialLabel12);
+            this.materialCard5.Controls.Add(this.listCnUsers);
+            this.materialCard5.Depth = 0;
+            this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard5.Location = new System.Drawing.Point(627, 80);
+            this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard5.Name = "materialCard5";
+            this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard5.Size = new System.Drawing.Size(251, 339);
+            this.materialCard5.TabIndex = 12;
             // 
             // materialLabel12
             // 
+            this.materialLabel12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.Location = new System.Drawing.Point(730, 113);
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel12.Location = new System.Drawing.Point(71, 14);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(89, 19);
+            this.materialLabel12.Size = new System.Drawing.Size(114, 24);
             this.materialLabel12.TabIndex = 4;
             this.materialLabel12.Text = "Online Users";
             // 
-            // listSvUsers
+            // listCnUsers
             // 
-            this.listSvUsers.FormattingEnabled = true;
-            this.listSvUsers.Location = new System.Drawing.Point(662, 135);
-            this.listSvUsers.Name = "listSvUsers";
-            this.listSvUsers.Size = new System.Drawing.Size(222, 277);
-            this.listSvUsers.TabIndex = 3;
+            this.listCnUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listCnUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listCnUsers.FormattingEnabled = true;
+            this.listCnUsers.Location = new System.Drawing.Point(17, 44);
+            this.listCnUsers.Name = "listCnUsers";
+            this.listCnUsers.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listCnUsers.Size = new System.Drawing.Size(217, 286);
+            this.listCnUsers.Sorted = true;
+            this.listCnUsers.TabIndex = 3;
             // 
-            // btnSvDisconnect
+            // switchCnEnable
             // 
-            this.btnSvDisconnect.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSvDisconnect.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSvDisconnect.Depth = 0;
-            this.btnSvDisconnect.DrawShadows = true;
-            this.btnSvDisconnect.Enabled = false;
-            this.btnSvDisconnect.HighEmphasis = true;
-            this.btnSvDisconnect.Icon = null;
-            this.btnSvDisconnect.Location = new System.Drawing.Point(479, 52);
-            this.btnSvDisconnect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnSvDisconnect.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSvDisconnect.Name = "btnSvDisconnect";
-            this.btnSvDisconnect.Size = new System.Drawing.Size(112, 36);
-            this.btnSvDisconnect.TabIndex = 2;
-            this.btnSvDisconnect.Text = "Disconnect";
-            this.btnSvDisconnect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnSvDisconnect.UseAccentColor = false;
-            this.btnSvDisconnect.UseVisualStyleBackColor = true;
-            this.btnSvDisconnect.Click += new System.EventHandler(this.btnSvDisconnect_Click);
-            // 
-            // btnSvConnect
-            // 
-            this.btnSvConnect.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSvConnect.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSvConnect.Depth = 0;
-            this.btnSvConnect.DrawShadows = true;
-            this.btnSvConnect.HighEmphasis = true;
-            this.btnSvConnect.Icon = null;
-            this.btnSvConnect.Location = new System.Drawing.Point(302, 52);
-            this.btnSvConnect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnSvConnect.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSvConnect.Name = "btnSvConnect";
-            this.btnSvConnect.Size = new System.Drawing.Size(169, 36);
-            this.btnSvConnect.TabIndex = 1;
-            this.btnSvConnect.Text = "Connect to Server";
-            this.btnSvConnect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnSvConnect.UseAccentColor = false;
-            this.btnSvConnect.UseVisualStyleBackColor = true;
-            this.btnSvConnect.Click += new System.EventHandler(this.btnSvConnect_Click);
+            this.switchCnEnable.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchCnEnable.AutoSize = true;
+            this.switchCnEnable.Depth = 0;
+            this.switchCnEnable.Location = new System.Drawing.Point(393, 46);
+            this.switchCnEnable.Margin = new System.Windows.Forms.Padding(0);
+            this.switchCnEnable.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchCnEnable.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchCnEnable.Name = "switchCnEnable";
+            this.switchCnEnable.Ripple = true;
+            this.switchCnEnable.Size = new System.Drawing.Size(106, 37);
+            this.switchCnEnable.TabIndex = 10;
+            this.switchCnEnable.TabStop = false;
+            this.switchCnEnable.Text = "Enable";
+            this.switchCnEnable.UseVisualStyleBackColor = true;
+            this.switchCnEnable.CheckedChanged += new System.EventHandler(this.switchCnEnable_CheckedChanged);
             // 
             // materialLabel10
             // 
@@ -688,86 +1110,6 @@
             this.materialLabel10.Size = new System.Drawing.Size(233, 29);
             this.materialLabel10.TabIndex = 0;
             this.materialLabel10.Text = "ToolFortress Connect";
-            // 
-            // tabConsole
-            // 
-            this.tabConsole.BackColor = System.Drawing.SystemColors.Control;
-            this.tabConsole.Controls.Add(this.txtConsoleOutput);
-            this.tabConsole.Controls.Add(this.materialCard1);
-            this.tabConsole.Location = new System.Drawing.Point(4, 22);
-            this.tabConsole.Name = "tabConsole";
-            this.tabConsole.Size = new System.Drawing.Size(892, 424);
-            this.tabConsole.TabIndex = 2;
-            this.tabConsole.Text = "Console";
-            // 
-            // txtConsoleOutput
-            // 
-            this.txtConsoleOutput.BackColor = System.Drawing.SystemColors.Control;
-            this.txtConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtConsoleOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtConsoleOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtConsoleOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsoleOutput.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtConsoleOutput.Location = new System.Drawing.Point(0, 0);
-            this.txtConsoleOutput.Multiline = true;
-            this.txtConsoleOutput.Name = "txtConsoleOutput";
-            this.txtConsoleOutput.ReadOnly = true;
-            this.txtConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtConsoleOutput.Size = new System.Drawing.Size(892, 355);
-            this.txtConsoleOutput.TabIndex = 4;
-            // 
-            // materialCard1
-            // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.txtConsoleInput);
-            this.materialCard1.Controls.Add(this.btnSendConsole);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(0, 355);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(892, 69);
-            this.materialCard1.TabIndex = 5;
-            // 
-            // txtConsoleInput
-            // 
-            this.txtConsoleInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConsoleInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtConsoleInput.Depth = 0;
-            this.txtConsoleInput.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtConsoleInput.Location = new System.Drawing.Point(8, 11);
-            this.txtConsoleInput.MaxLength = 50;
-            this.txtConsoleInput.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtConsoleInput.Multiline = false;
-            this.txtConsoleInput.Name = "txtConsoleInput";
-            this.txtConsoleInput.Size = new System.Drawing.Size(751, 50);
-            this.txtConsoleInput.TabIndex = 3;
-            this.txtConsoleInput.Text = "";
-            // 
-            // btnSendConsole
-            // 
-            this.btnSendConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendConsole.AutoSize = false;
-            this.btnSendConsole.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSendConsole.Depth = 0;
-            this.btnSendConsole.DrawShadows = true;
-            this.btnSendConsole.HighEmphasis = true;
-            this.btnSendConsole.Icon = null;
-            this.btnSendConsole.Location = new System.Drawing.Point(766, 11);
-            this.btnSendConsole.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnSendConsole.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSendConsole.Name = "btnSendConsole";
-            this.btnSendConsole.Size = new System.Drawing.Size(117, 47);
-            this.btnSendConsole.TabIndex = 2;
-            this.btnSendConsole.Text = "Send";
-            this.btnSendConsole.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnSendConsole.UseAccentColor = false;
-            this.btnSendConsole.UseVisualStyleBackColor = true;
-            this.btnSendConsole.Click += new System.EventHandler(this.btnSendConsole_Click);
             // 
             // tabStats
             // 
@@ -965,6 +1307,128 @@
             this.listKillfeed.Size = new System.Drawing.Size(439, 390);
             this.listKillfeed.TabIndex = 0;
             // 
+            // tabBotDetector
+            // 
+            this.tabBotDetector.BackColor = System.Drawing.SystemColors.Control;
+            this.tabBotDetector.Controls.Add(this.chkBdEnable);
+            this.tabBotDetector.Controls.Add(this.materialLabel17);
+            this.tabBotDetector.Location = new System.Drawing.Point(4, 22);
+            this.tabBotDetector.Name = "tabBotDetector";
+            this.tabBotDetector.Size = new System.Drawing.Size(892, 424);
+            this.tabBotDetector.TabIndex = 6;
+            this.tabBotDetector.Text = "Bot Detector";
+            // 
+            // chkBdEnable
+            // 
+            this.chkBdEnable.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.chkBdEnable.AutoSize = true;
+            this.chkBdEnable.Depth = 0;
+            this.chkBdEnable.Location = new System.Drawing.Point(393, 46);
+            this.chkBdEnable.Margin = new System.Windows.Forms.Padding(0);
+            this.chkBdEnable.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkBdEnable.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkBdEnable.Name = "chkBdEnable";
+            this.chkBdEnable.Ripple = true;
+            this.chkBdEnable.Size = new System.Drawing.Size(106, 37);
+            this.chkBdEnable.TabIndex = 11;
+            this.chkBdEnable.TabStop = false;
+            this.chkBdEnable.Text = "Enable";
+            this.chkBdEnable.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel17
+            // 
+            this.materialLabel17.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel17.AutoSize = true;
+            this.materialLabel17.Depth = 0;
+            this.materialLabel17.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel17.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel17.Location = new System.Drawing.Point(307, 17);
+            this.materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel17.Name = "materialLabel17";
+            this.materialLabel17.Size = new System.Drawing.Size(279, 29);
+            this.materialLabel17.TabIndex = 0;
+            this.materialLabel17.Text = "ToolFortress Bot Detector";
+            // 
+            // tabConsole
+            // 
+            this.tabConsole.BackColor = System.Drawing.SystemColors.Control;
+            this.tabConsole.Controls.Add(this.txtConsoleOutput);
+            this.tabConsole.Controls.Add(this.materialCard1);
+            this.tabConsole.Location = new System.Drawing.Point(4, 22);
+            this.tabConsole.Name = "tabConsole";
+            this.tabConsole.Size = new System.Drawing.Size(892, 424);
+            this.tabConsole.TabIndex = 2;
+            this.tabConsole.Text = "Console";
+            // 
+            // txtConsoleOutput
+            // 
+            this.txtConsoleOutput.BackColor = System.Drawing.SystemColors.Control;
+            this.txtConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConsoleOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtConsoleOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtConsoleOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsoleOutput.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtConsoleOutput.Location = new System.Drawing.Point(0, 0);
+            this.txtConsoleOutput.Multiline = true;
+            this.txtConsoleOutput.Name = "txtConsoleOutput";
+            this.txtConsoleOutput.ReadOnly = true;
+            this.txtConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtConsoleOutput.Size = new System.Drawing.Size(892, 355);
+            this.txtConsoleOutput.TabIndex = 4;
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.txtConsoleInput);
+            this.materialCard1.Controls.Add(this.btnSendConsole);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(0, 355);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(892, 69);
+            this.materialCard1.TabIndex = 5;
+            // 
+            // txtConsoleInput
+            // 
+            this.txtConsoleInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConsoleInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConsoleInput.Depth = 0;
+            this.txtConsoleInput.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtConsoleInput.Location = new System.Drawing.Point(8, 11);
+            this.txtConsoleInput.MaxLength = 50;
+            this.txtConsoleInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtConsoleInput.Multiline = false;
+            this.txtConsoleInput.Name = "txtConsoleInput";
+            this.txtConsoleInput.Size = new System.Drawing.Size(751, 50);
+            this.txtConsoleInput.TabIndex = 3;
+            this.txtConsoleInput.Text = "";
+            // 
+            // btnSendConsole
+            // 
+            this.btnSendConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSendConsole.AutoSize = false;
+            this.btnSendConsole.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSendConsole.Depth = 0;
+            this.btnSendConsole.DrawShadows = true;
+            this.btnSendConsole.HighEmphasis = true;
+            this.btnSendConsole.Icon = null;
+            this.btnSendConsole.Location = new System.Drawing.Point(766, 11);
+            this.btnSendConsole.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSendConsole.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSendConsole.Name = "btnSendConsole";
+            this.btnSendConsole.Size = new System.Drawing.Size(117, 47);
+            this.btnSendConsole.TabIndex = 2;
+            this.btnSendConsole.Text = "Send";
+            this.btnSendConsole.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnSendConsole.UseAccentColor = false;
+            this.btnSendConsole.UseVisualStyleBackColor = true;
+            this.btnSendConsole.Click += new System.EventHandler(this.btnSendConsole_Click);
+            // 
             // tabSettings
             // 
             this.tabSettings.BackColor = System.Drawing.SystemColors.Control;
@@ -1074,6 +1538,8 @@
             this.cardLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cardLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cardLog.Controls.Add(this.btnGameKill);
+            this.cardLog.Controls.Add(this.btnGameQuit);
             this.cardLog.Controls.Add(this.txtSteamID3);
             this.cardLog.Controls.Add(this.btnGamePicker);
             this.cardLog.Controls.Add(this.txtTFPath);
@@ -1085,8 +1551,52 @@
             this.cardLog.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardLog.Name = "cardLog";
             this.cardLog.Padding = new System.Windows.Forms.Padding(14);
-            this.cardLog.Size = new System.Drawing.Size(467, 203);
+            this.cardLog.Size = new System.Drawing.Size(467, 245);
             this.cardLog.TabIndex = 6;
+            // 
+            // btnGameKill
+            // 
+            this.btnGameKill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGameKill.AutoSize = false;
+            this.btnGameKill.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGameKill.Depth = 0;
+            this.btnGameKill.DrawShadows = true;
+            this.btnGameKill.HighEmphasis = true;
+            this.btnGameKill.Icon = null;
+            this.btnGameKill.Location = new System.Drawing.Point(241, 197);
+            this.btnGameKill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGameKill.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGameKill.Name = "btnGameKill";
+            this.btnGameKill.Size = new System.Drawing.Size(208, 38);
+            this.btnGameKill.TabIndex = 8;
+            this.btnGameKill.Text = "Kill";
+            this.btnGameKill.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnGameKill.UseAccentColor = true;
+            this.btnGameKill.UseVisualStyleBackColor = true;
+            this.btnGameKill.Click += new System.EventHandler(this.btnGameKill_Click);
+            // 
+            // btnGameQuit
+            // 
+            this.btnGameQuit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGameQuit.AutoSize = false;
+            this.btnGameQuit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGameQuit.Depth = 0;
+            this.btnGameQuit.DrawShadows = true;
+            this.btnGameQuit.HighEmphasis = true;
+            this.btnGameQuit.Icon = null;
+            this.btnGameQuit.Location = new System.Drawing.Point(17, 197);
+            this.btnGameQuit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGameQuit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGameQuit.Name = "btnGameQuit";
+            this.btnGameQuit.Size = new System.Drawing.Size(208, 38);
+            this.btnGameQuit.TabIndex = 7;
+            this.btnGameQuit.Text = "Quit";
+            this.btnGameQuit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGameQuit.UseAccentColor = false;
+            this.btnGameQuit.UseVisualStyleBackColor = true;
+            this.btnGameQuit.Click += new System.EventHandler(this.btnGameQuit_Click);
             // 
             // txtSteamID3
             // 
@@ -1281,15 +1791,6 @@
             this.tfFolderBrowser.Description = "Select your \"Team Fortress 2\" Folder...";
             this.tfFolderBrowser.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // tabBotDetector
-            // 
-            this.tabBotDetector.Location = new System.Drawing.Point(4, 22);
-            this.tabBotDetector.Name = "tabBotDetector";
-            this.tabBotDetector.Size = new System.Drawing.Size(892, 424);
-            this.tabBotDetector.TabIndex = 6;
-            this.tabBotDetector.Text = "Bot Detector";
-            this.tabBotDetector.UseVisualStyleBackColor = true;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1298,6 +1799,7 @@
             this.Controls.Add(this.mainTabSelector);
             this.Controls.Add(this.mainTabControl);
             this.DrawerTabControl = this.mainTabControl;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1314,13 +1816,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackSpamSpeed)).EndInit();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
+            this.tabMisc.ResumeLayout(false);
+            this.materialCard7.ResumeLayout(false);
+            this.materialCard7.PerformLayout();
+            this.materialCard6.ResumeLayout(false);
+            this.materialCard6.PerformLayout();
             this.tabConnect.ResumeLayout(false);
             this.tabConnect.PerformLayout();
+            this.pnlCnTools.ResumeLayout(false);
+            this.pnlCnTools.PerformLayout();
+            this.pnlCnLobby.ResumeLayout(false);
+            this.pnlCnLobby.PerformLayout();
+            this.materialCard5.ResumeLayout(false);
+            this.materialCard5.PerformLayout();
+            this.tabStats.ResumeLayout(false);
+            this.tabStats.PerformLayout();
+            this.tabBotDetector.ResumeLayout(false);
+            this.tabBotDetector.PerformLayout();
             this.tabConsole.ResumeLayout(false);
             this.tabConsole.PerformLayout();
             this.materialCard1.ResumeLayout(false);
-            this.tabStats.ResumeLayout(false);
-            this.tabStats.PerformLayout();
             this.tabSettings.ResumeLayout(false);
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
@@ -1390,14 +1905,10 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private System.Windows.Forms.TabPage tabConnect;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
-        private MaterialSkin.Controls.MaterialButton btnSvDisconnect;
-        private MaterialSkin.Controls.MaterialButton btnSvConnect;
         private MaterialSkin.Controls.MaterialLabel materialLabel12;
-        private System.Windows.Forms.ListBox listSvUsers;
-        private MaterialSkin.Controls.MaterialButton btnSvUsername;
-        private MaterialSkin.Controls.MaterialTextBox txtSvUsername;
-        private MaterialSkin.Controls.MaterialComboBox comboSvTaunt;
-        private MaterialSkin.Controls.MaterialButton btnSvTaunt;
+        private System.Windows.Forms.ListBox listCnUsers;
+        private MaterialSkin.Controls.MaterialComboBox comboCnTaunt;
+        private MaterialSkin.Controls.MaterialButton btnCnTaunt;
         private MaterialSkin.Controls.MaterialComboBox comboKillsayClass;
         private MaterialSkin.Controls.MaterialCheckbox chkKillsayClass;
         private MaterialSkin.Controls.MaterialCard materialCard4;
@@ -1406,6 +1917,34 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel13;
         private System.Windows.Forms.TrackBar trackSpamSpeed;
         private System.Windows.Forms.TabPage tabBotDetector;
+        private MaterialSkin.Controls.MaterialButton btnGameKill;
+        private MaterialSkin.Controls.MaterialButton btnGameQuit;
+        private MaterialSkin.Controls.MaterialSwitch switchCnEnable;
+        private MaterialSkin.Controls.MaterialComboBox comboCnLobby;
+        private MaterialSkin.Controls.MaterialCard materialCard5;
+        private MaterialSkin.Controls.MaterialButton btnCnCreate;
+        private MaterialSkin.Controls.MaterialButton btnCnJoin;
+        private System.Windows.Forms.TabPage tabMisc;
+        private MaterialSkin.Controls.MaterialCard materialCard6;
+        private MaterialSkin.Controls.MaterialLabel materialLabel14;
+        private MaterialSkin.Controls.MaterialButton btnMiscVote3;
+        private MaterialSkin.Controls.MaterialButton btnMiscVote2;
+        private MaterialSkin.Controls.MaterialButton btnMiscVote1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel15;
+        private System.Windows.Forms.Panel pnlCnLobby;
+        private MaterialSkin.Controls.MaterialButton btnCnDisonnect;
+        private MaterialSkin.Controls.MaterialLabel materialLabel16;
+        private MaterialSkin.Controls.MaterialCard pnlCnTools;
+        private MaterialSkin.Controls.MaterialTextBox txtCnMessage;
+        private MaterialSkin.Controls.MaterialButton btnCnMessage;
+        private MaterialSkin.Controls.MaterialCard materialCard7;
+        private MaterialSkin.Controls.MaterialComboBox comboMiscExec;
+        private MaterialSkin.Controls.MaterialLabel materialLabel18;
+        private MaterialSkin.Controls.MaterialButton btnMiscExec;
+        private MaterialSkin.Controls.MaterialCheckbox chkKillsayTaunt;
+        private MaterialSkin.Controls.MaterialComboBox comboKillsayTaunt;
+        private MaterialSkin.Controls.MaterialLabel materialLabel17;
+        private MaterialSkin.Controls.MaterialSwitch chkBdEnable;
     }
 }
 

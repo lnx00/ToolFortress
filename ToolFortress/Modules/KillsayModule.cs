@@ -28,6 +28,10 @@ namespace ToolFortress.Modules
             {
                 // Kill message
                 if (Settings.M_KILLSAY_CRITONLY && !killFeed.Crit) { return; }
+                if (Settings.M_KILLSAY_TAUNTKILL)
+                {
+                    Game.SendCommand(Interpreter.GetTauntCommand(Settings.M_KILLSAY_TAUNT));
+                }
 
                 Game.SendChatMessage(Utils.KillsayPlaceholder(Settings.M_KILLSAY_KILLMSG, killFeed));
             }

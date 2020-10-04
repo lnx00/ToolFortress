@@ -47,19 +47,30 @@ namespace ToolFortress.TF2
             infoThread.Start();
         }
 
+        public static string SendCommand(string pCommand)
+        {
+            try
+            {
+                return RconClient.SendCommand(pCommand); ;
+            } catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
         public static void SendChatMessage(string pMessage)
         {
-            RconClient.SendCommand("say \"" + Utils.EscapeChatMessage(pMessage) + "\"");
+            SendCommand("say \"" + Utils.EscapeChatMessage(pMessage) + "\"");
         }
 
         public static void SendTeamMessage(string pMessage)
         {
-            RconClient.SendCommand("say_team \"" + Utils.EscapeChatMessage(pMessage) + "\"");
+            SendCommand("say_team \"" + Utils.EscapeChatMessage(pMessage) + "\"");
         }
 
         public static void SendPartyMessage(string pMessage)
         {
-            RconClient.SendCommand("tf_party_chat \"" + Utils.EscapeChatMessage(pMessage) + "\"");
+            SendCommand("tf_party_chat \"" + Utils.EscapeChatMessage(pMessage) + "\"");
         }
 
         // Returns a Player via UserID or UniqueID
@@ -77,7 +88,7 @@ namespace ToolFortress.TF2
                 return player;
             } catch (Exception)
             {
-                return new StatPlayer("0", "Unknown", "0", "00:00", "0", "active");
+                return new StatPlayer("0", "Unknown", "0", "00:00", "0", "invalid");
             } 
         }
 
@@ -88,7 +99,7 @@ namespace ToolFortress.TF2
             {
                 if (RconClient.IsConnected())
                 {
-                    RconClient.SendCommand("status");
+                    SendCommand("status");
                 }
                 Thread.Sleep(500);
             }
