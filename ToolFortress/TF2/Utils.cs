@@ -26,7 +26,7 @@ namespace ToolFortress.TF2
             return msg;
         }
 
-        public static string KillfeedPlaceholder(string msg, KillFeed killFeed)
+        public static string KillsayPlaceholder(string msg, KillFeed killFeed)
         {
             msg = msg.Replace("%1", killFeed.Killer);
             msg = msg.Replace("%2", killFeed.Target);

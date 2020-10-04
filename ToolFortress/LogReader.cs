@@ -44,10 +44,6 @@ namespace ToolFortress
         public void Stop()
         {
             readActive = false;
-            /*if (readThread != null && readThread.IsAlive)
-            {
-                readThread.Abort();
-            }*/
         }
 
         public void ReadLog()

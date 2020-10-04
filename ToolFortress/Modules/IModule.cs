@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToolFortress.Modules
 {
-    interface Module
+    public interface IModule
     {
         void Enable();
         void Disable();
