@@ -24,6 +24,9 @@ namespace ToolFortress
         public static bool F_CONSOLE_MIRROR = true;
         public static int F_THEME_ID = 0;
 
+        public static bool F_SOLVE_MATH = false;
+        public static bool F_SOLVE_MATH_LEGIT = true;
+
         /* MODULES */
         public static bool M_KILLSAY_CRITONLY = false;
         public static bool M_KILLSAY_KILL = false;
@@ -38,7 +41,15 @@ namespace ToolFortress
         public static string M_SPAM_COMMAND = "";
         public static int M_SPAM_DELAY = 1000;
 
-        public static string[] M_BD_SOURCES = new string[] { "", "" };
+        public static bool M_POINTFARM_MODE = false;
+
+        public static string[] M_BD_SOURCES = new string[] { "https://raw.githubusercontent.com/PazerOP/tf2_bot_detector/master/staging/cfg/playerlist.official.json", "https://gist.githubusercontent.com/wgetJane/0bc01bd46d7695362253c5a2fa49f2e9/raw/playerlist.biglist.json" };
+        public static bool M_BD_VOTEKICK = true;
+        public static bool M_BD_ENEMYNOTIFY = false;
+        public static bool M_BD_TEAMNOTIFY = false;
+        public static int M_BD_DELAY = 1000;
+        public static string M_BD_ENEMYMSG = "Attention! There is a cheater on the other team named '%1'. Please kick them!";
+        public static string M_BD_TEAMMSG = "Attention! There is a cheater on our team named '%1'. I will try to kick them!";
 
         /* REGEX */
         public const string REGEX_CHAT = @"(\*DEAD\*)?\s*(\(TEAM\))?\s*(.{1,33}) :  ((?:.|[\r\n])*)";
@@ -46,8 +57,7 @@ namespace ToolFortress
         public const string REGEX_PLAYER_STATUS = @".*#\s+(\d+)\s\u0022(.*)\u0022\s+(\[U:1:\d+\])\s+(\d+:\d+)\s+(\d+).*(challenging|active|connecting|spawning)";
         public const string REGEX_MAP_POS = @".*map\s+:\s+(.*_.*)\s+at:\s(-?\d+)\sx,\s(-?\d+)\sy,\s(-?\d+)\sz";
         public const string REGEX_COMMAND = ".*Unknown command.*(!|\\/)([^\"]*)";
-        public const string REGEX_CONNECT = "(.*) (connected|disconnected)";
-        public const string REGEX_LOBBY = @"CTFLobbyShared: ID:([0-9a-f]*)\s+(\d+) member\(s\), (\d+) pending";
+        public const string REGEX_MATH = @".*\[.*Math.*\][^\d]*(\d+) ([\+\-\*\/]) (\d+) = \?\?.*";
         public const string REGEX_ID3 = @"\[U:\d:\d*\]";
 
         public static void Load()

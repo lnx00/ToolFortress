@@ -19,7 +19,7 @@ namespace ToolFortress.TF2
         public static LogParser LogParser { get; }
         public static RconClient RconClient { get; }
 
-        public static List<StatPlayer> StatPlayers { get; set; } = new List<StatPlayer>();
+        public static List<Player> StatPlayers { get; set; } = new List<Player>();
 
         static Game()
         {
@@ -74,21 +74,21 @@ namespace ToolFortress.TF2
         }
 
         // Returns a Player via UserID or UniqueID
-        public static StatPlayer GetPlayer(string pID)
+        public static Player GetPlayer(string pID)
         {
-            StatPlayer player = StatPlayers.Where(p => p.UserID == pID || p.UniqueID == pID).First();
+            Player player = StatPlayers.Where(p => p.UserID == pID || p.UniqueID == pID).First();
             return player;
         }
 
-        public static StatPlayer GetLocalPlayer()
+        public static Player GetLocalPlayer()
         {
             try
             {
-                StatPlayer player = StatPlayers.Where(p => p.UniqueID == Settings.TF2_STEAMID3).First();
+                Player player = StatPlayers.Where(p => p.UniqueID == Settings.TF2_STEAMID3).First();
                 return player;
             } catch (Exception)
             {
-                return new StatPlayer("0", "Unknown", "0", "00:00", "0", "invalid");
+                return new Player("0", "Unknown", "0", "00:00", "0", "invalid");
             } 
         }
 

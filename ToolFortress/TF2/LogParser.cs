@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ToolFortress.TF2
@@ -57,7 +58,7 @@ namespace ToolFortress.TF2
             }
         }
 
-        public struct StatPlayer
+        public struct Player
         {
             public string UserID;
             public string Name;
@@ -66,7 +67,7 @@ namespace ToolFortress.TF2
             public string Ping;
             public string State;
 
-            public StatPlayer(string pUserID, string pName, string pUniqueID, string pPlaytime, string pPing, string pState)
+            public Player(string pUserID, string pName, string pUniqueID, string pPlaytime, string pPing, string pState)
             {
                 UserID = pUserID;
                 Name = pName;
@@ -126,17 +127,17 @@ namespace ToolFortress.TF2
             {
                 ParseStatus(pLine);
             }
-            else if (Regex.IsMatch(pLine, Settings.REGEX_LOBBY))
+            else if (pLine == "Team Fortress")
             {
                 OnLobbyUpdate();
-            }
-            else if (Regex.IsMatch(pLine, Settings.REGEX_CONNECT))
-            {
-                ParseConnect(pLine);
             }
             else if (Regex.IsMatch(pLine, Settings.REGEX_CHAT))
             {
                 ParseChat(pLine);
+            }
+            else if (Settings.F_SOLVE_MATH && Regex.IsMatch(pLine, Settings.REGEX_MATH))
+            {
+                ParseMath(pLine);
             }
         }
 
@@ -179,19 +180,6 @@ namespace ToolFortress.TF2
             }
         }
 
-        private void ParseConnect(string pLine)
-        {
-            MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_CONNECT);
-            if (matches.Count == 1)
-            {
-                Match match = matches[0];
-                if (match.Groups.Count == 3)
-                {
-                    OnPlayerConnect(match.Groups[1].Value, match.Groups[2].Value == "connected");
-                }
-            }
-        }
-
         private void ParseMapPos(string pLine)
         {
             Game.StatPlayers.Clear();
@@ -229,55 +217,45 @@ namespace ToolFortress.TF2
                     string pPing = match.Groups[5].Value;
                     string pState = match.Groups[6].Value;
 
-                    Game.StatPlayers.Add(new StatPlayer(pUserID, pName, pUniqueID, pPlaytime, pPing, pState));
+                    Game.StatPlayers.Add(new Player(pUserID, pName, pUniqueID, pPlaytime, pPing, pState));
                 }
             }
         }
 
-        // Parse 'status' response
-        /*public void ParseStatus(string pStatus)
+        private void ParseMath(string pLine)
         {
-            if (String.IsNullOrEmpty(pStatus)) { return; }
-            Game.StatPlayers.Clear();
-
-            string[] statusLines = pStatus.Split('\n');
-            foreach (string line in statusLines)
+            // Parse and solve Math puzzle
+            MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_MATH);
+            if (matches.Count == 1)
             {
-                MatchCollection matches;
-
-                // Game info (Map, Position)
-                matches = Regex.Matches(line, Settings.REGEX_MAP_POS);
-                if (matches.Count == 1)
+                Match match = matches[0];
+                if (match.Groups.Count == 4)
                 {
-                    Match match = matches[0];
-                    if (match.Groups.Count == 5)
-                    {
-                        Console.WriteLine("Map info!");
-                        // OnChatMessage(new ChatMessage(Utils.FilterChatMessage(match.Groups[3].Value), Utils.FilterChatMessage(match.Groups[4].Value), match.Groups[2].Success, match.Groups[1].Success));
-                        continue;
-                    }
-                }
+                    int n1 = int.Parse(match.Groups[1].Value);
+                    int n2 = int.Parse(match.Groups[3].Value);
+                    char op = match.Groups[2].Value[0];
 
-                // Player status (Name, Playtime, Status)
-                matches = Regex.Matches(line, Settings.REGEX_MAP_POS);
-                if (matches.Count == 1)
-                {
-                    Match match = matches[0];
-                    if (match.Groups.Count == 7)
+                    int result = Utils.CalcExpression(n1, n2, op);
+                    if (Settings.F_SOLVE_MATH_LEGIT)
                     {
-                        string pUserID = match.Groups[1].Value;
-                        string pName = match.Groups[2].Value;
-                        string pUniqueID = match.Groups[3].Value;
-                        string pPlaytime = match.Groups[4].Value;
-                        string pPing = match.Groups[5].Value;
-                        string pState = match.Groups[6].Value;
-
-                        Game.StatPlayers.Add(new StatPlayer(pUserID, pName, pUniqueID, pPlaytime, pPing, pState));
-                        Console.WriteLine("Player info!");
-                        continue;
+                        new Thread(() =>
+                        {
+                            if (result == 0)
+                            {
+                                Thread.Sleep(100);
+                            } else
+                            {
+                                Thread.Sleep(result * 2 + new Random().Next(100, 500));
+                            }
+                            
+                            Game.SendChatMessage(result.ToString());
+                        }).Start();
+                    } else
+                    {
+                        Game.SendChatMessage(result.ToString());
                     }
                 }
             }
-        }*/
+        }
     }
 }

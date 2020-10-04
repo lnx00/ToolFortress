@@ -89,6 +89,7 @@
     <Compile Include="Modules\ConnectModule.cs" />
     <Compile Include="Modules\IModule.cs" />
     <Compile Include="Modules\KillsayModule.cs" />
+    <Compile Include="Modules\PointFarmModule.cs" />
     <Compile Include="Modules\StatTrakModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

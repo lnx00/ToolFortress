@@ -10,11 +10,15 @@ namespace ToolFortress.Modules
 {
     class BotDetectorModule : IModule
     {
-        private List<StatPlayer> knownPlayers;
+        private List<Player> knownPlayers;
+        private List<Player> detectedPlayers;
+        private List<string> bannedPlayers;
 
         public void Enable()
         {
-            knownPlayers = new List<StatPlayer>();
+            knownPlayers = new List<Player>();
+            detectedPlayers = new List<Player>();
+            bannedPlayers = new List<string>();
 
             Game.LogParser.OnStatusUpdate += HandleStats;
             Game.LogParser.OnLobbyUpdate += Reset;
@@ -32,7 +36,17 @@ namespace ToolFortress.Modules
 
         private void HandleStats()
         {
+            foreach (Player player in Game.StatPlayers)
+            {
+                if (knownPlayers.Contains(player)) { continue; }
 
+                if (bannedPlayers.Contains(player.UniqueID))
+                {
+                    detectedPlayers.Add(player);
+                }
+
+                knownPlayers.Add(player);
+            }
         }
     }
 }

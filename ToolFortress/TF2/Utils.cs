@@ -33,5 +33,48 @@ namespace ToolFortress.TF2
             return msg;
         }
 
+        public static string BotAlertPlaceholder(string msg, string name, bool filterSlurs = false)
+        {
+            if (filterSlurs)
+            {
+                name = name.Replace("nigga", "n****");
+                name = name.Replace("fuck", "f***");
+                name = name.Replace("faggot", "f*****");
+            }
+
+            msg = msg.Replace("%1", name);
+            return msg;
+        }
+
+        public static string ConvertToID3(long id64)
+        {
+            return "[U:1:" + (id64 ^ 76561197960265728).ToString() + "]";
+        }
+
+        public static long ConvertToID64(string id3)
+        {
+            string idPars = id3.Substring(5, id3.Length - 6);
+            return long.Parse(idPars) + 76561197960265728;
+        }
+
+        public static int CalcExpression(int n1, int n2, char op)
+        {
+            switch (op)
+            {
+                case '+':
+                    return n1 + n2;
+
+                case '-':
+                    return n1 - n2;
+
+                case '*':
+                    return n1 * n2;
+
+                case '/':
+                    return n1 / n2;
+            }
+
+            return 1;
+        }
     }
 }

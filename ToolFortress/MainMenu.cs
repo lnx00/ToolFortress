@@ -31,6 +31,7 @@ namespace ToolFortress
         private ClassPeekModule classPeekModule = new ClassPeekModule();
         private CommandSpamModule cmdSpamModule = new CommandSpamModule();
         private ConnectModule connectModule = new ConnectModule();
+        private PointFarmModule farmModule = new PointFarmModule();
 
         public MainMenu()
         {
@@ -66,6 +67,9 @@ namespace ToolFortress
             txtSteamID3.Text = Settings.TF2_STEAMID3;
             chkMirrorConsole.Checked = Settings.F_CONSOLE_MIRROR;
             comboTheme.SelectedIndex = Settings.F_THEME_ID;
+
+            txtBdEnemyMsg.Text = Settings.M_BD_ENEMYMSG;
+            txtBdTeamMessage.Text = Settings.M_BD_TEAMMSG;
 
             // Load constants
             comboKillsayTaunt.DataSource = Interpreter.Taunts;
@@ -124,18 +128,15 @@ namespace ToolFortress
         {
             txtConsoleOutput.AppendText("[>] " + txtConsoleInput.Text + "\r\n");
 
-            try
+            // Send command and split response for correct formatting
+            string conResponse = Game.SendCommand(txtConsoleInput.Text);
+            if (!String.IsNullOrEmpty(conResponse))
             {
-                // Send command and split response for correct formatting
-                string conResponse = Game.SendCommand(txtConsoleInput.Text);
                 string[] resLines = conResponse.Split('\n');
                 foreach (string line in resLines)
                 {
                     txtConsoleOutput.AppendText("[<] " + line + "\r\n");
                 }
-            } catch (Exception ex)
-            {
-                txtConsoleOutput.AppendText("[!] Failed to execute commands:\n" + ex.Message);
             }
         }
 
@@ -157,7 +158,13 @@ namespace ToolFortress
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Stop all Modules
+            commandModule.Disable();
+            killsayModule.Disable();
+            statTrakModule.Disable();
+            classPeekModule.Disable();
+            cmdSpamModule.Disable();
             connectModule.Disable();
+            farmModule.Disable();
 
             // Stop all Threads and disconnect from the game
             retryConnection = false;
@@ -409,6 +416,7 @@ namespace ToolFortress
             mainTabControl.SelectedTab = tabHome;
             mainTabControl.Enabled = false;
             btnStartGame.Enabled = true;
+            btnStartGame.Refresh();
         }
 
         // Kill the game (End the Process)
@@ -425,6 +433,7 @@ namespace ToolFortress
             mainTabControl.SelectedTab = tabHome;
             mainTabControl.Enabled = false;
             btnStartGame.Enabled = true;
+            btnStartGame.Refresh();
         }
 
         private void switchCnEnable_CheckedChanged(object sender, EventArgs e)
@@ -472,6 +481,7 @@ namespace ToolFortress
             connectModule.JoinLobby((string) comboCnLobby.SelectedValue);
 
             pnlCnTools.Enabled = true;
+            btnCnDestroy.Enabled = true;
         }
 
         private void btnCnCreate_Click(object sender, EventArgs e)
@@ -484,6 +494,7 @@ namespace ToolFortress
             connectModule.GetUsers();
 
             pnlCnTools.Enabled = true;
+            btnCnDestroy.Enabled = true;
         }
 
         private void comboCnLobby_MouseDown(object sender, MouseEventArgs e)
@@ -494,6 +505,20 @@ namespace ToolFortress
         private void btnCnDisonnect_Click(object sender, EventArgs e)
         {
             connectModule.Disconnect();
+            pnlCnTools.Enabled = false;
+            btnCnDestroy.Enabled = false;
+            listCnUsers.Items.Clear();
+        }
+
+        private void btnCnDestroy_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("This will disconnect you and destroy the current Lobby.", "Are you sure?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                connectModule.DestroyLobby();
+                pnlCnTools.Enabled = false;
+                btnCnDestroy.Enabled = false;
+                listCnUsers.Items.Clear();
+            }
         }
 
         private void btnMiscVote1_Click(object sender, EventArgs e)
@@ -515,6 +540,18 @@ namespace ToolFortress
         {
             Game.SendPartyMessage("Saying '" + txtCnMessage.Text + "' on all clients...");
             connectModule.BroadcastMessage("say", txtCnMessage.Text);
+        }
+
+        private void btnCnLeaveMatch_Click(object sender, EventArgs e)
+        {
+            connectModule.BroadcastMessage("cmd", "disconnect");
+        }
+
+
+        private void btnCnInviteParty_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("ID64: " + Utils.ConvertToID64(Settings.TF2_STEAMID3));
+            connectModule.BroadcastMessage("cmd", "tf_party_request_join_user " + Utils.ConvertToID64(Settings.TF2_STEAMID3));
         }
 
         private void comboMiscExec_MouseDown(object sender, MouseEventArgs e)
@@ -546,6 +583,58 @@ namespace ToolFortress
         private void comboKillsayTaunt_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.M_KILLSAY_TAUNT = comboKillsayTaunt.SelectedItem.ToString();
+        }
+
+        private void trackBdDelay_Scroll(object sender, EventArgs e)
+        {
+            Settings.M_BD_DELAY = trackBdDelay.Value * 1000;
+            lblBdDelay.Text = "Message Interval: " + trackBdDelay.Value + " seconds";
+        }
+
+        private void chkBdVotekick_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_BD_VOTEKICK = chkBdVotekick.Checked;
+        }
+
+        private void chkBdNotfiy_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_BD_ENEMYNOTIFY = chkBdNotfiy.Checked;
+        }
+
+        private void chkBdNotifyTeam_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_BD_TEAMNOTIFY = chkBdNotifyTeam.Checked;
+        }
+
+        private void chkBdEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            cardBdTools.Enabled = chkBdEnable.Checked;
+        }
+
+        private void chkMiscPointsMode_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_POINTFARM_MODE = chkMiscPointsMode.Checked;
+        }
+
+        private void chkMiscPoints_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMiscPoints.Checked)
+            {
+                farmModule.Enable();
+            } else
+            {
+                farmModule.Disable();
+            }
+        }
+
+        private void chkMiscMath_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.F_SOLVE_MATH = chkMiscMath.Checked;
+        }
+
+        private void chkMiscMathLegit_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.F_SOLVE_MATH_LEGIT = chkMiscMathLegit.Checked;
         }
     }
 }

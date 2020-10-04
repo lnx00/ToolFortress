@@ -78,28 +78,43 @@ namespace ToolFortress.Modules
             if (!String.IsNullOrEmpty(currentLobby) && !String.IsNullOrEmpty(currentUser))
             {
                 await fbClient.DeleteAsync("lobbys/" + currentLobby + "/users/" + currentUser);
-                bcResponse.Dispose();
-                userUpdateResponse.Dispose();
+                if (bcResponse != null && userUpdateResponse != null)
+                {
+                    bcResponse = null;
+                    userUpdateResponse = null;
+                }
                 isConnected = false;
             }
         }
 
         private async void Join()
         {
+            // Create and receive current user
             PushResponse userResponse = await fbClient.PushAsync("lobbys/" + currentLobby + "/users", Settings.FB_USERNAME);
             currentUser = userResponse.Result.name;
 
+            // Delete old broadcasts
+            await fbClient.DeleteAsync("lobbys/" + currentLobby + "/broadcast/");
+
+            // Handle User updates
             userUpdateResponse = await fbClient.OnAsync("lobbys/" + currentLobby + "/users", (sender, args, context) =>
             {
                 OnUserUpdate();
             });
 
+            // Handle broadcasts
             bcResponse = await fbClient.OnAsync("lobbys/" + currentLobby + "/broadcast", (sender, args, context) =>
             {
                 OnBroadcast(args.Data);
             });
 
             isConnected = true;
+        }
+
+        public async void DestroyLobby()
+        {
+            Disconnect();
+            await fbClient.DeleteAsync("lobbys/" + currentLobby);
         }
 
         public async void BroadcastMessage(string pType, string pMessage)
@@ -165,10 +180,6 @@ namespace ToolFortress.Modules
 
                     case "say":
                         Game.SendChatMessage(data);
-                        break;
-
-                    case "taunt":
-                        Game.SendCommand("taunt_by_name " + data);
                         break;
                 }
             } catch (Exception ex)

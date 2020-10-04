@@ -24,16 +24,21 @@ namespace ToolFortress.Modules
         {
             string localPlayer = Game.GetLocalPlayer().Name;
 
-            if (Settings.M_KILLSAY_KILL && killFeed.Killer == localPlayer)
+            if (killFeed.Killer == localPlayer)
             {
-                // Kill message
                 if (Settings.M_KILLSAY_CRITONLY && !killFeed.Crit) { return; }
+
+                // Taunt Kill
                 if (Settings.M_KILLSAY_TAUNTKILL)
                 {
                     Game.SendCommand(Interpreter.GetTauntCommand(Settings.M_KILLSAY_TAUNT));
                 }
 
-                Game.SendChatMessage(Utils.KillsayPlaceholder(Settings.M_KILLSAY_KILLMSG, killFeed));
+                // Kill Message
+                if (Settings.M_KILLSAY_KILL)
+                {
+                    Game.SendChatMessage(Utils.KillsayPlaceholder(Settings.M_KILLSAY_KILLMSG, killFeed));
+                }
             }
 
             if (Settings.M_KILLSAY_DEATH && killFeed.Target == localPlayer)
