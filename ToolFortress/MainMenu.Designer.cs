@@ -187,13 +187,13 @@
             this.mainTabControl.Controls.Add(this.tabConsole);
             this.mainTabControl.Controls.Add(this.tabSettings);
             this.mainTabControl.Depth = 0;
-            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mainTabControl.Location = new System.Drawing.Point(0, 100);
+            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainTabControl.Location = new System.Drawing.Point(0, 30);
             this.mainTabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainTabControl.Multiline = true;
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(900, 450);
+            this.mainTabControl.Size = new System.Drawing.Size(900, 520);
             this.mainTabControl.TabIndex = 0;
             // 
             // tabHome
@@ -207,7 +207,7 @@
             this.tabHome.Location = new System.Drawing.Point(4, 22);
             this.tabHome.Name = "tabHome";
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHome.Size = new System.Drawing.Size(892, 424);
+            this.tabHome.Size = new System.Drawing.Size(892, 494);
             this.tabHome.TabIndex = 0;
             this.tabHome.Text = "Home";
             // 
@@ -218,14 +218,15 @@
             this.btnShowSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnShowSettings.Depth = 0;
             this.btnShowSettings.DrawShadows = true;
-            this.btnShowSettings.HighEmphasis = true;
+            this.btnShowSettings.HighEmphasis = false;
             this.btnShowSettings.Icon = null;
-            this.btnShowSettings.Location = new System.Drawing.Point(347, 158);
+            this.btnShowSettings.Location = new System.Drawing.Point(347, 193);
             this.btnShowSettings.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnShowSettings.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnShowSettings.Name = "btnShowSettings";
             this.btnShowSettings.Size = new System.Drawing.Size(198, 36);
             this.btnShowSettings.TabIndex = 5;
+            this.btnShowSettings.TabStop = false;
             this.btnShowSettings.Text = "Settings";
             this.btnShowSettings.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnShowSettings.UseAccentColor = false;
@@ -235,7 +236,7 @@
             // progRconConnect
             // 
             this.progRconConnect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progRconConnect.Location = new System.Drawing.Point(347, 251);
+            this.progRconConnect.Location = new System.Drawing.Point(347, 286);
             this.progRconConnect.MarqueeAnimationSpeed = 40;
             this.progRconConnect.Name = "progRconConnect";
             this.progRconConnect.Size = new System.Drawing.Size(198, 8);
@@ -266,12 +267,13 @@
             this.btnStartGame.DrawShadows = true;
             this.btnStartGame.HighEmphasis = true;
             this.btnStartGame.Icon = null;
-            this.btnStartGame.Location = new System.Drawing.Point(347, 206);
+            this.btnStartGame.Location = new System.Drawing.Point(347, 241);
             this.btnStartGame.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStartGame.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStartGame.Name = "btnStartGame";
             this.btnStartGame.Size = new System.Drawing.Size(198, 36);
             this.btnStartGame.TabIndex = 1;
+            this.btnStartGame.TabStop = false;
             this.btnStartGame.Text = "Start Team Fortress 2";
             this.btnStartGame.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnStartGame.UseAccentColor = true;
@@ -299,7 +301,7 @@
             this.tabFun.Controls.Add(this.materialCard3);
             this.tabFun.Location = new System.Drawing.Point(4, 22);
             this.tabFun.Name = "tabFun";
-            this.tabFun.Size = new System.Drawing.Size(892, 424);
+            this.tabFun.Size = new System.Drawing.Size(892, 494);
             this.tabFun.TabIndex = 4;
             this.tabFun.Text = "Fun";
             // 
@@ -646,7 +648,7 @@
             this.tabMisc.Controls.Add(this.materialCard6);
             this.tabMisc.Location = new System.Drawing.Point(4, 22);
             this.tabMisc.Name = "tabMisc";
-            this.tabMisc.Size = new System.Drawing.Size(892, 424);
+            this.tabMisc.Size = new System.Drawing.Size(892, 494);
             this.tabMisc.TabIndex = 7;
             this.tabMisc.Text = "Misc";
             // 
@@ -815,7 +817,7 @@
             this.btnMiscExec.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnMiscExec.Depth = 0;
             this.btnMiscExec.DrawShadows = true;
-            this.btnMiscExec.HighEmphasis = true;
+            this.btnMiscExec.HighEmphasis = false;
             this.btnMiscExec.Icon = null;
             this.btnMiscExec.Location = new System.Drawing.Point(17, 93);
             this.btnMiscExec.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -989,7 +991,7 @@
             this.tabConnect.Controls.Add(this.materialLabel10);
             this.tabConnect.Location = new System.Drawing.Point(4, 22);
             this.tabConnect.Name = "tabConnect";
-            this.tabConnect.Size = new System.Drawing.Size(892, 424);
+            this.tabConnect.Size = new System.Drawing.Size(892, 494);
             this.tabConnect.TabIndex = 5;
             this.tabConnect.Text = "Connect";
             // 
@@ -1014,7 +1016,7 @@
             this.pnlCnTools.MouseState = MaterialSkin.MouseState.HOVER;
             this.pnlCnTools.Name = "pnlCnTools";
             this.pnlCnTools.Padding = new System.Windows.Forms.Padding(14);
-            this.pnlCnTools.Size = new System.Drawing.Size(614, 265);
+            this.pnlCnTools.Size = new System.Drawing.Size(614, 326);
             this.pnlCnTools.TabIndex = 17;
             // 
             // btnCnInviteParty
@@ -1179,7 +1181,7 @@
             this.btnCnDestroy.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnDestroy.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnDestroy.Name = "btnCnDestroy";
-            this.btnCnDestroy.Size = new System.Drawing.Size(85, 36);
+            this.btnCnDestroy.Size = new System.Drawing.Size(84, 36);
             this.btnCnDestroy.TabIndex = 16;
             this.btnCnDestroy.Text = "Destroy";
             this.btnCnDestroy.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -1198,7 +1200,7 @@
             this.btnCnDisonnect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnDisonnect.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnDisonnect.Name = "btnCnDisonnect";
-            this.btnCnDisonnect.Size = new System.Drawing.Size(112, 36);
+            this.btnCnDisonnect.Size = new System.Drawing.Size(109, 36);
             this.btnCnDisonnect.TabIndex = 15;
             this.btnCnDisonnect.Text = "Disconnect";
             this.btnCnDisonnect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -1242,7 +1244,7 @@
             this.btnCnJoin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnJoin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnJoin.Name = "btnCnJoin";
-            this.btnCnJoin.Size = new System.Drawing.Size(54, 36);
+            this.btnCnJoin.Size = new System.Drawing.Size(53, 36);
             this.btnCnJoin.TabIndex = 13;
             this.btnCnJoin.Text = "Join";
             this.btnCnJoin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1261,7 +1263,7 @@
             this.btnCnCreate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnCreate.Name = "btnCnCreate";
-            this.btnCnCreate.Size = new System.Drawing.Size(76, 36);
+            this.btnCnCreate.Size = new System.Drawing.Size(74, 36);
             this.btnCnCreate.TabIndex = 14;
             this.btnCnCreate.Text = "Create";
             this.btnCnCreate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -1283,7 +1285,7 @@
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(251, 339);
+            this.materialCard5.Size = new System.Drawing.Size(251, 400);
             this.materialCard5.TabIndex = 12;
             // 
             // materialLabel12
@@ -1310,7 +1312,7 @@
             this.listCnUsers.Location = new System.Drawing.Point(17, 44);
             this.listCnUsers.Name = "listCnUsers";
             this.listCnUsers.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listCnUsers.Size = new System.Drawing.Size(217, 286);
+            this.listCnUsers.Size = new System.Drawing.Size(217, 338);
             this.listCnUsers.Sorted = true;
             this.listCnUsers.TabIndex = 3;
             // 
@@ -1363,7 +1365,7 @@
             this.tabStats.Controls.Add(this.listKillfeed);
             this.tabStats.Location = new System.Drawing.Point(4, 22);
             this.tabStats.Name = "tabStats";
-            this.tabStats.Size = new System.Drawing.Size(892, 424);
+            this.tabStats.Size = new System.Drawing.Size(892, 494);
             this.tabStats.TabIndex = 3;
             this.tabStats.Text = "Stats";
             // 
@@ -1403,7 +1405,7 @@
             this.btnClearFeed.DrawShadows = true;
             this.btnClearFeed.HighEmphasis = true;
             this.btnClearFeed.Icon = null;
-            this.btnClearFeed.Location = new System.Drawing.Point(315, 83);
+            this.btnClearFeed.Location = new System.Drawing.Point(315, 89);
             this.btnClearFeed.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClearFeed.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClearFeed.Name = "btnClearFeed";
@@ -1423,7 +1425,7 @@
             this.btnClearStats.DrawShadows = true;
             this.btnClearStats.HighEmphasis = true;
             this.btnClearStats.Icon = null;
-            this.btnClearStats.Location = new System.Drawing.Point(179, 83);
+            this.btnClearStats.Location = new System.Drawing.Point(179, 89);
             this.btnClearStats.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClearStats.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClearStats.Name = "btnClearStats";
@@ -1441,16 +1443,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listClassPeek.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listClassPeek.FormattingEnabled = true;
-            this.listClassPeek.Location = new System.Drawing.Point(8, 129);
+            this.listClassPeek.Location = new System.Drawing.Point(8, 135);
             this.listClassPeek.Name = "listClassPeek";
-            this.listClassPeek.Size = new System.Drawing.Size(436, 286);
+            this.listClassPeek.Size = new System.Drawing.Size(436, 351);
             this.listClassPeek.TabIndex = 8;
             // 
             // chkClassPeek
             // 
             this.chkClassPeek.AutoSize = true;
             this.chkClassPeek.Depth = 0;
-            this.chkClassPeek.Location = new System.Drawing.Point(5, 84);
+            this.chkClassPeek.Location = new System.Drawing.Point(5, 90);
             this.chkClassPeek.Margin = new System.Windows.Forms.Padding(0);
             this.chkClassPeek.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkClassPeek.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1539,7 +1541,7 @@
             this.listKillfeed.FormattingEnabled = true;
             this.listKillfeed.Location = new System.Drawing.Point(450, 31);
             this.listKillfeed.Name = "listKillfeed";
-            this.listKillfeed.Size = new System.Drawing.Size(439, 390);
+            this.listKillfeed.Size = new System.Drawing.Size(439, 455);
             this.listKillfeed.TabIndex = 0;
             // 
             // tabBotDetector
@@ -1551,12 +1553,14 @@
             this.tabBotDetector.Controls.Add(this.materialLabel17);
             this.tabBotDetector.Location = new System.Drawing.Point(4, 22);
             this.tabBotDetector.Name = "tabBotDetector";
-            this.tabBotDetector.Size = new System.Drawing.Size(892, 424);
+            this.tabBotDetector.Size = new System.Drawing.Size(892, 494);
             this.tabBotDetector.TabIndex = 6;
             this.tabBotDetector.Text = "Bot Detector";
             // 
             // materialCard8
             // 
+            this.materialCard8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard8.Controls.Add(this.materialLabel19);
             this.materialCard8.Controls.Add(this.listBdLog);
@@ -1567,7 +1571,7 @@
             this.materialCard8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard8.Name = "materialCard8";
             this.materialCard8.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard8.Size = new System.Drawing.Size(364, 313);
+            this.materialCard8.Size = new System.Drawing.Size(364, 378);
             this.materialCard8.TabIndex = 20;
             // 
             // materialLabel19
@@ -1593,11 +1597,14 @@
             this.listBdLog.FormattingEnabled = true;
             this.listBdLog.Location = new System.Drawing.Point(17, 43);
             this.listBdLog.Name = "listBdLog";
-            this.listBdLog.Size = new System.Drawing.Size(330, 247);
+            this.listBdLog.Size = new System.Drawing.Size(330, 312);
             this.listBdLog.TabIndex = 0;
             // 
             // cardBdTools
             // 
+            this.cardBdTools.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cardBdTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cardBdTools.Controls.Add(this.chkBdVotekick);
             this.cardBdTools.Controls.Add(this.txtBdTeamMessage);
@@ -1614,7 +1621,7 @@
             this.cardBdTools.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardBdTools.Name = "cardBdTools";
             this.cardBdTools.Padding = new System.Windows.Forms.Padding(14);
-            this.cardBdTools.Size = new System.Drawing.Size(467, 313);
+            this.cardBdTools.Size = new System.Drawing.Size(467, 378);
             this.cardBdTools.TabIndex = 19;
             // 
             // chkBdVotekick
@@ -1768,7 +1775,7 @@
             this.tabConsole.Controls.Add(this.materialCard1);
             this.tabConsole.Location = new System.Drawing.Point(4, 22);
             this.tabConsole.Name = "tabConsole";
-            this.tabConsole.Size = new System.Drawing.Size(892, 424);
+            this.tabConsole.Size = new System.Drawing.Size(892, 494);
             this.tabConsole.TabIndex = 2;
             this.tabConsole.Text = "Console";
             // 
@@ -1785,8 +1792,9 @@
             this.txtConsoleOutput.Name = "txtConsoleOutput";
             this.txtConsoleOutput.ReadOnly = true;
             this.txtConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtConsoleOutput.Size = new System.Drawing.Size(892, 355);
+            this.txtConsoleOutput.Size = new System.Drawing.Size(892, 425);
             this.txtConsoleOutput.TabIndex = 4;
+            this.txtConsoleOutput.TabStop = false;
             // 
             // materialCard1
             // 
@@ -1796,7 +1804,7 @@
             this.materialCard1.Depth = 0;
             this.materialCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(0, 355);
+            this.materialCard1.Location = new System.Drawing.Point(0, 425);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
@@ -1820,7 +1828,7 @@
             this.txtConsoleInput.Name = "txtConsoleInput";
             this.txtConsoleInput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.txtConsoleInput.Size = new System.Drawing.Size(751, 50);
-            this.txtConsoleInput.TabIndex = 3;
+            this.txtConsoleInput.TabIndex = 0;
             this.txtConsoleInput.Text = "";
             this.txtConsoleInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConsoleInput_KeyDown);
             // 
@@ -1855,7 +1863,7 @@
             this.tabSettings.Location = new System.Drawing.Point(4, 22);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(892, 424);
+            this.tabSettings.Size = new System.Drawing.Size(892, 494);
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             // 
@@ -1866,7 +1874,7 @@
             this.btnSaveSettings.Depth = 0;
             this.btnSaveSettings.DrawShadows = true;
             this.btnSaveSettings.Icon = global::ToolFortress.Properties.Resources.SaveIcon;
-            this.btnSaveSettings.Location = new System.Drawing.Point(800, 340);
+            this.btnSaveSettings.Location = new System.Drawing.Point(814, 422);
             this.btnSaveSettings.Mini = false;
             this.btnSaveSettings.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSaveSettings.Name = "btnSaveSettings";
@@ -1972,8 +1980,7 @@
             // 
             // btnGameKill
             // 
-            this.btnGameKill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGameKill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGameKill.AutoSize = false;
             this.btnGameKill.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnGameKill.Depth = 0;
@@ -2193,9 +2200,10 @@
             // 
             this.mainTabSelector.BaseTabControl = this.mainTabControl;
             this.mainTabSelector.Depth = 0;
+            this.mainTabSelector.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainTabSelector.Enabled = false;
             this.mainTabSelector.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mainTabSelector.Location = new System.Drawing.Point(0, 64);
+            this.mainTabSelector.Location = new System.Drawing.Point(0, 0);
             this.mainTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainTabSelector.Name = "mainTabSelector";
             this.mainTabSelector.Size = new System.Drawing.Size(900, 30);
@@ -2212,11 +2220,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 550);
-            this.Controls.Add(this.mainTabSelector);
             this.Controls.Add(this.mainTabControl);
+            this.Controls.Add(this.mainTabSelector);
             this.DrawerTabControl = this.mainTabControl;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(900, 550);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ToolFortress";
