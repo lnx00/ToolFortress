@@ -126,6 +126,19 @@ namespace ToolFortress
 
         private void btnSendConsole_Click(object sender, EventArgs e)
         {
+            SendConsoleCommand(txtConsoleInput.Text);
+        }
+
+        private void txtConsoleInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                SendConsoleCommand(txtConsoleInput.Text);
+            }
+        }
+
+        private void SendConsoleCommand(string pCommand)
+        {
             txtConsoleOutput.AppendText("[>] " + txtConsoleInput.Text + "\r\n");
 
             // Send command and split response for correct formatting
@@ -508,6 +521,8 @@ namespace ToolFortress
             pnlCnTools.Enabled = false;
             btnCnDestroy.Enabled = false;
             listCnUsers.Items.Clear();
+            listCnUsers.DataSource = null;
+            listCnUsers.Refresh();
         }
 
         private void btnCnDestroy_Click(object sender, EventArgs e)
@@ -517,7 +532,8 @@ namespace ToolFortress
                 connectModule.DestroyLobby();
                 pnlCnTools.Enabled = false;
                 btnCnDestroy.Enabled = false;
-                listCnUsers.Items.Clear();
+                listCnUsers.DataSource = null;
+                listCnUsers.Refresh();
             }
         }
 

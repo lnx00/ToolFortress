@@ -38,15 +38,16 @@ namespace ToolFortress.Modules
                     // Engineer Mode
                     if (lastTask == 0)
                     {
-                        Game.SendCommand("build 1 0");
+                        Game.SendCommand("build 1 0"); // Build Teleporter Entry
                         lastTask = 1;
                     } else
                     {
-                        Game.SendCommand("build 1 1");
+                        Game.SendCommand("build 1 1"); // Build Teleporter Exit
                         lastTask = 0;
                     }
-                    Thread.Sleep(500);
                 }
+
+                Thread.Sleep(500);
             }
 
             Game.SendCommand("-attack");

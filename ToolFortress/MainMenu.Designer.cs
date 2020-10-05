@@ -1810,15 +1810,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConsoleInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConsoleInput.Depth = 0;
+            this.txtConsoleInput.DetectUrls = false;
             this.txtConsoleInput.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtConsoleInput.Hint = "Type a command...";
             this.txtConsoleInput.Location = new System.Drawing.Point(8, 11);
-            this.txtConsoleInput.MaxLength = 50;
+            this.txtConsoleInput.MaxLength = 300;
             this.txtConsoleInput.MouseState = MaterialSkin.MouseState.OUT;
             this.txtConsoleInput.Multiline = false;
             this.txtConsoleInput.Name = "txtConsoleInput";
+            this.txtConsoleInput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.txtConsoleInput.Size = new System.Drawing.Size(751, 50);
             this.txtConsoleInput.TabIndex = 3;
             this.txtConsoleInput.Text = "";
+            this.txtConsoleInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConsoleInput_KeyDown);
             // 
             // btnSendConsole
             // 
