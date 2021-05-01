@@ -106,5 +106,17 @@ namespace ToolFortress.Properties {
                 this["F_THEME_ID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FB_USERNAME {
+            get {
+                return ((string)(this["FB_USERNAME"]));
+            }
+            set {
+                this["FB_USERNAME"] = value;
+            }
+        }
     }
 }

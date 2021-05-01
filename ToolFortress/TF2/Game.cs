@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using TFRcon;
+using static ToolFortress.TF2.Interpreter;
 using static ToolFortress.TF2.LogParser;
 
 namespace ToolFortress.TF2
@@ -19,7 +20,7 @@ namespace ToolFortress.TF2
         public static LogParser LogParser { get; }
         public static RconClient RconClient { get; }
 
-        public static List<Player> StatPlayers { get; set; } = new List<Player>();
+        private static List<Player> Players = new List<Player>();
 
         static Game()
         {
@@ -73,18 +74,31 @@ namespace ToolFortress.TF2
             SendCommand("tf_party_chat \"" + Utils.EscapeChatMessage(pMessage) + "\"");
         }
 
-        // Returns a Player via UserID or UniqueID
+        /* Update the player list */
+        public static void SetPlayers(List<Player> pPlayerList)
+        {
+            Players = pPlayerList;
+        }
+
+        /* Returns all players */
+        public static Player[] GetPlayers()
+        {
+            return Players.ToArray();
+        }
+
+        /* Returns a player via a given Player-ID or SteamID3 */
         public static Player GetPlayer(string pID)
         {
-            Player player = StatPlayers.Where(p => p.UserID == pID || p.UniqueID == pID).First();
+            Player player = Players.Where(p => p.UserID == pID || p.UniqueID == pID).First();
             return player;
         }
 
+        /* Returns the local player */
         public static Player GetLocalPlayer()
         {
             try
             {
-                Player player = StatPlayers.Where(p => p.UniqueID == Settings.TF2_STEAMID3).First();
+                Player player = Players.Where(p => p.UniqueID == Settings.TF2_STEAMID3).First();
                 return player;
             } catch (Exception)
             {
@@ -92,7 +106,7 @@ namespace ToolFortress.TF2
             } 
         }
 
-        // Periodically requests the server status
+        /* Periodically requests the server status */
         public static void RequestInfo()
         {
             while (infoRequest)
@@ -101,7 +115,7 @@ namespace ToolFortress.TF2
                 {
                     SendCommand("status");
                 }
-                Thread.Sleep(500);
+                Thread.Sleep(Settings.F_STATUS_DELAY);
             }
         }
     }

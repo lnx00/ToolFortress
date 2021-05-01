@@ -20,6 +20,7 @@ namespace ToolFortress.Modules
             Game.LogParser.OnKillFeed -= OnKillfeed;
         }
 
+        /* Handle killfeed update */
         private void OnKillfeed(KillFeed killFeed)
         {
             string localPlayer = Game.GetLocalPlayer().Name;

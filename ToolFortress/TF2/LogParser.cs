@@ -5,12 +5,13 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using static ToolFortress.TF2.Interpreter;
 
 namespace ToolFortress.TF2
 {
     class LogParser
     {
-        // Structs
+        #region STRUCTS
         public struct KillFeed
         {
             public string Killer;
@@ -57,28 +58,9 @@ namespace ToolFortress.TF2
                 Z = pZ;
             }
         }
+        #endregion
 
-        public struct Player
-        {
-            public string UserID;
-            public string Name;
-            public string UniqueID;
-            public string Playtime;
-            public string Ping;
-            public string State;
-
-            public Player(string pUserID, string pName, string pUniqueID, string pPlaytime, string pPing, string pState)
-            {
-                UserID = pUserID;
-                Name = pName;
-                UniqueID = pUniqueID;
-                Playtime = pPlaytime;
-                Ping = pPing;
-                State = pState;
-            }
-        }
-
-        // Events
+        #region EVENTS
         public delegate void KillFeedHandler(KillFeed killFeed);
         public event KillFeedHandler OnKillFeed = delegate { };
 
@@ -91,14 +73,15 @@ namespace ToolFortress.TF2
         public delegate void PlayerConnectHandler(string playerName, bool connected);
         public event PlayerConnectHandler OnPlayerConnect = delegate { };
 
-        public delegate void MapUpdateHandler(MapData mapData);
-        public event MapUpdateHandler OnMapUpdate = delegate { };
-
         public delegate void LobbyUpdateHandler();
         public event LobbyUpdateHandler OnLobbyUpdate = delegate { };
 
-        public delegate void StatusUpdateHandler();
+        public delegate void StatusUpdateHandler(List<Player> playerList);
         public event StatusUpdateHandler OnStatusUpdate = delegate { };
+        #endregion
+
+        private int playerCount = 0;
+        private List<Player> playerList = new List<Player>();
 
         public LogParser() { }
 
@@ -107,6 +90,7 @@ namespace ToolFortress.TF2
             pLogReader.OnLogUpdate += ParseLine;
         }
 
+        /* Parse console message */
         public void ParseLine(string pLine)
         {
             if (pLine.StartsWith("Attempted")) { return; }
@@ -119,9 +103,9 @@ namespace ToolFortress.TF2
             {
                 ParseCommand(pLine);
             }
-            else if (Regex.IsMatch(pLine, Settings.REGEX_MAP_POS))
+            else if (Regex.IsMatch(pLine, Settings.REGEX_STATUS_HEADER))
             {
-                ParseMapPos(pLine);
+                ParseStatusHeader(pLine);
             }
             else if (Regex.IsMatch(pLine, Settings.REGEX_PLAYER_STATUS))
             {
@@ -141,6 +125,7 @@ namespace ToolFortress.TF2
             }
         }
 
+        /* Parse kill message */
         private void ParseKill(string pLine)
         {
             MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_KILL);
@@ -154,6 +139,7 @@ namespace ToolFortress.TF2
             }
         }
 
+        /* Parse custom console command */
         private void ParseCommand(string pLine)
         {
             MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_COMMAND);
@@ -167,6 +153,8 @@ namespace ToolFortress.TF2
             }
         }
 
+
+        /* Parse chat message */
         private void ParseChat(string pLine)
         {
             MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_CHAT);
@@ -180,27 +168,30 @@ namespace ToolFortress.TF2
             }
         }
 
-        private void ParseMapPos(string pLine)
+        /* Parse server status header */
+        private void ParseStatusHeader(string pLine)
         {
-            Game.StatPlayers.Clear();
-
-            // Game info (Map, Position)
-            MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_MAP_POS);
+            // Status header (Players, Bots, Max)
+            MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_STATUS_HEADER);
             if (matches.Count == 1)
             {
                 Match match = matches[0];
-                if (match.Groups.Count == 5)
+                if (match.Groups.Count == 4)
                 {
-                    string mMap = match.Groups[1].Value;
-                    int mX = int.Parse(match.Groups[2].Value);
-                    int mY = int.Parse(match.Groups[3].Value);
-                    int mZ = int.Parse(match.Groups[4].Value);
+                    int sPlayers = int.Parse(match.Groups[1].Value);
+                    int sBots = int.Parse(match.Groups[2].Value);
+                    int sMax = int.Parse(match.Groups[3].Value);
 
-                    OnMapUpdate(new MapData(mMap, mX, mY, mZ));
+                    // Reset player buffer (This ignores bots)
+                    playerCount = sPlayers;
+                    playerList = new List<Player>();
+
+                    Console.WriteLine("[i] Players: " + sPlayers + ", Bots: " + sBots + " (Max: " + sMax + ")");
                 }
             }
         }
 
+        /* Parse player status */
         private void ParseStatus(string pLine)
         {
             // Player status (Name, Playtime, Status)
@@ -217,14 +208,19 @@ namespace ToolFortress.TF2
                     string pPing = match.Groups[5].Value;
                     string pState = match.Groups[6].Value;
 
-                    Game.StatPlayers.Add(new Player(pUserID, pName, pUniqueID, pPlaytime, pPing, pState));
+                    playerList.Add(new Player(pUserID, pName, pUniqueID, pPlaytime, pPing, pState));
+                    if (playerCount != 0 && playerList.Count >= playerCount)
+                    {
+                        Game.SetPlayers(playerList);
+                        OnStatusUpdate(playerList);
+                    }
                 }
             }
         }
 
+        /* Parse math quiz */
         private void ParseMath(string pLine)
         {
-            // Parse and solve Math puzzle
             MatchCollection matches = Regex.Matches(pLine, Settings.REGEX_MATH);
             if (matches.Count == 1)
             {
@@ -238,14 +234,15 @@ namespace ToolFortress.TF2
                     int result = Utils.CalcExpression(n1, n2, op);
                     if (Settings.F_SOLVE_MATH_LEGIT)
                     {
+                        // Don't be too quick
                         new Thread(() =>
                         {
                             if (result == 0)
                             {
-                                Thread.Sleep(100);
+                                Thread.Sleep(500);
                             } else
                             {
-                                Thread.Sleep(result * 2 + new Random().Next(100, 500));
+                                Thread.Sleep(Math.Abs(result) * 2 + new Random().Next(400, 1000));
                             }
                             
                             Game.SendChatMessage(result.ToString());

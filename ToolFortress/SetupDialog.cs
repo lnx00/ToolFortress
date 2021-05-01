@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace ToolFortress
 
         private void SetupDialog_Load(object sender, EventArgs e)
         {
-            // Try to get the TF2 folder path
+            // Try to get the SteamID3
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam\ActiveProcess");
             if (key != null)
             {
@@ -87,6 +88,11 @@ namespace ToolFortress
                 btnSave.Enabled = false;
                 MessageBox.Show("Your settings are invalid! Please recheck them.", "Invalid Settings", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnGetID_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://steamid.io/");
         }
     }
 }

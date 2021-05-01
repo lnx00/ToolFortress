@@ -35,6 +35,7 @@
             this.txtSteamID = new MaterialSkin.Controls.MaterialTextBox();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
             this.tfFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnGetID = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // txtFolderPath
@@ -45,12 +46,12 @@
             this.txtFolderPath.Depth = 0;
             this.txtFolderPath.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtFolderPath.Hint = "Team Fortress 2 folder";
-            this.txtFolderPath.Location = new System.Drawing.Point(13, 137);
+            this.txtFolderPath.Location = new System.Drawing.Point(12, 137);
             this.txtFolderPath.MaxLength = 50;
             this.txtFolderPath.MouseState = MaterialSkin.MouseState.OUT;
             this.txtFolderPath.Multiline = false;
             this.txtFolderPath.Name = "txtFolderPath";
-            this.txtFolderPath.Size = new System.Drawing.Size(485, 36);
+            this.txtFolderPath.Size = new System.Drawing.Size(383, 36);
             this.txtFolderPath.TabIndex = 0;
             this.txtFolderPath.Text = "";
             this.txtFolderPath.UseTallSize = false;
@@ -80,11 +81,11 @@
             this.btnChoosePath.DrawShadows = true;
             this.btnChoosePath.HighEmphasis = true;
             this.btnChoosePath.Icon = null;
-            this.btnChoosePath.Location = new System.Drawing.Point(13, 182);
+            this.btnChoosePath.Location = new System.Drawing.Point(403, 136);
             this.btnChoosePath.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnChoosePath.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnChoosePath.Name = "btnChoosePath";
-            this.btnChoosePath.Size = new System.Drawing.Size(485, 37);
+            this.btnChoosePath.Size = new System.Drawing.Size(95, 37);
             this.btnChoosePath.TabIndex = 2;
             this.btnChoosePath.Text = "Choose...";
             this.btnChoosePath.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -100,12 +101,12 @@
             this.txtSteamID.Depth = 0;
             this.txtSteamID.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtSteamID.Hint = "Steam ID 3 (ex. [U:1:123456])";
-            this.txtSteamID.Location = new System.Drawing.Point(13, 238);
+            this.txtSteamID.Location = new System.Drawing.Point(12, 179);
             this.txtSteamID.MaxLength = 50;
             this.txtSteamID.MouseState = MaterialSkin.MouseState.OUT;
             this.txtSteamID.Multiline = false;
             this.txtSteamID.Name = "txtSteamID";
-            this.txtSteamID.Size = new System.Drawing.Size(485, 36);
+            this.txtSteamID.Size = new System.Drawing.Size(383, 36);
             this.txtSteamID.TabIndex = 3;
             this.txtSteamID.Text = "";
             this.txtSteamID.UseTallSize = false;
@@ -122,11 +123,11 @@
             this.btnSave.Enabled = false;
             this.btnSave.HighEmphasis = true;
             this.btnSave.Icon = null;
-            this.btnSave.Location = new System.Drawing.Point(13, 297);
+            this.btnSave.Location = new System.Drawing.Point(12, 224);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(485, 37);
+            this.btnSave.Size = new System.Drawing.Size(486, 37);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save and continue";
             this.btnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -139,11 +140,34 @@
             this.tfFolderDialog.Description = "Choose you \"Team Fortress 2\" folder...";
             this.tfFolderDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
+            // btnGetID
+            // 
+            this.btnGetID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGetID.AutoSize = false;
+            this.btnGetID.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGetID.Depth = 0;
+            this.btnGetID.DrawShadows = true;
+            this.btnGetID.HighEmphasis = true;
+            this.btnGetID.Icon = null;
+            this.btnGetID.Location = new System.Drawing.Point(403, 178);
+            this.btnGetID.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGetID.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGetID.Name = "btnGetID";
+            this.btnGetID.Size = new System.Drawing.Size(95, 37);
+            this.btnGetID.TabIndex = 5;
+            this.btnGetID.Text = "Get...";
+            this.btnGetID.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnGetID.UseAccentColor = false;
+            this.btnGetID.UseVisualStyleBackColor = true;
+            this.btnGetID.Click += new System.EventHandler(this.btnGetID_Click);
+            // 
             // SetupDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 345);
+            this.ClientSize = new System.Drawing.Size(511, 281);
+            this.Controls.Add(this.btnGetID);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtSteamID);
             this.Controls.Add(this.btnChoosePath);
@@ -170,5 +194,6 @@
         private MaterialSkin.Controls.MaterialTextBox txtSteamID;
         private MaterialSkin.Controls.MaterialButton btnSave;
         private System.Windows.Forms.FolderBrowserDialog tfFolderDialog;
+        private MaterialSkin.Controls.MaterialButton btnGetID;
     }
 }

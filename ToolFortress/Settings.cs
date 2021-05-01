@@ -18,11 +18,12 @@ namespace ToolFortress
         public static string TF2_STEAMID3 = "[U:1:347654006]";
         public static string FB_AUTHSECRET = "u4wcpfXoQ1qHiT4szOwuE0l6jUdJaPXS4Y5Z4J99";
         public static string FB_BASEPATH = "https://tfconnect-6104f.firebaseio.com/";
-        public static string FB_USERNAME = "Guest";
+        public static string FB_USERNAME = "";
 
         /* FEATURES */
         public static bool F_CONSOLE_MIRROR = true;
         public static int F_THEME_ID = 0;
+        public static int F_STATUS_DELAY = 500;
 
         public static bool F_SOLVE_MATH = false;
         public static bool F_SOLVE_MATH_LEGIT = true;
@@ -43,23 +44,25 @@ namespace ToolFortress
 
         public static bool M_POINTFARM_MODE = false;
 
-        public static string[] M_BD_SOURCES = new string[] { "https://raw.githubusercontent.com/PazerOP/tf2_bot_detector/master/staging/cfg/playerlist.official.json", "https://gist.githubusercontent.com/wgetJane/0bc01bd46d7695362253c5a2fa49f2e9/raw/playerlist.biglist.json" };
+        public static readonly string[] M_BD_SOURCES = new string[] { "https://raw.githubusercontent.com/PazerOP/tf2_bot_detector/master/staging/cfg/playerlist.official.json", "https://gist.githubusercontent.com/wgetJane/0bc01bd46d7695362253c5a2fa49f2e9/raw/playerlist.biglist.json", "https://incontestableness.github.io/milenko-lists/playerlist.milenko-cumulative.json", "https://tf2bdd.pazer.us/v1/steamids" };
         public static bool M_BD_VOTEKICK = true;
         public static bool M_BD_ENEMYNOTIFY = false;
         public static bool M_BD_TEAMNOTIFY = false;
-        public static int M_BD_DELAY = 1000;
-        public static string M_BD_ENEMYMSG = "Attention! There is a cheater on the other team named '%1'. Please kick them!";
+        public static int M_BD_DELAY = 15000;
+        public static string M_BD_ENEMYMSG = "Attention! There is a cheater in the game named '%1'. Please kick them!";
         public static string M_BD_TEAMMSG = "Attention! There is a cheater on our team named '%1'. I will try to kick them!";
 
         /* REGEX */
         public const string REGEX_CHAT = @"(\*DEAD\*)?\s*(\(TEAM\))?\s*(.{1,33}) :  ((?:.|[\r\n])*)";
         public const string REGEX_KILL = @"(.*) killed (.*) with (.*)\.( \(crit\))?";
-        public const string REGEX_PLAYER_STATUS = @".*#\s+(\d+)\s\u0022(.*)\u0022\s+(\[U:1:\d+\])\s+(\d+:\d+)\s+(\d+).*(challenging|active|connecting|spawning)";
+        public const string REGEX_PLAYER_STATUS = @".*#\s+(\d+)\s\u0022(.*)\u0022\s+(\[U:1:\d+\])\s+([\d+:\d+]*)\s+(\d+).*(challenging|active|connecting|spawning)";
         public const string REGEX_MAP_POS = @".*map\s+:\s+(.*_.*)\s+at:\s(-?\d+)\sx,\s(-?\d+)\sy,\s(-?\d+)\sz";
+        public const string REGEX_STATUS_HEADER = @".*players : (\d+) humans, (\d+) bots \((\d+) max\).*";
         public const string REGEX_COMMAND = ".*Unknown command.*(!|\\/)([^\"]*)";
         public const string REGEX_MATH = @".*\[.*Math.*\][^\d]*(\d+) ([\+\-\*\/]) (\d+) = \?\?.*";
         public const string REGEX_ID3 = @"\[U:\d:\d*\]";
 
+        // Load Settings from Properties
         public static void Load()
         {
             Properties.Settings.Default.Reload();
@@ -74,6 +77,7 @@ namespace ToolFortress
             F_THEME_ID = Properties.Settings.Default.F_THEME_ID;
         }
 
+        // Save Settings to Properties
         public static void Save()
         {
             Properties.Settings.Default.RCON_IP = RCON_IP;

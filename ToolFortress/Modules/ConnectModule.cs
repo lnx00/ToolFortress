@@ -80,6 +80,8 @@ namespace ToolFortress.Modules
                 await fbClient.DeleteAsync("lobbys/" + currentLobby + "/users/" + currentUser);
                 if (bcResponse != null && userUpdateResponse != null)
                 {
+                    bcResponse.Cancel();
+                    userUpdateResponse.Cancel();
                     bcResponse = null;
                     userUpdateResponse = null;
                 }
@@ -106,6 +108,7 @@ namespace ToolFortress.Modules
             bcResponse = await fbClient.OnAsync("lobbys/" + currentLobby + "/broadcast", (sender, args, context) =>
             {
                 OnBroadcast(args.Data);
+                Console.WriteLine("[BC] " + args.Data);
             });
 
             isConnected = true;

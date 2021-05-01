@@ -96,23 +96,39 @@
             this.switchCnEnable = new MaterialSkin.Controls.MaterialSwitch();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.tabStats = new System.Windows.Forms.TabPage();
+            this.lvClassPeek = new MaterialSkin.Controls.MaterialListView();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colClass = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colState = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chkClassPeek = new MaterialSkin.Controls.MaterialCheckbox();
             this.lblKDCounter = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnClearFeed = new MaterialSkin.Controls.MaterialButton();
             this.btnClearStats = new MaterialSkin.Controls.MaterialButton();
-            this.listClassPeek = new System.Windows.Forms.ListBox();
-            this.chkClassPeek = new MaterialSkin.Controls.MaterialCheckbox();
             this.lblDeathCounter = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.lblKillCount = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.listKillfeed = new System.Windows.Forms.ListBox();
+            this.tabTrade = new System.Windows.Forms.TabPage();
+            this.chkTrMsg = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
+            this.chkTrTeam = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialCard12 = new MaterialSkin.Controls.MaterialCard();
+            this.raTrPrio = new MaterialSkin.Controls.MaterialRadioButton();
+            this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
+            this.raTrRandom = new MaterialSkin.Controls.MaterialRadioButton();
+            this.raTrList = new MaterialSkin.Controls.MaterialRadioButton();
+            this.materialLabel25 = new MaterialSkin.Controls.MaterialLabel();
+            this.trTrInterval = new System.Windows.Forms.TrackBar();
+            this.materialCard11 = new MaterialSkin.Controls.MaterialCard();
+            this.txtTrMsg = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
             this.tabBotDetector = new System.Windows.Forms.TabPage();
             this.materialCard8 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel19 = new MaterialSkin.Controls.MaterialLabel();
             this.listBdLog = new System.Windows.Forms.ListBox();
             this.cardBdTools = new MaterialSkin.Controls.MaterialCard();
+            this.materialLabel22 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnBdReset = new MaterialSkin.Controls.MaterialButton();
             this.chkBdVotekick = new MaterialSkin.Controls.MaterialCheckbox();
             this.txtBdTeamMessage = new MaterialSkin.Controls.MaterialTextBox();
             this.chkBdNotfiy = new MaterialSkin.Controls.MaterialCheckbox();
@@ -130,6 +146,7 @@
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.btnSaveSettings = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.txtConnectName = new MaterialSkin.Controls.MaterialTextBox();
             this.comboTheme = new MaterialSkin.Controls.MaterialComboBox();
             this.chkMirrorConsole = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -148,6 +165,8 @@
             this.txtRconPort = new MaterialSkin.Controls.MaterialTextBox();
             this.mainTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tfFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            this.colPlaytime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPing = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mainTabControl.SuspendLayout();
             this.tabHome.SuspendLayout();
             this.tabFun.SuspendLayout();
@@ -164,6 +183,10 @@
             this.pnlCnLobby.SuspendLayout();
             this.materialCard5.SuspendLayout();
             this.tabStats.SuspendLayout();
+            this.tabTrade.SuspendLayout();
+            this.materialCard12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trTrInterval)).BeginInit();
+            this.materialCard11.SuspendLayout();
             this.tabBotDetector.SuspendLayout();
             this.materialCard8.SuspendLayout();
             this.cardBdTools.SuspendLayout();
@@ -183,17 +206,18 @@
             this.mainTabControl.Controls.Add(this.tabMisc);
             this.mainTabControl.Controls.Add(this.tabConnect);
             this.mainTabControl.Controls.Add(this.tabStats);
+            this.mainTabControl.Controls.Add(this.tabTrade);
             this.mainTabControl.Controls.Add(this.tabBotDetector);
             this.mainTabControl.Controls.Add(this.tabConsole);
             this.mainTabControl.Controls.Add(this.tabSettings);
             this.mainTabControl.Depth = 0;
-            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainTabControl.Location = new System.Drawing.Point(0, 30);
+            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mainTabControl.Location = new System.Drawing.Point(0, 100);
             this.mainTabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainTabControl.Multiline = true;
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(900, 520);
+            this.mainTabControl.Size = new System.Drawing.Size(900, 450);
             this.mainTabControl.TabIndex = 0;
             // 
             // tabHome
@@ -207,7 +231,7 @@
             this.tabHome.Location = new System.Drawing.Point(4, 22);
             this.tabHome.Name = "tabHome";
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHome.Size = new System.Drawing.Size(892, 494);
+            this.tabHome.Size = new System.Drawing.Size(892, 424);
             this.tabHome.TabIndex = 0;
             this.tabHome.Text = "Home";
             // 
@@ -220,7 +244,7 @@
             this.btnShowSettings.DrawShadows = true;
             this.btnShowSettings.HighEmphasis = false;
             this.btnShowSettings.Icon = null;
-            this.btnShowSettings.Location = new System.Drawing.Point(347, 193);
+            this.btnShowSettings.Location = new System.Drawing.Point(347, 158);
             this.btnShowSettings.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnShowSettings.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnShowSettings.Name = "btnShowSettings";
@@ -236,7 +260,7 @@
             // progRconConnect
             // 
             this.progRconConnect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progRconConnect.Location = new System.Drawing.Point(347, 286);
+            this.progRconConnect.Location = new System.Drawing.Point(347, 251);
             this.progRconConnect.MarqueeAnimationSpeed = 40;
             this.progRconConnect.Name = "progRconConnect";
             this.progRconConnect.Size = new System.Drawing.Size(198, 8);
@@ -267,7 +291,7 @@
             this.btnStartGame.DrawShadows = true;
             this.btnStartGame.HighEmphasis = true;
             this.btnStartGame.Icon = null;
-            this.btnStartGame.Location = new System.Drawing.Point(347, 241);
+            this.btnStartGame.Location = new System.Drawing.Point(347, 206);
             this.btnStartGame.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStartGame.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStartGame.Name = "btnStartGame";
@@ -301,7 +325,7 @@
             this.tabFun.Controls.Add(this.materialCard3);
             this.tabFun.Location = new System.Drawing.Point(4, 22);
             this.tabFun.Name = "tabFun";
-            this.tabFun.Size = new System.Drawing.Size(892, 494);
+            this.tabFun.Size = new System.Drawing.Size(892, 424);
             this.tabFun.TabIndex = 4;
             this.tabFun.Text = "Fun";
             // 
@@ -648,7 +672,7 @@
             this.tabMisc.Controls.Add(this.materialCard6);
             this.tabMisc.Location = new System.Drawing.Point(4, 22);
             this.tabMisc.Name = "tabMisc";
-            this.tabMisc.Size = new System.Drawing.Size(892, 494);
+            this.tabMisc.Size = new System.Drawing.Size(892, 424);
             this.tabMisc.TabIndex = 7;
             this.tabMisc.Text = "Misc";
             // 
@@ -991,7 +1015,7 @@
             this.tabConnect.Controls.Add(this.materialLabel10);
             this.tabConnect.Location = new System.Drawing.Point(4, 22);
             this.tabConnect.Name = "tabConnect";
-            this.tabConnect.Size = new System.Drawing.Size(892, 494);
+            this.tabConnect.Size = new System.Drawing.Size(892, 424);
             this.tabConnect.TabIndex = 5;
             this.tabConnect.Text = "Connect";
             // 
@@ -1016,7 +1040,7 @@
             this.pnlCnTools.MouseState = MaterialSkin.MouseState.HOVER;
             this.pnlCnTools.Name = "pnlCnTools";
             this.pnlCnTools.Padding = new System.Windows.Forms.Padding(14);
-            this.pnlCnTools.Size = new System.Drawing.Size(614, 326);
+            this.pnlCnTools.Size = new System.Drawing.Size(614, 256);
             this.pnlCnTools.TabIndex = 17;
             // 
             // btnCnInviteParty
@@ -1181,7 +1205,7 @@
             this.btnCnDestroy.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnDestroy.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnDestroy.Name = "btnCnDestroy";
-            this.btnCnDestroy.Size = new System.Drawing.Size(84, 36);
+            this.btnCnDestroy.Size = new System.Drawing.Size(85, 36);
             this.btnCnDestroy.TabIndex = 16;
             this.btnCnDestroy.Text = "Destroy";
             this.btnCnDestroy.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -1200,7 +1224,7 @@
             this.btnCnDisonnect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnDisonnect.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnDisonnect.Name = "btnCnDisonnect";
-            this.btnCnDisonnect.Size = new System.Drawing.Size(109, 36);
+            this.btnCnDisonnect.Size = new System.Drawing.Size(112, 36);
             this.btnCnDisonnect.TabIndex = 15;
             this.btnCnDisonnect.Text = "Disconnect";
             this.btnCnDisonnect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -1244,7 +1268,7 @@
             this.btnCnJoin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnJoin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnJoin.Name = "btnCnJoin";
-            this.btnCnJoin.Size = new System.Drawing.Size(53, 36);
+            this.btnCnJoin.Size = new System.Drawing.Size(54, 36);
             this.btnCnJoin.TabIndex = 13;
             this.btnCnJoin.Text = "Join";
             this.btnCnJoin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1263,7 +1287,7 @@
             this.btnCnCreate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCnCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCnCreate.Name = "btnCnCreate";
-            this.btnCnCreate.Size = new System.Drawing.Size(74, 36);
+            this.btnCnCreate.Size = new System.Drawing.Size(76, 36);
             this.btnCnCreate.TabIndex = 14;
             this.btnCnCreate.Text = "Create";
             this.btnCnCreate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -1285,7 +1309,7 @@
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(251, 400);
+            this.materialCard5.Size = new System.Drawing.Size(251, 330);
             this.materialCard5.TabIndex = 12;
             // 
             // materialLabel12
@@ -1312,7 +1336,7 @@
             this.listCnUsers.Location = new System.Drawing.Point(17, 44);
             this.listCnUsers.Name = "listCnUsers";
             this.listCnUsers.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listCnUsers.Size = new System.Drawing.Size(217, 338);
+            this.listCnUsers.Size = new System.Drawing.Size(217, 260);
             this.listCnUsers.Sorted = true;
             this.listCnUsers.TabIndex = 3;
             // 
@@ -1351,23 +1375,78 @@
             // tabStats
             // 
             this.tabStats.BackColor = System.Drawing.SystemColors.Control;
+            this.tabStats.Controls.Add(this.lvClassPeek);
+            this.tabStats.Controls.Add(this.chkClassPeek);
             this.tabStats.Controls.Add(this.lblKDCounter);
             this.tabStats.Controls.Add(this.materialLabel11);
-            this.tabStats.Controls.Add(this.btnClearFeed);
             this.tabStats.Controls.Add(this.btnClearStats);
-            this.tabStats.Controls.Add(this.listClassPeek);
-            this.tabStats.Controls.Add(this.chkClassPeek);
             this.tabStats.Controls.Add(this.lblDeathCounter);
             this.tabStats.Controls.Add(this.materialLabel8);
             this.tabStats.Controls.Add(this.lblKillCount);
             this.tabStats.Controls.Add(this.materialLabel6);
-            this.tabStats.Controls.Add(this.materialLabel4);
-            this.tabStats.Controls.Add(this.listKillfeed);
             this.tabStats.Location = new System.Drawing.Point(4, 22);
             this.tabStats.Name = "tabStats";
-            this.tabStats.Size = new System.Drawing.Size(892, 494);
+            this.tabStats.Size = new System.Drawing.Size(892, 424);
             this.tabStats.TabIndex = 3;
             this.tabStats.Text = "Stats";
+            // 
+            // lvClassPeek
+            // 
+            this.lvClassPeek.AutoSizeTable = false;
+            this.lvClassPeek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lvClassPeek.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvClassPeek.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colName,
+            this.colClass,
+            this.colPlaytime,
+            this.colState,
+            this.colPing});
+            this.lvClassPeek.Depth = 0;
+            this.lvClassPeek.FullRowSelect = true;
+            this.lvClassPeek.HideSelection = false;
+            this.lvClassPeek.Location = new System.Drawing.Point(8, 75);
+            this.lvClassPeek.MinimumSize = new System.Drawing.Size(200, 100);
+            this.lvClassPeek.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.lvClassPeek.MouseState = MaterialSkin.MouseState.OUT;
+            this.lvClassPeek.MultiSelect = false;
+            this.lvClassPeek.Name = "lvClassPeek";
+            this.lvClassPeek.OwnerDraw = true;
+            this.lvClassPeek.Size = new System.Drawing.Size(876, 341);
+            this.lvClassPeek.TabIndex = 13;
+            this.lvClassPeek.UseCompatibleStateImageBehavior = false;
+            this.lvClassPeek.View = System.Windows.Forms.View.Details;
+            // 
+            // colName
+            // 
+            this.colName.Text = "Name";
+            this.colName.Width = 200;
+            // 
+            // colClass
+            // 
+            this.colClass.Text = "Class";
+            this.colClass.Width = 100;
+            // 
+            // colState
+            // 
+            this.colState.DisplayIndex = 2;
+            this.colState.Text = "State";
+            this.colState.Width = 100;
+            // 
+            // chkClassPeek
+            // 
+            this.chkClassPeek.AutoSize = true;
+            this.chkClassPeek.Depth = 0;
+            this.chkClassPeek.Location = new System.Drawing.Point(451, 16);
+            this.chkClassPeek.Margin = new System.Windows.Forms.Padding(0);
+            this.chkClassPeek.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkClassPeek.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkClassPeek.Name = "chkClassPeek";
+            this.chkClassPeek.Ripple = true;
+            this.chkClassPeek.Size = new System.Drawing.Size(164, 37);
+            this.chkClassPeek.TabIndex = 7;
+            this.chkClassPeek.Text = "Enable Class Peek";
+            this.chkClassPeek.UseVisualStyleBackColor = true;
+            this.chkClassPeek.CheckedChanged += new System.EventHandler(this.chkClassPeek_CheckedChanged);
             // 
             // lblKDCounter
             // 
@@ -1375,7 +1454,7 @@
             this.lblKDCounter.Depth = 0;
             this.lblKDCounter.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblKDCounter.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblKDCounter.Location = new System.Drawing.Point(283, 50);
+            this.lblKDCounter.Location = new System.Drawing.Point(252, 34);
             this.lblKDCounter.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblKDCounter.Name = "lblKDCounter";
             this.lblKDCounter.Size = new System.Drawing.Size(90, 30);
@@ -1390,32 +1469,12 @@
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel11.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.materialLabel11.Location = new System.Drawing.Point(312, 31);
+            this.materialLabel11.Location = new System.Drawing.Point(281, 15);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
             this.materialLabel11.Size = new System.Drawing.Size(29, 19);
             this.materialLabel11.TabIndex = 11;
             this.materialLabel11.Text = "K/D";
-            // 
-            // btnClearFeed
-            // 
-            this.btnClearFeed.AutoSize = false;
-            this.btnClearFeed.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnClearFeed.Depth = 0;
-            this.btnClearFeed.DrawShadows = true;
-            this.btnClearFeed.HighEmphasis = true;
-            this.btnClearFeed.Icon = null;
-            this.btnClearFeed.Location = new System.Drawing.Point(315, 89);
-            this.btnClearFeed.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnClearFeed.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnClearFeed.Name = "btnClearFeed";
-            this.btnClearFeed.Size = new System.Drawing.Size(128, 37);
-            this.btnClearFeed.TabIndex = 10;
-            this.btnClearFeed.Text = "Clear Feed";
-            this.btnClearFeed.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnClearFeed.UseAccentColor = false;
-            this.btnClearFeed.UseVisualStyleBackColor = true;
-            this.btnClearFeed.Click += new System.EventHandler(this.btnClearFeed_Click);
             // 
             // btnClearStats
             // 
@@ -1425,11 +1484,11 @@
             this.btnClearStats.DrawShadows = true;
             this.btnClearStats.HighEmphasis = true;
             this.btnClearStats.Icon = null;
-            this.btnClearStats.Location = new System.Drawing.Point(179, 89);
+            this.btnClearStats.Location = new System.Drawing.Point(619, 15);
             this.btnClearStats.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClearStats.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClearStats.Name = "btnClearStats";
-            this.btnClearStats.Size = new System.Drawing.Size(128, 37);
+            this.btnClearStats.Size = new System.Drawing.Size(264, 37);
             this.btnClearStats.TabIndex = 9;
             this.btnClearStats.Text = "Reset Stats";
             this.btnClearStats.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -1437,40 +1496,13 @@
             this.btnClearStats.UseVisualStyleBackColor = true;
             this.btnClearStats.Click += new System.EventHandler(this.btnClearStats_Click);
             // 
-            // listClassPeek
-            // 
-            this.listClassPeek.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listClassPeek.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listClassPeek.FormattingEnabled = true;
-            this.listClassPeek.Location = new System.Drawing.Point(8, 135);
-            this.listClassPeek.Name = "listClassPeek";
-            this.listClassPeek.Size = new System.Drawing.Size(436, 351);
-            this.listClassPeek.TabIndex = 8;
-            // 
-            // chkClassPeek
-            // 
-            this.chkClassPeek.AutoSize = true;
-            this.chkClassPeek.Depth = 0;
-            this.chkClassPeek.Location = new System.Drawing.Point(5, 90);
-            this.chkClassPeek.Margin = new System.Windows.Forms.Padding(0);
-            this.chkClassPeek.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.chkClassPeek.MouseState = MaterialSkin.MouseState.HOVER;
-            this.chkClassPeek.Name = "chkClassPeek";
-            this.chkClassPeek.Ripple = true;
-            this.chkClassPeek.Size = new System.Drawing.Size(164, 37);
-            this.chkClassPeek.TabIndex = 7;
-            this.chkClassPeek.Text = "Enable Class Peek";
-            this.chkClassPeek.UseVisualStyleBackColor = true;
-            this.chkClassPeek.CheckedChanged += new System.EventHandler(this.chkClassPeek_CheckedChanged);
-            // 
             // lblDeathCounter
             // 
             this.lblDeathCounter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDeathCounter.Depth = 0;
             this.lblDeathCounter.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblDeathCounter.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblDeathCounter.Location = new System.Drawing.Point(172, 50);
+            this.lblDeathCounter.Location = new System.Drawing.Point(141, 34);
             this.lblDeathCounter.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDeathCounter.Name = "lblDeathCounter";
             this.lblDeathCounter.Size = new System.Drawing.Size(90, 30);
@@ -1485,7 +1517,7 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.materialLabel8.Location = new System.Drawing.Point(191, 31);
+            this.materialLabel8.Location = new System.Drawing.Point(160, 15);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(51, 19);
@@ -1498,7 +1530,7 @@
             this.lblKillCount.Depth = 0;
             this.lblKillCount.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblKillCount.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblKillCount.Location = new System.Drawing.Point(61, 50);
+            this.lblKillCount.Location = new System.Drawing.Point(30, 34);
             this.lblKillCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblKillCount.Name = "lblKillCount";
             this.lblKillCount.Size = new System.Drawing.Size(90, 30);
@@ -1513,36 +1545,227 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.materialLabel6.Location = new System.Drawing.Point(89, 31);
+            this.materialLabel6.Location = new System.Drawing.Point(58, 15);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(31, 19);
             this.materialLabel6.TabIndex = 2;
             this.materialLabel6.Text = "Kills";
             // 
-            // materialLabel4
+            // tabTrade
             // 
-            this.materialLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(645, 9);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(54, 19);
-            this.materialLabel4.TabIndex = 1;
-            this.materialLabel4.Text = "Killfeed";
+            this.tabTrade.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTrade.Controls.Add(this.chkTrMsg);
+            this.tabTrade.Controls.Add(this.materialSwitch1);
+            this.tabTrade.Controls.Add(this.chkTrTeam);
+            this.tabTrade.Controls.Add(this.materialCard12);
+            this.tabTrade.Controls.Add(this.materialLabel25);
+            this.tabTrade.Controls.Add(this.trTrInterval);
+            this.tabTrade.Controls.Add(this.materialCard11);
+            this.tabTrade.Location = new System.Drawing.Point(4, 22);
+            this.tabTrade.Name = "tabTrade";
+            this.tabTrade.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTrade.Size = new System.Drawing.Size(892, 424);
+            this.tabTrade.TabIndex = 8;
+            this.tabTrade.Text = "Trading";
             // 
-            // listKillfeed
+            // chkTrMsg
             // 
-            this.listKillfeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.chkTrMsg.AutoSize = true;
+            this.chkTrMsg.Depth = 0;
+            this.chkTrMsg.Location = new System.Drawing.Point(455, 269);
+            this.chkTrMsg.Margin = new System.Windows.Forms.Padding(0);
+            this.chkTrMsg.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkTrMsg.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkTrMsg.Name = "chkTrMsg";
+            this.chkTrMsg.Ripple = true;
+            this.chkTrMsg.Size = new System.Drawing.Size(147, 37);
+            this.chkTrMsg.TabIndex = 7;
+            this.chkTrMsg.Text = "Send Messages";
+            this.chkTrMsg.UseVisualStyleBackColor = true;
+            // 
+            // materialSwitch1
+            // 
+            this.materialSwitch1.AutoSize = true;
+            this.materialSwitch1.Depth = 0;
+            this.materialSwitch1.Location = new System.Drawing.Point(572, 210);
+            this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSwitch1.Name = "materialSwitch1";
+            this.materialSwitch1.Ripple = true;
+            this.materialSwitch1.Size = new System.Drawing.Size(165, 37);
+            this.materialSwitch1.TabIndex = 6;
+            this.materialSwitch1.Text = "Enable Trading";
+            this.materialSwitch1.UseVisualStyleBackColor = true;
+            // 
+            // chkTrTeam
+            // 
+            this.chkTrTeam.AutoSize = true;
+            this.chkTrTeam.Depth = 0;
+            this.chkTrTeam.Location = new System.Drawing.Point(645, 269);
+            this.chkTrTeam.Margin = new System.Windows.Forms.Padding(0);
+            this.chkTrTeam.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkTrTeam.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkTrTeam.Name = "chkTrTeam";
+            this.chkTrTeam.Ripple = true;
+            this.chkTrTeam.Size = new System.Drawing.Size(110, 37);
+            this.chkTrTeam.TabIndex = 5;
+            this.chkTrTeam.Text = "Team only";
+            this.chkTrTeam.UseVisualStyleBackColor = true;
+            // 
+            // materialCard12
+            // 
+            this.materialCard12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard12.Controls.Add(this.raTrPrio);
+            this.materialCard12.Controls.Add(this.materialLabel26);
+            this.materialCard12.Controls.Add(this.raTrRandom);
+            this.materialCard12.Controls.Add(this.raTrList);
+            this.materialCard12.Depth = 0;
+            this.materialCard12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard12.Location = new System.Drawing.Point(455, 95);
+            this.materialCard12.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard12.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard12.Name = "materialCard12";
+            this.materialCard12.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard12.Size = new System.Drawing.Size(429, 101);
+            this.materialCard12.TabIndex = 3;
+            // 
+            // raTrPrio
+            // 
+            this.raTrPrio.AutoSize = true;
+            this.raTrPrio.Depth = 0;
+            this.raTrPrio.Enabled = false;
+            this.raTrPrio.Location = new System.Drawing.Point(286, 47);
+            this.raTrPrio.Margin = new System.Windows.Forms.Padding(0);
+            this.raTrPrio.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.raTrPrio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.raTrPrio.Name = "raTrPrio";
+            this.raTrPrio.Ripple = true;
+            this.raTrPrio.Size = new System.Drawing.Size(115, 37);
+            this.raTrPrio.TabIndex = 5;
+            this.raTrPrio.TabStop = true;
+            this.raTrPrio.Text = "Priority List";
+            this.raTrPrio.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel26
+            // 
+            this.materialLabel26.AutoSize = true;
+            this.materialLabel26.Depth = 0;
+            this.materialLabel26.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel26.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel26.Location = new System.Drawing.Point(17, 14);
+            this.materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel26.Name = "materialLabel26";
+            this.materialLabel26.Size = new System.Drawing.Size(138, 24);
+            this.materialLabel26.TabIndex = 4;
+            this.materialLabel26.Text = "Message Order";
+            // 
+            // raTrRandom
+            // 
+            this.raTrRandom.AutoSize = true;
+            this.raTrRandom.Depth = 0;
+            this.raTrRandom.Location = new System.Drawing.Point(153, 47);
+            this.raTrRandom.Margin = new System.Windows.Forms.Padding(0);
+            this.raTrRandom.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.raTrRandom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.raTrRandom.Name = "raTrRandom";
+            this.raTrRandom.Ripple = true;
+            this.raTrRandom.Size = new System.Drawing.Size(95, 37);
+            this.raTrRandom.TabIndex = 1;
+            this.raTrRandom.TabStop = true;
+            this.raTrRandom.Text = "Random";
+            this.raTrRandom.UseVisualStyleBackColor = true;
+            // 
+            // raTrList
+            // 
+            this.raTrList.AutoSize = true;
+            this.raTrList.Checked = true;
+            this.raTrList.Depth = 0;
+            this.raTrList.Location = new System.Drawing.Point(14, 47);
+            this.raTrList.Margin = new System.Windows.Forms.Padding(0);
+            this.raTrList.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.raTrList.MouseState = MaterialSkin.MouseState.HOVER;
+            this.raTrList.Name = "raTrList";
+            this.raTrList.Ripple = true;
+            this.raTrList.Size = new System.Drawing.Size(61, 37);
+            this.raTrList.TabIndex = 0;
+            this.raTrList.TabStop = true;
+            this.raTrList.Text = "List";
+            this.raTrList.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel25
+            // 
+            this.materialLabel25.AutoSize = true;
+            this.materialLabel25.Depth = 0;
+            this.materialLabel25.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel25.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel25.Location = new System.Drawing.Point(455, 24);
+            this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel25.Name = "materialLabel25";
+            this.materialLabel25.Size = new System.Drawing.Size(156, 24);
+            this.materialLabel25.TabIndex = 2;
+            this.materialLabel25.Text = "Message Interval";
+            // 
+            // trTrInterval
+            // 
+            this.trTrInterval.Location = new System.Drawing.Point(455, 51);
+            this.trTrInterval.Maximum = 300;
+            this.trTrInterval.Minimum = 10;
+            this.trTrInterval.Name = "trTrInterval";
+            this.trTrInterval.Size = new System.Drawing.Size(429, 45);
+            this.trTrInterval.TabIndex = 1;
+            this.trTrInterval.TickFrequency = 10;
+            this.trTrInterval.Value = 20;
+            // 
+            // materialCard11
+            // 
+            this.materialCard11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listKillfeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listKillfeed.FormattingEnabled = true;
-            this.listKillfeed.Location = new System.Drawing.Point(450, 31);
-            this.listKillfeed.Name = "listKillfeed";
-            this.listKillfeed.Size = new System.Drawing.Size(439, 455);
-            this.listKillfeed.TabIndex = 0;
+            this.materialCard11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard11.Controls.Add(this.txtTrMsg);
+            this.materialCard11.Controls.Add(this.materialLabel24);
+            this.materialCard11.Depth = 0;
+            this.materialCard11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard11.Location = new System.Drawing.Point(14, 14);
+            this.materialCard11.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard11.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard11.Name = "materialCard11";
+            this.materialCard11.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard11.Size = new System.Drawing.Size(424, 396);
+            this.materialCard11.TabIndex = 0;
+            // 
+            // txtTrMsg
+            // 
+            this.txtTrMsg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtTrMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTrMsg.Depth = 0;
+            this.txtTrMsg.DetectUrls = false;
+            this.txtTrMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTrMsg.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTrMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtTrMsg.Hint = "Enter some advertisements...";
+            this.txtTrMsg.Location = new System.Drawing.Point(14, 37);
+            this.txtTrMsg.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTrMsg.Name = "txtTrMsg";
+            this.txtTrMsg.Size = new System.Drawing.Size(396, 345);
+            this.txtTrMsg.TabIndex = 0;
+            this.txtTrMsg.Text = "";
+            // 
+            // materialLabel24
+            // 
+            this.materialLabel24.Depth = 0;
+            this.materialLabel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialLabel24.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel24.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel24.Location = new System.Drawing.Point(14, 14);
+            this.materialLabel24.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel24.Name = "materialLabel24";
+            this.materialLabel24.Size = new System.Drawing.Size(396, 23);
+            this.materialLabel24.TabIndex = 1;
+            this.materialLabel24.Text = "Messages (1 per Line)";
+            this.materialLabel24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabBotDetector
             // 
@@ -1553,7 +1776,7 @@
             this.tabBotDetector.Controls.Add(this.materialLabel17);
             this.tabBotDetector.Location = new System.Drawing.Point(4, 22);
             this.tabBotDetector.Name = "tabBotDetector";
-            this.tabBotDetector.Size = new System.Drawing.Size(892, 494);
+            this.tabBotDetector.Size = new System.Drawing.Size(892, 424);
             this.tabBotDetector.TabIndex = 6;
             this.tabBotDetector.Text = "Bot Detector";
             // 
@@ -1566,12 +1789,12 @@
             this.materialCard8.Controls.Add(this.listBdLog);
             this.materialCard8.Depth = 0;
             this.materialCard8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard8.Location = new System.Drawing.Point(514, 97);
+            this.materialCard8.Location = new System.Drawing.Point(513, 97);
             this.materialCard8.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard8.Name = "materialCard8";
             this.materialCard8.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard8.Size = new System.Drawing.Size(364, 378);
+            this.materialCard8.Size = new System.Drawing.Size(364, 308);
             this.materialCard8.TabIndex = 20;
             // 
             // materialLabel19
@@ -1597,7 +1820,7 @@
             this.listBdLog.FormattingEnabled = true;
             this.listBdLog.Location = new System.Drawing.Point(17, 43);
             this.listBdLog.Name = "listBdLog";
-            this.listBdLog.Size = new System.Drawing.Size(330, 312);
+            this.listBdLog.Size = new System.Drawing.Size(330, 234);
             this.listBdLog.TabIndex = 0;
             // 
             // cardBdTools
@@ -1606,6 +1829,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cardBdTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cardBdTools.Controls.Add(this.materialLabel22);
+            this.cardBdTools.Controls.Add(this.btnBdReset);
             this.cardBdTools.Controls.Add(this.chkBdVotekick);
             this.cardBdTools.Controls.Add(this.txtBdTeamMessage);
             this.cardBdTools.Controls.Add(this.chkBdNotfiy);
@@ -1621,8 +1846,41 @@
             this.cardBdTools.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardBdTools.Name = "cardBdTools";
             this.cardBdTools.Padding = new System.Windows.Forms.Padding(14);
-            this.cardBdTools.Size = new System.Drawing.Size(467, 378);
+            this.cardBdTools.Size = new System.Drawing.Size(466, 308);
             this.cardBdTools.TabIndex = 19;
+            // 
+            // materialLabel22
+            // 
+            this.materialLabel22.AutoSize = true;
+            this.materialLabel22.Depth = 0;
+            this.materialLabel22.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel22.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel22.Location = new System.Drawing.Point(178, 180);
+            this.materialLabel22.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel22.Name = "materialLabel22";
+            this.materialLabel22.Size = new System.Drawing.Size(110, 29);
+            this.materialLabel22.TabIndex = 20;
+            this.materialLabel22.Text = "Messages";
+            // 
+            // btnBdReset
+            // 
+            this.btnBdReset.AutoSize = false;
+            this.btnBdReset.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnBdReset.Depth = 0;
+            this.btnBdReset.DrawShadows = true;
+            this.btnBdReset.HighEmphasis = false;
+            this.btnBdReset.Icon = null;
+            this.btnBdReset.Location = new System.Drawing.Point(20, 57);
+            this.btnBdReset.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnBdReset.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnBdReset.Name = "btnBdReset";
+            this.btnBdReset.Size = new System.Drawing.Size(147, 40);
+            this.btnBdReset.TabIndex = 19;
+            this.btnBdReset.Text = "Reset";
+            this.btnBdReset.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnBdReset.UseAccentColor = false;
+            this.btnBdReset.UseVisualStyleBackColor = true;
+            this.btnBdReset.Click += new System.EventHandler(this.btnBdReset_Click);
             // 
             // chkBdVotekick
             // 
@@ -1650,12 +1908,12 @@
             this.txtBdTeamMessage.Depth = 0;
             this.txtBdTeamMessage.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtBdTeamMessage.Hint = "Team cheater message";
-            this.txtBdTeamMessage.Location = new System.Drawing.Point(20, 199);
+            this.txtBdTeamMessage.Location = new System.Drawing.Point(17, 273);
             this.txtBdTeamMessage.MaxLength = 50;
             this.txtBdTeamMessage.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBdTeamMessage.Multiline = false;
             this.txtBdTeamMessage.Name = "txtBdTeamMessage";
-            this.txtBdTeamMessage.Size = new System.Drawing.Size(429, 50);
+            this.txtBdTeamMessage.Size = new System.Drawing.Size(428, 50);
             this.txtBdTeamMessage.TabIndex = 18;
             this.txtBdTeamMessage.Text = "";
             // 
@@ -1684,12 +1942,12 @@
             this.txtBdEnemyMsg.Depth = 0;
             this.txtBdEnemyMsg.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtBdEnemyMsg.Hint = "Enemy cheater message";
-            this.txtBdEnemyMsg.Location = new System.Drawing.Point(20, 138);
+            this.txtBdEnemyMsg.Location = new System.Drawing.Point(20, 217);
             this.txtBdEnemyMsg.MaxLength = 50;
             this.txtBdEnemyMsg.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBdEnemyMsg.Multiline = false;
             this.txtBdEnemyMsg.Name = "txtBdEnemyMsg";
-            this.txtBdEnemyMsg.Size = new System.Drawing.Size(429, 50);
+            this.txtBdEnemyMsg.Size = new System.Drawing.Size(428, 50);
             this.txtBdEnemyMsg.TabIndex = 17;
             this.txtBdEnemyMsg.Text = "";
             // 
@@ -1698,7 +1956,7 @@
             this.chkBdNotifyTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBdNotifyTeam.AutoSize = true;
             this.chkBdNotifyTeam.Depth = 0;
-            this.chkBdNotifyTeam.Location = new System.Drawing.Point(326, 14);
+            this.chkBdNotifyTeam.Location = new System.Drawing.Point(325, 14);
             this.chkBdNotifyTeam.Margin = new System.Windows.Forms.Padding(0);
             this.chkBdNotifyTeam.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkBdNotifyTeam.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1716,24 +1974,24 @@
             this.lblBdDelay.Depth = 0;
             this.lblBdDelay.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblBdDelay.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle2;
-            this.lblBdDelay.Location = new System.Drawing.Point(26, 67);
+            this.lblBdDelay.Location = new System.Drawing.Point(26, 117);
             this.lblBdDelay.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblBdDelay.Name = "lblBdDelay";
             this.lblBdDelay.Size = new System.Drawing.Size(190, 17);
             this.lblBdDelay.TabIndex = 16;
-            this.lblBdDelay.Text = "Message Interval: 10 seconds";
+            this.lblBdDelay.Text = "Message Interval: 15 seconds";
             // 
             // trackBdDelay
             // 
             this.trackBdDelay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBdDelay.Location = new System.Drawing.Point(14, 87);
+            this.trackBdDelay.Location = new System.Drawing.Point(14, 137);
             this.trackBdDelay.Maximum = 60;
             this.trackBdDelay.Minimum = 1;
             this.trackBdDelay.Name = "trackBdDelay";
-            this.trackBdDelay.Size = new System.Drawing.Size(435, 45);
+            this.trackBdDelay.Size = new System.Drawing.Size(434, 45);
             this.trackBdDelay.TabIndex = 15;
-            this.trackBdDelay.Value = 10;
+            this.trackBdDelay.Value = 15;
             this.trackBdDelay.Scroll += new System.EventHandler(this.trackBdDelay_Scroll);
             // 
             // chkBdEnable
@@ -1775,7 +2033,7 @@
             this.tabConsole.Controls.Add(this.materialCard1);
             this.tabConsole.Location = new System.Drawing.Point(4, 22);
             this.tabConsole.Name = "tabConsole";
-            this.tabConsole.Size = new System.Drawing.Size(892, 494);
+            this.tabConsole.Size = new System.Drawing.Size(892, 424);
             this.tabConsole.TabIndex = 2;
             this.tabConsole.Text = "Console";
             // 
@@ -1792,7 +2050,7 @@
             this.txtConsoleOutput.Name = "txtConsoleOutput";
             this.txtConsoleOutput.ReadOnly = true;
             this.txtConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtConsoleOutput.Size = new System.Drawing.Size(892, 425);
+            this.txtConsoleOutput.Size = new System.Drawing.Size(892, 355);
             this.txtConsoleOutput.TabIndex = 4;
             this.txtConsoleOutput.TabStop = false;
             // 
@@ -1804,7 +2062,7 @@
             this.materialCard1.Depth = 0;
             this.materialCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(0, 425);
+            this.materialCard1.Location = new System.Drawing.Point(0, 355);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
@@ -1827,7 +2085,7 @@
             this.txtConsoleInput.Multiline = false;
             this.txtConsoleInput.Name = "txtConsoleInput";
             this.txtConsoleInput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.txtConsoleInput.Size = new System.Drawing.Size(751, 50);
+            this.txtConsoleInput.Size = new System.Drawing.Size(750, 50);
             this.txtConsoleInput.TabIndex = 0;
             this.txtConsoleInput.Text = "";
             this.txtConsoleInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConsoleInput_KeyDown);
@@ -1841,7 +2099,7 @@
             this.btnSendConsole.DrawShadows = true;
             this.btnSendConsole.HighEmphasis = true;
             this.btnSendConsole.Icon = null;
-            this.btnSendConsole.Location = new System.Drawing.Point(766, 11);
+            this.btnSendConsole.Location = new System.Drawing.Point(765, 11);
             this.btnSendConsole.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSendConsole.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSendConsole.Name = "btnSendConsole";
@@ -1863,7 +2121,7 @@
             this.tabSettings.Location = new System.Drawing.Point(4, 22);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(892, 494);
+            this.tabSettings.Size = new System.Drawing.Size(892, 424);
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             // 
@@ -1874,7 +2132,7 @@
             this.btnSaveSettings.Depth = 0;
             this.btnSaveSettings.DrawShadows = true;
             this.btnSaveSettings.Icon = global::ToolFortress.Properties.Resources.SaveIcon;
-            this.btnSaveSettings.Location = new System.Drawing.Point(814, 422);
+            this.btnSaveSettings.Location = new System.Drawing.Point(820, 352);
             this.btnSaveSettings.Mini = false;
             this.btnSaveSettings.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSaveSettings.Name = "btnSaveSettings";
@@ -1887,6 +2145,7 @@
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.txtConnectName);
             this.materialCard2.Controls.Add(this.comboTheme);
             this.materialCard2.Controls.Add(this.chkMirrorConsole);
             this.materialCard2.Controls.Add(this.materialLabel5);
@@ -1897,8 +2156,24 @@
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(369, 158);
+            this.materialCard2.Size = new System.Drawing.Size(369, 187);
             this.materialCard2.TabIndex = 7;
+            // 
+            // txtConnectName
+            // 
+            this.txtConnectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConnectName.Depth = 0;
+            this.txtConnectName.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtConnectName.Hint = "TFC Username";
+            this.txtConnectName.Location = new System.Drawing.Point(17, 119);
+            this.txtConnectName.MaxLength = 15;
+            this.txtConnectName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtConnectName.Multiline = false;
+            this.txtConnectName.Name = "txtConnectName";
+            this.txtConnectName.Size = new System.Drawing.Size(335, 50);
+            this.txtConnectName.TabIndex = 9;
+            this.txtConnectName.Text = "";
+            this.txtConnectName.TextChanged += new System.EventHandler(this.txtConnectName_TextChanged);
             // 
             // comboTheme
             // 
@@ -1975,7 +2250,7 @@
             this.cardLog.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardLog.Name = "cardLog";
             this.cardLog.Padding = new System.Windows.Forms.Padding(14);
-            this.cardLog.Size = new System.Drawing.Size(467, 245);
+            this.cardLog.Size = new System.Drawing.Size(473, 245);
             this.cardLog.TabIndex = 6;
             // 
             // btnGameKill
@@ -1987,11 +2262,11 @@
             this.btnGameKill.DrawShadows = true;
             this.btnGameKill.HighEmphasis = true;
             this.btnGameKill.Icon = null;
-            this.btnGameKill.Location = new System.Drawing.Point(241, 197);
+            this.btnGameKill.Location = new System.Drawing.Point(278, 197);
             this.btnGameKill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGameKill.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGameKill.Name = "btnGameKill";
-            this.btnGameKill.Size = new System.Drawing.Size(208, 38);
+            this.btnGameKill.Size = new System.Drawing.Size(178, 38);
             this.btnGameKill.TabIndex = 8;
             this.btnGameKill.Text = "Kill";
             this.btnGameKill.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -2007,13 +2282,13 @@
             this.btnGameQuit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnGameQuit.Depth = 0;
             this.btnGameQuit.DrawShadows = true;
-            this.btnGameQuit.HighEmphasis = true;
+            this.btnGameQuit.HighEmphasis = false;
             this.btnGameQuit.Icon = null;
             this.btnGameQuit.Location = new System.Drawing.Point(17, 197);
             this.btnGameQuit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGameQuit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGameQuit.Name = "btnGameQuit";
-            this.btnGameQuit.Size = new System.Drawing.Size(208, 38);
+            this.btnGameQuit.Size = new System.Drawing.Size(253, 38);
             this.btnGameQuit.TabIndex = 7;
             this.btnGameQuit.Text = "Quit";
             this.btnGameQuit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -2036,7 +2311,7 @@
             this.txtSteamID3.Multiline = false;
             this.txtSteamID3.Name = "txtSteamID3";
             this.txtSteamID3.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.txtSteamID3.Size = new System.Drawing.Size(433, 50);
+            this.txtSteamID3.Size = new System.Drawing.Size(439, 50);
             this.txtSteamID3.TabIndex = 6;
             this.txtSteamID3.Text = "";
             // 
@@ -2054,7 +2329,7 @@
             this.btnGamePicker.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGamePicker.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGamePicker.Name = "btnGamePicker";
-            this.btnGamePicker.Size = new System.Drawing.Size(432, 32);
+            this.btnGamePicker.Size = new System.Drawing.Size(439, 32);
             this.btnGamePicker.TabIndex = 5;
             this.btnGamePicker.Text = "Select...";
             this.btnGamePicker.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -2077,7 +2352,7 @@
             this.txtTFPath.Multiline = false;
             this.txtTFPath.Name = "txtTFPath";
             this.txtTFPath.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.txtTFPath.Size = new System.Drawing.Size(433, 50);
+            this.txtTFPath.Size = new System.Drawing.Size(439, 50);
             this.txtTFPath.TabIndex = 5;
             this.txtTFPath.Text = "";
             // 
@@ -2200,10 +2475,9 @@
             // 
             this.mainTabSelector.BaseTabControl = this.mainTabControl;
             this.mainTabSelector.Depth = 0;
-            this.mainTabSelector.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainTabSelector.Enabled = false;
             this.mainTabSelector.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mainTabSelector.Location = new System.Drawing.Point(0, 0);
+            this.mainTabSelector.Location = new System.Drawing.Point(0, 64);
             this.mainTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainTabSelector.Name = "mainTabSelector";
             this.mainTabSelector.Size = new System.Drawing.Size(900, 30);
@@ -2215,6 +2489,17 @@
             this.tfFolderBrowser.Description = "Select your \"Team Fortress 2\" Folder...";
             this.tfFolderBrowser.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
+            // colPlaytime
+            // 
+            this.colPlaytime.DisplayIndex = 3;
+            this.colPlaytime.Text = "Playtime";
+            this.colPlaytime.Width = 110;
+            // 
+            // colPing
+            // 
+            this.colPing.Text = "Ping";
+            this.colPing.Width = 80;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2222,7 +2507,6 @@
             this.ClientSize = new System.Drawing.Size(900, 550);
             this.Controls.Add(this.mainTabControl);
             this.Controls.Add(this.mainTabSelector);
-            this.DrawerTabControl = this.mainTabControl;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(900, 550);
@@ -2260,6 +2544,12 @@
             this.materialCard5.PerformLayout();
             this.tabStats.ResumeLayout(false);
             this.tabStats.PerformLayout();
+            this.tabTrade.ResumeLayout(false);
+            this.tabTrade.PerformLayout();
+            this.materialCard12.ResumeLayout(false);
+            this.materialCard12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trTrInterval)).EndInit();
+            this.materialCard11.ResumeLayout(false);
             this.tabBotDetector.ResumeLayout(false);
             this.tabBotDetector.PerformLayout();
             this.materialCard8.ResumeLayout(false);
@@ -2309,8 +2599,6 @@
         private System.Windows.Forms.ProgressBar progRconConnect;
         private System.Windows.Forms.TabPage tabStats;
         private MaterialSkin.Controls.MaterialTextBox txtSteamID3;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private System.Windows.Forms.ListBox listKillfeed;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MaterialSkin.Controls.MaterialCheckbox chkMirrorConsole;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
@@ -2329,9 +2617,7 @@
         private MaterialSkin.Controls.MaterialTextBox txtKillsayMsg;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private MaterialSkin.Controls.MaterialTextBox txtKillsayDeathMsg;
-        private MaterialSkin.Controls.MaterialButton btnClearFeed;
         private MaterialSkin.Controls.MaterialButton btnClearStats;
-        private System.Windows.Forms.ListBox listClassPeek;
         private MaterialSkin.Controls.MaterialCheckbox chkClassPeek;
         private MaterialSkin.Controls.MaterialButton btnShowSettings;
         private MaterialSkin.Controls.MaterialFloatingActionButton btnSaveSettings;
@@ -2402,6 +2688,29 @@
         private MaterialSkin.Controls.MaterialSwitch chkMiscMathLegit;
         private MaterialSkin.Controls.MaterialLabel materialLabel23;
         private MaterialSkin.Controls.MaterialButton btnCnDestroy;
+        private MaterialSkin.Controls.MaterialButton btnBdReset;
+        private MaterialSkin.Controls.MaterialLabel materialLabel22;
+        private MaterialSkin.Controls.MaterialTextBox txtConnectName;
+        private System.Windows.Forms.TabPage tabTrade;
+        private MaterialSkin.Controls.MaterialCard materialCard11;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox txtTrMsg;
+        private MaterialSkin.Controls.MaterialLabel materialLabel24;
+        private MaterialSkin.Controls.MaterialLabel materialLabel25;
+        private System.Windows.Forms.TrackBar trTrInterval;
+        private MaterialSkin.Controls.MaterialCard materialCard12;
+        private MaterialSkin.Controls.MaterialRadioButton raTrPrio;
+        private MaterialSkin.Controls.MaterialLabel materialLabel26;
+        private MaterialSkin.Controls.MaterialRadioButton raTrRandom;
+        private MaterialSkin.Controls.MaterialRadioButton raTrList;
+        private MaterialSkin.Controls.MaterialCheckbox chkTrTeam;
+        private MaterialSkin.Controls.MaterialCheckbox chkTrMsg;
+        private MaterialSkin.Controls.MaterialSwitch materialSwitch1;
+        private MaterialSkin.Controls.MaterialListView lvClassPeek;
+        private System.Windows.Forms.ColumnHeader colName;
+        private System.Windows.Forms.ColumnHeader colClass;
+        private System.Windows.Forms.ColumnHeader colState;
+        private System.Windows.Forms.ColumnHeader colPlaytime;
+        private System.Windows.Forms.ColumnHeader colPing;
     }
 }
 

@@ -32,6 +32,7 @@ namespace ToolFortress
         private CommandSpamModule cmdSpamModule = new CommandSpamModule();
         private ConnectModule connectModule = new ConnectModule();
         private PointFarmModule farmModule = new PointFarmModule();
+        private BotDetectorModule bdModule = new BotDetectorModule();
 
         public MainMenu()
         {
@@ -71,6 +72,12 @@ namespace ToolFortress
             txtBdEnemyMsg.Text = Settings.M_BD_ENEMYMSG;
             txtBdTeamMessage.Text = Settings.M_BD_TEAMMSG;
 
+            if (Settings.FB_USERNAME.Length < 3)
+            {
+                Settings.FB_USERNAME = "Guest #" + new Random().Next(100, 999);
+            }
+            txtConnectName.Text = Settings.FB_USERNAME;
+
             // Load constants
             comboKillsayTaunt.DataSource = Interpreter.Taunts;
             comboCnTaunt.DataSource = Interpreter.Taunts;
@@ -89,6 +96,7 @@ namespace ToolFortress
             rconThread.Start();
         }
 
+        /* Run TF2 with the required args */
         private void btnStartGame_Click(object sender, EventArgs e)
         {
             // Start TF2 and start a Rcon-Server
@@ -178,13 +186,14 @@ namespace ToolFortress
             cmdSpamModule.Disable();
             connectModule.Disable();
             farmModule.Disable();
+            bdModule.Disable();
 
             // Stop all Threads and disconnect from the game
             retryConnection = false;
             Game.Disconnect();
         }
 
-        // Retry Rcon connection until it succeeds
+        /* Retry Rcon connection until it succeeds */
         private void TryRconConnection()
         {
             // Try to connect to the game
@@ -231,27 +240,20 @@ namespace ToolFortress
             }
         }
 
-        // Initlilize Tools (Rcon successfull)
+        /* Initlilize Tools (Rcon successfull) */
         private void Connected()
         {
             Game.StartInfoRequest();
 
-            // Handle KillFeed event
-            Game.LogParser.OnKillFeed += (kf) =>
-            {
-                listKillfeed.Invoke((MethodInvoker)delegate
-                {
-                    listKillfeed.Items.Add(kf.Killer + " killed " + kf.Target + " with " + kf.Weapon + (kf.Crit ? " (Crit)" : ""));
-                });
-            };
-
-            // Handle modules
+            // Enable Modules
             commandModule.Enable();
-
             statTrakModule.Enable();
+
+            // Stat Tracker Update
             statTrakModule.OnStatUpdate += (kills, deaths) =>
             {
-                lblKillCount.Invoke((MethodInvoker)delegate {
+                lblKillCount.Invoke((MethodInvoker)delegate
+                {
                     lblKillCount.Text = kills.Count.ToString();
                     lblDeathCounter.Text = deaths.Count.ToString();
                     if (kills.Count > 0 && deaths.Count > 0)
@@ -261,15 +263,21 @@ namespace ToolFortress
                 });
             };
 
-            classPeekModule.OnClassUpdate += (classList) =>
+            // Class Peek Update
+            classPeekModule.OnClassUpdate += (playerList) =>
             {
-                listClassPeek.Invoke((MethodInvoker)delegate
+                lvClassPeek.Invoke((MethodInvoker)delegate
                 {
-                    listClassPeek.Items.Clear();
-                    foreach (KeyValuePair<string, Class> player in classList)
+                    List<ListViewItem> lvItemList = new List<ListViewItem>();
+                    foreach (Player p in playerList)
                     {
-                        listClassPeek.Items.Add(player.Key + " - " + player.Value.ToString());
+                        ListViewItem item = new ListViewItem(new String[] { p.Name, p.Class.ToString(), p.Playtime, p.State, p.Ping });
+                        item.BackColor = (p.Team == Team.Unknown) ? Color.Gray : ((p.Team == Team.Red) ? Color.Red : Color.Blue);
+                        lvItemList.Add(item);
                     }
+
+                    lvClassPeek.Items.Clear();
+                    lvClassPeek.Items.AddRange(lvItemList.ToArray());
                 });
             };
         }
@@ -284,7 +292,7 @@ namespace ToolFortress
             SetTheme(comboTheme.SelectedIndex);
         }
 
-        // Change UI Theme
+        /* Change UI Theme */
         private void SetTheme(int pThemeID)
         {
             switch (pThemeID)
@@ -306,55 +314,7 @@ namespace ToolFortress
             }
         }
 
-        // Toogle Killsay Module
-        private void chkFunKillsay_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkFunKillsay.Checked)
-            {
-                killsayModule.Enable();
-            } else
-            {
-                killsayModule.Disable();
-            }
-        }
-
-        private void chkKillsayKill_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.M_KILLSAY_KILL = chkKillsayKill.Checked;
-        }
-
-        private void chkKillsayDeath_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.M_KILLSAY_DEATH = chkKillsayDeath.Checked;
-        }
-
-        private void chkKillsayCrit_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.M_KILLSAY_CRITONLY = chkKillsayCrit.Checked;
-        }
-
-        private void txtKillsayMsg_TextChanged(object sender, EventArgs e)
-        {
-            Settings.M_KILLSAY_KILLMSG = txtKillsayMsg.Text;
-        }
-
-        private void txtKillsayDeathMsg_TextChanged(object sender, EventArgs e)
-        {
-            Settings.M_KILLSAY_DEATHMSG = txtKillsayDeathMsg.Text;
-        }
-
-        private void chkKillsayClass_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.M_KILLSAY_CLASSONLY = chkKillsayClass.Checked;
-            comboKillsayClass.Enabled = chkKillsayClass.Checked;
-        }
-
-        private void comboKillsayClass_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Settings.M_KILLSAY_CLASS = (Class)comboKillsayClass.SelectedIndex;
-        }
-
-        // Toggle ClassPeek Module
+        /* Toggle ClassPeek Module */
         private void chkClassPeek_CheckedChanged(object sender, EventArgs e)
         {
             if (chkClassPeek.Checked)
@@ -369,11 +329,7 @@ namespace ToolFortress
         private void btnClearStats_Click(object sender, EventArgs e)
         {
             statTrakModule.Reset();
-        }
-
-        private void btnClearFeed_Click(object sender, EventArgs e)
-        {
-            listKillfeed.Items.Clear();
+            lblKDCounter.Text = "0";
         }
 
         private void btnShowSettings_Click(object sender, EventArgs e)
@@ -381,7 +337,7 @@ namespace ToolFortress
             mainTabControl.SelectedTab = tabSettings;
         }
 
-        // Save Settings
+        /* Save Settings */
         private void btnSaveSettings_Click(object sender, EventArgs e)
         {
             Settings.RCON_IP = txtRconIP.Text;
@@ -393,6 +349,9 @@ namespace ToolFortress
 
             Settings.F_CONSOLE_MIRROR = chkMirrorConsole.Checked;
             Settings.F_THEME_ID = comboTheme.SelectedIndex;
+
+            Settings.FB_USERNAME = txtConnectName.Text;
+            Settings.Save();
         }
 
         private void btnSvTaunt_Click(object sender, EventArgs e)
@@ -422,7 +381,7 @@ namespace ToolFortress
             Settings.M_SPAM_DELAY = trackSpamSpeed.Value;
         }
 
-        // Quit the game ("quit" command)
+        /* Quit the game ("quit" command) */
         private void btnGameQuit_Click(object sender, EventArgs e)
         {
             Game.SendCommand("quit");
@@ -432,7 +391,7 @@ namespace ToolFortress
             btnStartGame.Refresh();
         }
 
-        // Kill the game (End the Process)
+        /* Kill the game (End the Process) */
         private void btnGameKill_Click(object sender, EventArgs e)
         {
             try
@@ -449,6 +408,8 @@ namespace ToolFortress
             btnStartGame.Refresh();
         }
 
+        #region Connect Features
+        /* Toggle Connect-Feature */
         private void switchCnEnable_CheckedChanged(object sender, EventArgs e)
         {
             if (switchCnEnable.Checked)
@@ -465,6 +426,7 @@ namespace ToolFortress
             }
         }
 
+        /* Update Connect-Lobbys */
         private void UpdateLobbyList()
         {
             Dictionary<string, string> lobbyDict = connectModule.GetLobbys();
@@ -520,7 +482,6 @@ namespace ToolFortress
             connectModule.Disconnect();
             pnlCnTools.Enabled = false;
             btnCnDestroy.Enabled = false;
-            listCnUsers.Items.Clear();
             listCnUsers.DataSource = null;
             listCnUsers.Refresh();
         }
@@ -537,6 +498,24 @@ namespace ToolFortress
             }
         }
 
+        private void btnCnMessage_Click(object sender, EventArgs e)
+        {
+            Game.SendPartyMessage("Saying '" + txtCnMessage.Text + "' on all clients...");
+            connectModule.BroadcastMessage("say", txtCnMessage.Text);
+        }
+
+        private void btnCnLeaveMatch_Click(object sender, EventArgs e)
+        {
+            connectModule.BroadcastMessage("cmd", "disconnect");
+        }
+
+        private void btnCnInviteParty_Click(object sender, EventArgs e)
+        {
+            connectModule.BroadcastMessage("cmd", "tf_party_request_join_user " + Utils.ConvertToID64(Settings.TF2_STEAMID3));
+        }
+        #endregion
+
+        #region Misc Features
         private void btnMiscVote1_Click(object sender, EventArgs e)
         {
             Game.SendCommand("next_map_vote 0");
@@ -550,24 +529,6 @@ namespace ToolFortress
         private void btnMiscVote3_Click(object sender, EventArgs e)
         {
             Game.SendCommand("next_map_vote 2");
-        }
-
-        private void btnCnMessage_Click(object sender, EventArgs e)
-        {
-            Game.SendPartyMessage("Saying '" + txtCnMessage.Text + "' on all clients...");
-            connectModule.BroadcastMessage("say", txtCnMessage.Text);
-        }
-
-        private void btnCnLeaveMatch_Click(object sender, EventArgs e)
-        {
-            connectModule.BroadcastMessage("cmd", "disconnect");
-        }
-
-
-        private void btnCnInviteParty_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("ID64: " + Utils.ConvertToID64(Settings.TF2_STEAMID3));
-            connectModule.BroadcastMessage("cmd", "tf_party_request_join_user " + Utils.ConvertToID64(Settings.TF2_STEAMID3));
         }
 
         private void comboMiscExec_MouseDown(object sender, MouseEventArgs e)
@@ -590,6 +551,84 @@ namespace ToolFortress
             }
         }
 
+        private void chkMiscPointsMode_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_POINTFARM_MODE = chkMiscPointsMode.Checked;
+        }
+
+        private void chkMiscPoints_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMiscPoints.Checked)
+            {
+                farmModule.Enable();
+            }
+            else
+            {
+                farmModule.Disable();
+            }
+        }
+
+        private void chkMiscMath_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.F_SOLVE_MATH = chkMiscMath.Checked;
+        }
+
+        private void chkMiscMathLegit_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.F_SOLVE_MATH_LEGIT = chkMiscMathLegit.Checked;
+        }
+        #endregion
+
+        #region Fun Features
+        /* Toogle Killsay Module */
+        private void chkFunKillsay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkFunKillsay.Checked)
+            {
+                killsayModule.Enable();
+            }
+            else
+            {
+                killsayModule.Disable();
+            }
+        }
+
+        private void chkKillsayKill_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_KILL = chkKillsayKill.Checked;
+        }
+
+        private void chkKillsayDeath_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_DEATH = chkKillsayDeath.Checked;
+        }
+
+        private void chkKillsayCrit_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_CRITONLY = chkKillsayCrit.Checked;
+        }
+
+        private void txtKillsayMsg_TextChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_KILLMSG = txtKillsayMsg.Text;
+        }
+
+        private void txtKillsayDeathMsg_TextChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_DEATHMSG = txtKillsayDeathMsg.Text;
+        }
+
+        private void chkKillsayClass_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_CLASSONLY = chkKillsayClass.Checked;
+            comboKillsayClass.Enabled = chkKillsayClass.Checked;
+        }
+
+        private void comboKillsayClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.M_KILLSAY_CLASS = (Class)comboKillsayClass.SelectedIndex;
+        }
+
         private void chkKillsayTaunt_CheckedChanged(object sender, EventArgs e)
         {
             Settings.M_KILLSAY_TAUNTKILL = chkKillsayTaunt.Checked;
@@ -600,7 +639,9 @@ namespace ToolFortress
         {
             Settings.M_KILLSAY_TAUNT = comboKillsayTaunt.SelectedItem.ToString();
         }
+        #endregion
 
+        #region Bot-Detector Features
         private void trackBdDelay_Scroll(object sender, EventArgs e)
         {
             Settings.M_BD_DELAY = trackBdDelay.Value * 1000;
@@ -622,35 +663,44 @@ namespace ToolFortress
             Settings.M_BD_TEAMNOTIFY = chkBdNotifyTeam.Checked;
         }
 
+        private void btnBdReset_Click(object sender, EventArgs e)
+        {
+            bdModule.Reset();
+            listBdLog.Items.Clear();
+        }
+
         private void chkBdEnable_CheckedChanged(object sender, EventArgs e)
         {
+            if (chkBdEnable.Checked)
+            {
+                bdModule.OnLogUpdate += PrintBDMessage;
+                bdModule.Enable();
+            }
+            else
+            {
+                bdModule.OnLogUpdate -= PrintBDMessage;
+                bdModule.Disable();
+                listBdLog.Items.Clear();
+            }
+
             cardBdTools.Enabled = chkBdEnable.Checked;
         }
 
-        private void chkMiscPointsMode_CheckedChanged(object sender, EventArgs e)
+        private void PrintBDMessage(string message)
         {
-            Settings.M_POINTFARM_MODE = chkMiscPointsMode.Checked;
+            listBdLog.Invoke((MethodInvoker)delegate
+            {
+                listBdLog.Items.Add(message);
+            });
         }
+        #endregion
 
-        private void chkMiscPoints_CheckedChanged(object sender, EventArgs e)
+        private void txtConnectName_TextChanged(object sender, EventArgs e)
         {
-            if (chkMiscPoints.Checked)
+            if (txtConnectName.Text.Length > 3)
             {
-                farmModule.Enable();
-            } else
-            {
-                farmModule.Disable();
+                Settings.FB_USERNAME = txtConnectName.Text;
             }
-        }
-
-        private void chkMiscMath_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.F_SOLVE_MATH = chkMiscMath.Checked;
-        }
-
-        private void chkMiscMathLegit_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.F_SOLVE_MATH_LEGIT = chkMiscMathLegit.Checked;
         }
     }
 }
