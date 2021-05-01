@@ -73,8 +73,10 @@ namespace ToolFortress.Modules
                 }
             }
 
-            // Return a distinct array just in case...
             _classBuffer = newClassBuffer;
+
+            // We'll send a class update for now, so the list stays up to date...
+            OnClassUpdate(_classBuffer);
         }
     }
 }

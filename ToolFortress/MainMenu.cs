@@ -81,6 +81,9 @@ namespace ToolFortress
             // Load constants
             comboKillsayTaunt.DataSource = Interpreter.Taunts;
             comboCnTaunt.DataSource = Interpreter.Taunts;
+
+            // Initialize Controls
+            // lvClassPeek.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.)
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -272,7 +275,8 @@ namespace ToolFortress
                     foreach (Player p in playerList)
                     {
                         ListViewItem item = new ListViewItem(new String[] { p.Name, p.Class.ToString(), p.Playtime, p.State, p.Ping });
-                        item.BackColor = (p.Team == Team.Unknown) ? Color.Gray : ((p.Team == Team.Red) ? Color.Red : Color.Blue);
+                        item.Tag = p;
+                        // item.BackColor = (p.Team == Team.Unknown) ? Color.Gray : ((p.Team == Team.Red) ? Color.Red : Color.Blue);
                         lvItemList.Add(item);
                     }
 
@@ -282,14 +286,17 @@ namespace ToolFortress
             };
         }
 
+        /* Toggle console mirror */
         private void chkMirrorConsole_CheckedChanged(object sender, EventArgs e)
         {
             Settings.F_CONSOLE_MIRROR = chkMirrorConsole.Checked;
         }
 
+        /* Change application theme */
         private void comboTheme_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetTheme(comboTheme.SelectedIndex);
+            this.Refresh();
         }
 
         /* Change UI Theme */
@@ -326,6 +333,7 @@ namespace ToolFortress
             }
         }
 
+        /* Reset stats page */
         private void btnClearStats_Click(object sender, EventArgs e)
         {
             statTrakModule.Reset();
@@ -357,28 +365,6 @@ namespace ToolFortress
         private void btnSvTaunt_Click(object sender, EventArgs e)
         {
             connectModule.BroadcastMessage("cmd", Interpreter.GetTauntCommand(comboCnTaunt.SelectedItem.ToString()));
-        }
-
-        // Toggle Chatspam Module
-        private void chkSpamEnable_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkSpamEnable.Checked)
-            {
-                cmdSpamModule.Enable();
-            } else
-            {
-                cmdSpamModule.Disable();
-            }
-        }
-
-        private void txtSpamCommand_TextChanged(object sender, EventArgs e)
-        {
-            Settings.M_SPAM_COMMAND = txtSpamCommand.Text;
-        }
-
-        private void trackSpamSpeed_Scroll(object sender, EventArgs e)
-        {
-            Settings.M_SPAM_DELAY = trackSpamSpeed.Value;
         }
 
         /* Quit the game ("quit" command) */
@@ -639,6 +625,29 @@ namespace ToolFortress
         {
             Settings.M_KILLSAY_TAUNT = comboKillsayTaunt.SelectedItem.ToString();
         }
+
+        // Toggle Chatspam Module
+        private void chkSpamEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkSpamEnable.Checked)
+            {
+                cmdSpamModule.Enable();
+            }
+            else
+            {
+                cmdSpamModule.Disable();
+            }
+        }
+
+        private void txtSpamCommand_TextChanged(object sender, EventArgs e)
+        {
+            Settings.M_SPAM_COMMAND = txtSpamCommand.Text;
+        }
+
+        private void trackSpamSpeed_Scroll(object sender, EventArgs e)
+        {
+            Settings.M_SPAM_DELAY = trackSpamSpeed.Value;
+        }
         #endregion
 
         #region Bot-Detector Features
@@ -701,6 +710,37 @@ namespace ToolFortress
             {
                 Settings.FB_USERNAME = txtConnectName.Text;
             }
+        }
+
+        private void kickToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Player sPlayer = (Player)lvClassPeek.SelectedItems[0].Tag;
+                Game.SendCommand("callvote kick " + sPlayer.UserID);
+
+            } catch (Exception) { }
+        }
+
+        private void cheatingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Player sPlayer = (Player)lvClassPeek.SelectedItems[0].Tag;
+                Game.SendCommand("callvote kick " + sPlayer.UserID + " cheating");
+
+            }
+            catch (Exception) { }
+        }
+
+        private void viewProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Player sPlayer = (Player)lvClassPeek.SelectedItems[0].Tag;
+                Process.Start("http://steamcommunity.com/profiles/" + sPlayer.UniqueID);
+            }
+            catch (Exception) { }
         }
     }
 }
