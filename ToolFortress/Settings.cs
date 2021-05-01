@@ -28,6 +28,8 @@ namespace ToolFortress
         public static bool F_SOLVE_MATH = false;
         public static bool F_SOLVE_MATH_LEGIT = true;
 
+        public static bool F_OVERLAY_PLAYERLIST = true;
+
         /* MODULES */
         public static bool M_KILLSAY_CRITONLY = false;
         public static bool M_KILLSAY_KILL = false;

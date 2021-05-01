@@ -23,6 +23,7 @@ namespace ToolFortress
     {
         private bool retryConnection = false;
         private MaterialSkinManager msManager = MaterialSkinManager.Instance;
+        private Overlay _overlay;
 
         // Modules
         private CommandModule commandModule = new CommandModule();
@@ -191,6 +192,12 @@ namespace ToolFortress
             farmModule.Disable();
             bdModule.Disable();
 
+            // Closes the overlay
+            if (_overlay != null)
+            {
+                _overlay.Close();
+            }
+
             // Stop all Threads and disconnect from the game
             retryConnection = false;
             Game.Disconnect();
@@ -272,16 +279,24 @@ namespace ToolFortress
                 lvClassPeek.Invoke((MethodInvoker)delegate
                 {
                     List<ListViewItem> lvItemList = new List<ListViewItem>();
+                    List<String> ovPlayerlist = new List<string>();
+
                     foreach (Player p in playerList)
                     {
-                        ListViewItem item = new ListViewItem(new String[] { p.Name, p.Class.ToString(), p.Playtime, p.State, p.Ping });
+                        ListViewItem item = new ListViewItem(new String[] { p.Name, p.Class.ToString(), p.Team.ToString(), p.Playtime, p.State, p.Ping });
                         item.Tag = p;
-                        // item.BackColor = (p.Team == Team.Unknown) ? Color.Gray : ((p.Team == Team.Red) ? Color.Red : Color.Blue);
                         lvItemList.Add(item);
+                        ovPlayerlist.Add(p.Name + ": " + p.Class.ToString());
                     }
 
                     lvClassPeek.Items.Clear();
                     lvClassPeek.Items.AddRange(lvItemList.ToArray());
+
+                    // Update overlay info
+                    if (chkMiscOverlay.Checked && chkMiscPlayerlist.Checked)
+                    {
+                        _overlay.UpdatePlayerlist(ovPlayerlist.ToArray());
+                    }
                 });
             };
         }
@@ -562,6 +577,71 @@ namespace ToolFortress
         private void chkMiscMathLegit_CheckedChanged(object sender, EventArgs e)
         {
             Settings.F_SOLVE_MATH_LEGIT = chkMiscMathLegit.Checked;
+        }
+
+        private void chkMiscOverlay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMiscOverlay.Checked)
+            {
+                _overlay = new Overlay();
+                _overlay.Show();
+                _overlay.Enable();
+            } else
+            {
+                _overlay.Close();
+            }
+        }
+
+        private void chkMiscPlayerlist_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.F_OVERLAY_PLAYERLIST = chkMiscPlayerlist.Checked;
+        }
+
+        private void chkMiscScanner_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMiscScanner.Checked)
+            {
+                Game.LogParser.OnChatMessage += ChatScanner;
+            }
+            else
+            {
+                Game.LogParser.OnChatMessage -= ChatScanner;
+            }
+        }
+
+        /* TODO: Move this into own module? */
+        private void ChatScanner(LogParser.ChatMessage chatMessage)
+        {
+            string msg = chatMessage.Message.ToLower();
+            if (msg.Contains("at") || msg.Contains("@") || msg.Contains("near") || msg.Contains("in"))
+            {
+                if (msg.Contains("sewer") || msg.Contains("canal"))
+                {
+                    Game.SendPartyMessage("Enemy at sewer!");
+                    if (chkMiscOverlay.Checked)
+                    {
+                        _overlay.PushMessage("Enemy at sewer!");
+                    }
+                }
+
+                if (msg.Contains("intel") || msg.Contains("basement"))
+                {
+                    Game.SendPartyMessage("Enemy at intel!");
+                    if (chkMiscOverlay.Checked)
+                    {
+                        _overlay.PushMessage("Enemy at intel!");
+                    }
+                }
+
+                if (msg.Contains("bridge"))
+                {
+                    Game.SendPartyMessage("Enemy at bridge!");
+                    if (chkMiscOverlay.Checked)
+                    {
+                        _overlay.PushMessage("Enemy at bridge!");
+                    }
+                }
+            }
         }
         #endregion
 

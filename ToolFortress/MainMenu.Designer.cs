@@ -56,6 +56,14 @@
             this.chkFunKillsay = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.tabMisc = new System.Windows.Forms.TabPage();
+            this.materialCard14 = new MaterialSkin.Controls.MaterialCard();
+            this.chkMiscScanner = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialLabel27 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialCard13 = new MaterialSkin.Controls.MaterialCard();
+            this.chkMiscTimer = new MaterialSkin.Controls.MaterialCheckbox();
+            this.chkMiscPlayerlist = new MaterialSkin.Controls.MaterialCheckbox();
+            this.chkMiscOverlay = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard10 = new MaterialSkin.Controls.MaterialCard();
             this.chkMiscMath = new MaterialSkin.Controls.MaterialCheckbox();
             this.chkMiscMathLegit = new MaterialSkin.Controls.MaterialSwitch();
@@ -99,17 +107,24 @@
             this.lvClassPeek = new MaterialSkin.Controls.MaterialListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colClass = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTeam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPlaytime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colState = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPing = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.plContextMenu = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.kickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cheatingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scammingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlStatControls = new System.Windows.Forms.Panel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblKillCount = new MaterialSkin.Controls.MaterialLabel();
             this.chkClassPeek = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.lblKDCounter = new MaterialSkin.Controls.MaterialLabel();
+            this.lblDeathCounter = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.btnClearStats = new MaterialSkin.Controls.MaterialButton();
-            this.lblDeathCounter = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.lblKillCount = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.tabTrade = new System.Windows.Forms.TabPage();
             this.chkTrMsg = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
@@ -167,11 +182,6 @@
             this.txtRconPort = new MaterialSkin.Controls.MaterialTextBox();
             this.mainTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tfFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
-            this.plContextMenu = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.kickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cheatingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scammingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
             this.tabHome.SuspendLayout();
             this.tabFun.SuspendLayout();
@@ -179,6 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackSpamSpeed)).BeginInit();
             this.materialCard3.SuspendLayout();
             this.tabMisc.SuspendLayout();
+            this.materialCard14.SuspendLayout();
+            this.materialCard13.SuspendLayout();
             this.materialCard10.SuspendLayout();
             this.materialCard9.SuspendLayout();
             this.materialCard7.SuspendLayout();
@@ -188,6 +200,8 @@
             this.pnlCnLobby.SuspendLayout();
             this.materialCard5.SuspendLayout();
             this.tabStats.SuspendLayout();
+            this.plContextMenu.SuspendLayout();
+            this.pnlStatControls.SuspendLayout();
             this.tabTrade.SuspendLayout();
             this.materialCard12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trTrInterval)).BeginInit();
@@ -202,7 +216,6 @@
             this.materialCard2.SuspendLayout();
             this.cardLog.SuspendLayout();
             this.cardRcon.SuspendLayout();
-            this.plContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -672,6 +685,8 @@
             // tabMisc
             // 
             this.tabMisc.BackColor = System.Drawing.SystemColors.Control;
+            this.tabMisc.Controls.Add(this.materialCard14);
+            this.tabMisc.Controls.Add(this.materialCard13);
             this.tabMisc.Controls.Add(this.materialCard10);
             this.tabMisc.Controls.Add(this.materialCard9);
             this.tabMisc.Controls.Add(this.materialCard7);
@@ -681,6 +696,133 @@
             this.tabMisc.Size = new System.Drawing.Size(1272, 594);
             this.tabMisc.TabIndex = 7;
             this.tabMisc.Text = "Misc";
+            // 
+            // materialCard14
+            // 
+            this.materialCard14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard14.Controls.Add(this.chkMiscScanner);
+            this.materialCard14.Controls.Add(this.materialLabel27);
+            this.materialCard14.Depth = 0;
+            this.materialCard14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard14.Location = new System.Drawing.Point(363, 302);
+            this.materialCard14.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard14.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard14.Name = "materialCard14";
+            this.materialCard14.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard14.Size = new System.Drawing.Size(262, 102);
+            this.materialCard14.TabIndex = 9;
+            // 
+            // chkMiscScanner
+            // 
+            this.chkMiscScanner.AutoSize = true;
+            this.chkMiscScanner.Depth = 0;
+            this.chkMiscScanner.Location = new System.Drawing.Point(14, 46);
+            this.chkMiscScanner.Margin = new System.Windows.Forms.Padding(0);
+            this.chkMiscScanner.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkMiscScanner.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkMiscScanner.Name = "chkMiscScanner";
+            this.chkMiscScanner.Ripple = true;
+            this.chkMiscScanner.Size = new System.Drawing.Size(83, 37);
+            this.chkMiscScanner.TabIndex = 6;
+            this.chkMiscScanner.Text = "Enable";
+            this.chkMiscScanner.UseVisualStyleBackColor = true;
+            this.chkMiscScanner.CheckedChanged += new System.EventHandler(this.chkMiscScanner_CheckedChanged);
+            // 
+            // materialLabel27
+            // 
+            this.materialLabel27.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel27.AutoSize = true;
+            this.materialLabel27.Depth = 0;
+            this.materialLabel27.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel27.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel27.Location = new System.Drawing.Point(71, 14);
+            this.materialLabel27.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel27.Name = "materialLabel27";
+            this.materialLabel27.Size = new System.Drawing.Size(121, 24);
+            this.materialLabel27.TabIndex = 0;
+            this.materialLabel27.Text = "Chat Scanner";
+            // 
+            // materialCard13
+            // 
+            this.materialCard13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard13.Controls.Add(this.chkMiscTimer);
+            this.materialCard13.Controls.Add(this.chkMiscPlayerlist);
+            this.materialCard13.Controls.Add(this.chkMiscOverlay);
+            this.materialCard13.Controls.Add(this.materialLabel4);
+            this.materialCard13.Depth = 0;
+            this.materialCard13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard13.Location = new System.Drawing.Point(363, 122);
+            this.materialCard13.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard13.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard13.Name = "materialCard13";
+            this.materialCard13.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard13.Size = new System.Drawing.Size(262, 171);
+            this.materialCard13.TabIndex = 8;
+            // 
+            // chkMiscTimer
+            // 
+            this.chkMiscTimer.AutoSize = true;
+            this.chkMiscTimer.Checked = true;
+            this.chkMiscTimer.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMiscTimer.Depth = 0;
+            this.chkMiscTimer.Location = new System.Drawing.Point(14, 120);
+            this.chkMiscTimer.Margin = new System.Windows.Forms.Padding(0);
+            this.chkMiscTimer.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkMiscTimer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkMiscTimer.Name = "chkMiscTimer";
+            this.chkMiscTimer.Ripple = true;
+            this.chkMiscTimer.Size = new System.Drawing.Size(126, 37);
+            this.chkMiscTimer.TabIndex = 8;
+            this.chkMiscTimer.Text = "Round Timer";
+            this.chkMiscTimer.UseVisualStyleBackColor = true;
+            // 
+            // chkMiscPlayerlist
+            // 
+            this.chkMiscPlayerlist.AutoSize = true;
+            this.chkMiscPlayerlist.Checked = true;
+            this.chkMiscPlayerlist.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMiscPlayerlist.Depth = 0;
+            this.chkMiscPlayerlist.Location = new System.Drawing.Point(14, 83);
+            this.chkMiscPlayerlist.Margin = new System.Windows.Forms.Padding(0);
+            this.chkMiscPlayerlist.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkMiscPlayerlist.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkMiscPlayerlist.Name = "chkMiscPlayerlist";
+            this.chkMiscPlayerlist.Ripple = true;
+            this.chkMiscPlayerlist.Size = new System.Drawing.Size(100, 37);
+            this.chkMiscPlayerlist.TabIndex = 7;
+            this.chkMiscPlayerlist.Text = "Playerlist";
+            this.chkMiscPlayerlist.UseVisualStyleBackColor = true;
+            this.chkMiscPlayerlist.CheckedChanged += new System.EventHandler(this.chkMiscPlayerlist_CheckedChanged);
+            // 
+            // chkMiscOverlay
+            // 
+            this.chkMiscOverlay.AutoSize = true;
+            this.chkMiscOverlay.Depth = 0;
+            this.chkMiscOverlay.Location = new System.Drawing.Point(14, 46);
+            this.chkMiscOverlay.Margin = new System.Windows.Forms.Padding(0);
+            this.chkMiscOverlay.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkMiscOverlay.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkMiscOverlay.Name = "chkMiscOverlay";
+            this.chkMiscOverlay.Ripple = true;
+            this.chkMiscOverlay.Size = new System.Drawing.Size(83, 37);
+            this.chkMiscOverlay.TabIndex = 6;
+            this.chkMiscOverlay.Text = "Enable";
+            this.chkMiscOverlay.UseVisualStyleBackColor = true;
+            this.chkMiscOverlay.CheckedChanged += new System.EventHandler(this.chkMiscOverlay_CheckedChanged);
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel4.Location = new System.Drawing.Point(97, 14);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(69, 24);
+            this.materialLabel4.TabIndex = 0;
+            this.materialLabel4.Text = "Overlay";
             // 
             // materialCard10
             // 
@@ -1382,14 +1524,7 @@
             // 
             this.tabStats.BackColor = System.Drawing.SystemColors.Control;
             this.tabStats.Controls.Add(this.lvClassPeek);
-            this.tabStats.Controls.Add(this.chkClassPeek);
-            this.tabStats.Controls.Add(this.lblKDCounter);
-            this.tabStats.Controls.Add(this.materialLabel11);
-            this.tabStats.Controls.Add(this.btnClearStats);
-            this.tabStats.Controls.Add(this.lblDeathCounter);
-            this.tabStats.Controls.Add(this.materialLabel8);
-            this.tabStats.Controls.Add(this.lblKillCount);
-            this.tabStats.Controls.Add(this.materialLabel6);
+            this.tabStats.Controls.Add(this.pnlStatControls);
             this.tabStats.Location = new System.Drawing.Point(4, 22);
             this.tabStats.Name = "tabStats";
             this.tabStats.Size = new System.Drawing.Size(1272, 594);
@@ -1404,22 +1539,24 @@
             this.lvClassPeek.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colClass,
+            this.colTeam,
             this.colPlaytime,
             this.colState,
             this.colPing});
             this.lvClassPeek.ContextMenuStrip = this.plContextMenu;
             this.lvClassPeek.Depth = 0;
-            this.lvClassPeek.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lvClassPeek.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvClassPeek.FullRowSelect = true;
             this.lvClassPeek.HideSelection = false;
-            this.lvClassPeek.Location = new System.Drawing.Point(0, 67);
+            this.lvClassPeek.Location = new System.Drawing.Point(0, 71);
             this.lvClassPeek.MinimumSize = new System.Drawing.Size(200, 100);
             this.lvClassPeek.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lvClassPeek.MouseState = MaterialSkin.MouseState.OUT;
             this.lvClassPeek.MultiSelect = false;
             this.lvClassPeek.Name = "lvClassPeek";
             this.lvClassPeek.OwnerDraw = true;
-            this.lvClassPeek.Size = new System.Drawing.Size(1272, 527);
+            this.lvClassPeek.Size = new System.Drawing.Size(1272, 523);
+            this.lvClassPeek.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvClassPeek.TabIndex = 13;
             this.lvClassPeek.UseCompatibleStateImageBehavior = false;
             this.lvClassPeek.View = System.Windows.Forms.View.Details;
@@ -1427,35 +1564,124 @@
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 200;
+            this.colName.Width = 650;
             // 
             // colClass
             // 
             this.colClass.Text = "Class";
-            this.colClass.Width = 100;
+            this.colClass.Width = 150;
+            // 
+            // colTeam
+            // 
+            this.colTeam.Text = "Team";
+            this.colTeam.Width = 120;
             // 
             // colPlaytime
             // 
-            this.colPlaytime.DisplayIndex = 3;
             this.colPlaytime.Text = "Playtime";
-            this.colPlaytime.Width = 110;
+            this.colPlaytime.Width = 130;
             // 
             // colState
             // 
-            this.colState.DisplayIndex = 2;
             this.colState.Text = "State";
-            this.colState.Width = 100;
+            this.colState.Width = 110;
             // 
             // colPing
             // 
             this.colPing.Text = "Ping";
+            this.colPing.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colPing.Width = 80;
+            // 
+            // plContextMenu
+            // 
+            this.plContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.plContextMenu.Depth = 0;
+            this.plContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kickToolStripMenuItem,
+            this.viewProfileToolStripMenuItem});
+            this.plContextMenu.MouseState = MaterialSkin.MouseState.HOVER;
+            this.plContextMenu.Name = "plContextMenu";
+            this.plContextMenu.Size = new System.Drawing.Size(137, 48);
+            // 
+            // kickToolStripMenuItem
+            // 
+            this.kickToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cheatingToolStripMenuItem,
+            this.scammingToolStripMenuItem});
+            this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
+            this.kickToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.kickToolStripMenuItem.Text = "Kick";
+            this.kickToolStripMenuItem.Click += new System.EventHandler(this.kickToolStripMenuItem_Click);
+            // 
+            // cheatingToolStripMenuItem
+            // 
+            this.cheatingToolStripMenuItem.Name = "cheatingToolStripMenuItem";
+            this.cheatingToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.cheatingToolStripMenuItem.Text = "Cheating";
+            this.cheatingToolStripMenuItem.Click += new System.EventHandler(this.cheatingToolStripMenuItem_Click);
+            // 
+            // scammingToolStripMenuItem
+            // 
+            this.scammingToolStripMenuItem.Name = "scammingToolStripMenuItem";
+            this.scammingToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.scammingToolStripMenuItem.Text = "Scamming";
+            // 
+            // viewProfileToolStripMenuItem
+            // 
+            this.viewProfileToolStripMenuItem.Name = "viewProfileToolStripMenuItem";
+            this.viewProfileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.viewProfileToolStripMenuItem.Text = "View Profile";
+            this.viewProfileToolStripMenuItem.Click += new System.EventHandler(this.viewProfileToolStripMenuItem_Click);
+            // 
+            // pnlStatControls
+            // 
+            this.pnlStatControls.Controls.Add(this.materialLabel6);
+            this.pnlStatControls.Controls.Add(this.lblKillCount);
+            this.pnlStatControls.Controls.Add(this.chkClassPeek);
+            this.pnlStatControls.Controls.Add(this.materialLabel8);
+            this.pnlStatControls.Controls.Add(this.lblKDCounter);
+            this.pnlStatControls.Controls.Add(this.lblDeathCounter);
+            this.pnlStatControls.Controls.Add(this.materialLabel11);
+            this.pnlStatControls.Controls.Add(this.btnClearStats);
+            this.pnlStatControls.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlStatControls.Location = new System.Drawing.Point(0, 0);
+            this.pnlStatControls.Name = "pnlStatControls";
+            this.pnlStatControls.Size = new System.Drawing.Size(1272, 71);
+            this.pnlStatControls.TabIndex = 14;
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
+            this.materialLabel6.Location = new System.Drawing.Point(40, 10);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(31, 19);
+            this.materialLabel6.TabIndex = 2;
+            this.materialLabel6.Text = "Kills";
+            // 
+            // lblKillCount
+            // 
+            this.lblKillCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblKillCount.Depth = 0;
+            this.lblKillCount.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblKillCount.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lblKillCount.Location = new System.Drawing.Point(12, 29);
+            this.lblKillCount.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblKillCount.Name = "lblKillCount";
+            this.lblKillCount.Size = new System.Drawing.Size(90, 30);
+            this.lblKillCount.TabIndex = 3;
+            this.lblKillCount.Text = "0";
+            this.lblKillCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkClassPeek
             // 
             this.chkClassPeek.AutoSize = true;
             this.chkClassPeek.Depth = 0;
-            this.chkClassPeek.Location = new System.Drawing.Point(958, 15);
+            this.chkClassPeek.Location = new System.Drawing.Point(958, 17);
             this.chkClassPeek.Margin = new System.Windows.Forms.Padding(0);
             this.chkClassPeek.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkClassPeek.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1467,19 +1693,47 @@
             this.chkClassPeek.UseVisualStyleBackColor = true;
             this.chkClassPeek.CheckedChanged += new System.EventHandler(this.chkClassPeek_CheckedChanged);
             // 
+            // materialLabel8
+            // 
+            this.materialLabel8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
+            this.materialLabel8.Location = new System.Drawing.Point(142, 10);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(51, 19);
+            this.materialLabel8.TabIndex = 4;
+            this.materialLabel8.Text = "Deaths";
+            // 
             // lblKDCounter
             // 
             this.lblKDCounter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblKDCounter.Depth = 0;
             this.lblKDCounter.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblKDCounter.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblKDCounter.Location = new System.Drawing.Point(230, 28);
+            this.lblKDCounter.Location = new System.Drawing.Point(234, 29);
             this.lblKDCounter.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblKDCounter.Name = "lblKDCounter";
             this.lblKDCounter.Size = new System.Drawing.Size(90, 30);
             this.lblKDCounter.TabIndex = 12;
             this.lblKDCounter.Text = "0";
             this.lblKDCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeathCounter
+            // 
+            this.lblDeathCounter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblDeathCounter.Depth = 0;
+            this.lblDeathCounter.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDeathCounter.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lblDeathCounter.Location = new System.Drawing.Point(123, 29);
+            this.lblDeathCounter.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDeathCounter.Name = "lblDeathCounter";
+            this.lblDeathCounter.Size = new System.Drawing.Size(90, 30);
+            this.lblDeathCounter.TabIndex = 5;
+            this.lblDeathCounter.Text = "0";
+            this.lblDeathCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // materialLabel11
             // 
@@ -1488,7 +1742,7 @@
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel11.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.materialLabel11.Location = new System.Drawing.Point(260, 9);
+            this.materialLabel11.Location = new System.Drawing.Point(264, 10);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
             this.materialLabel11.Size = new System.Drawing.Size(29, 19);
@@ -1497,13 +1751,14 @@
             // 
             // btnClearStats
             // 
+            this.btnClearStats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearStats.AutoSize = false;
             this.btnClearStats.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClearStats.Depth = 0;
             this.btnClearStats.DrawShadows = true;
             this.btnClearStats.HighEmphasis = true;
             this.btnClearStats.Icon = null;
-            this.btnClearStats.Location = new System.Drawing.Point(1126, 15);
+            this.btnClearStats.Location = new System.Drawing.Point(1126, 16);
             this.btnClearStats.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClearStats.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClearStats.Name = "btnClearStats";
@@ -1514,62 +1769,6 @@
             this.btnClearStats.UseAccentColor = true;
             this.btnClearStats.UseVisualStyleBackColor = true;
             this.btnClearStats.Click += new System.EventHandler(this.btnClearStats_Click);
-            // 
-            // lblDeathCounter
-            // 
-            this.lblDeathCounter.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblDeathCounter.Depth = 0;
-            this.lblDeathCounter.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblDeathCounter.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblDeathCounter.Location = new System.Drawing.Point(119, 28);
-            this.lblDeathCounter.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblDeathCounter.Name = "lblDeathCounter";
-            this.lblDeathCounter.Size = new System.Drawing.Size(90, 30);
-            this.lblDeathCounter.TabIndex = 5;
-            this.lblDeathCounter.Text = "0";
-            this.lblDeathCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel8
-            // 
-            this.materialLabel8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.materialLabel8.AutoSize = true;
-            this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.materialLabel8.Location = new System.Drawing.Point(138, 9);
-            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(51, 19);
-            this.materialLabel8.TabIndex = 4;
-            this.materialLabel8.Text = "Deaths";
-            // 
-            // lblKillCount
-            // 
-            this.lblKillCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblKillCount.Depth = 0;
-            this.lblKillCount.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblKillCount.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblKillCount.Location = new System.Drawing.Point(8, 28);
-            this.lblKillCount.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblKillCount.Name = "lblKillCount";
-            this.lblKillCount.Size = new System.Drawing.Size(90, 30);
-            this.lblKillCount.TabIndex = 3;
-            this.lblKillCount.Text = "0";
-            this.lblKillCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.materialLabel6.Location = new System.Drawing.Point(36, 9);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(31, 19);
-            this.materialLabel6.TabIndex = 2;
-            this.materialLabel6.Text = "Kills";
             // 
             // tabTrade
             // 
@@ -1590,9 +1789,10 @@
             // 
             // chkTrMsg
             // 
+            this.chkTrMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkTrMsg.AutoSize = true;
             this.chkTrMsg.Depth = 0;
-            this.chkTrMsg.Location = new System.Drawing.Point(455, 269);
+            this.chkTrMsg.Location = new System.Drawing.Point(891, 204);
             this.chkTrMsg.Margin = new System.Windows.Forms.Padding(0);
             this.chkTrMsg.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkTrMsg.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1605,9 +1805,10 @@
             // 
             // materialSwitch1
             // 
+            this.materialSwitch1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialSwitch1.AutoSize = true;
             this.materialSwitch1.Depth = 0;
-            this.materialSwitch1.Location = new System.Drawing.Point(572, 210);
+            this.materialSwitch1.Location = new System.Drawing.Point(700, 204);
             this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
             this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1620,9 +1821,10 @@
             // 
             // chkTrTeam
             // 
+            this.chkTrTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkTrTeam.AutoSize = true;
             this.chkTrTeam.Depth = 0;
-            this.chkTrTeam.Location = new System.Drawing.Point(645, 269);
+            this.chkTrTeam.Location = new System.Drawing.Point(1058, 204);
             this.chkTrTeam.Margin = new System.Windows.Forms.Padding(0);
             this.chkTrTeam.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkTrTeam.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1635,6 +1837,7 @@
             // 
             // materialCard12
             // 
+            this.materialCard12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard12.Controls.Add(this.raTrPrio);
             this.materialCard12.Controls.Add(this.materialLabel26);
@@ -1642,12 +1845,12 @@
             this.materialCard12.Controls.Add(this.raTrList);
             this.materialCard12.Depth = 0;
             this.materialCard12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard12.Location = new System.Drawing.Point(455, 95);
+            this.materialCard12.Location = new System.Drawing.Point(700, 89);
             this.materialCard12.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard12.Name = "materialCard12";
             this.materialCard12.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard12.Size = new System.Drawing.Size(429, 101);
+            this.materialCard12.Size = new System.Drawing.Size(564, 101);
             this.materialCard12.TabIndex = 3;
             // 
             // raTrPrio
@@ -1715,11 +1918,12 @@
             // 
             // materialLabel25
             // 
+            this.materialLabel25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialLabel25.AutoSize = true;
             this.materialLabel25.Depth = 0;
             this.materialLabel25.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel25.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel25.Location = new System.Drawing.Point(455, 24);
+            this.materialLabel25.Location = new System.Drawing.Point(700, 14);
             this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel25.Name = "materialLabel25";
             this.materialLabel25.Size = new System.Drawing.Size(156, 24);
@@ -1728,11 +1932,12 @@
             // 
             // trTrInterval
             // 
-            this.trTrInterval.Location = new System.Drawing.Point(455, 51);
+            this.trTrInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.trTrInterval.Location = new System.Drawing.Point(700, 41);
             this.trTrInterval.Maximum = 300;
             this.trTrInterval.Minimum = 10;
             this.trTrInterval.Name = "trTrInterval";
-            this.trTrInterval.Size = new System.Drawing.Size(429, 45);
+            this.trTrInterval.Size = new System.Drawing.Size(564, 45);
             this.trTrInterval.TabIndex = 1;
             this.trTrInterval.TickFrequency = 10;
             this.trTrInterval.Value = 20;
@@ -1752,7 +1957,7 @@
             this.materialCard11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard11.Name = "materialCard11";
             this.materialCard11.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard11.Size = new System.Drawing.Size(804, 566);
+            this.materialCard11.Size = new System.Drawing.Size(669, 566);
             this.materialCard11.TabIndex = 0;
             // 
             // txtTrMsg
@@ -1768,7 +1973,7 @@
             this.txtTrMsg.Location = new System.Drawing.Point(14, 37);
             this.txtTrMsg.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTrMsg.Name = "txtTrMsg";
-            this.txtTrMsg.Size = new System.Drawing.Size(776, 515);
+            this.txtTrMsg.Size = new System.Drawing.Size(641, 515);
             this.txtTrMsg.TabIndex = 0;
             this.txtTrMsg.Text = "";
             // 
@@ -1781,7 +1986,7 @@
             this.materialLabel24.Location = new System.Drawing.Point(14, 14);
             this.materialLabel24.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel24.Name = "materialLabel24";
-            this.materialLabel24.Size = new System.Drawing.Size(776, 23);
+            this.materialLabel24.Size = new System.Drawing.Size(641, 23);
             this.materialLabel24.TabIndex = 1;
             this.materialLabel24.Text = "Messages (1 per Line)";
             this.materialLabel24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2496,6 +2701,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTabSelector.BaseTabControl = this.mainTabControl;
             this.mainTabSelector.Depth = 0;
+            this.mainTabSelector.Enabled = false;
             this.mainTabSelector.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mainTabSelector.Location = new System.Drawing.Point(0, 64);
             this.mainTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
@@ -2508,47 +2714,6 @@
             // 
             this.tfFolderBrowser.Description = "Select your \"Team Fortress 2\" Folder...";
             this.tfFolderBrowser.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            // 
-            // plContextMenu
-            // 
-            this.plContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.plContextMenu.Depth = 0;
-            this.plContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kickToolStripMenuItem,
-            this.viewProfileToolStripMenuItem});
-            this.plContextMenu.MouseState = MaterialSkin.MouseState.HOVER;
-            this.plContextMenu.Name = "plContextMenu";
-            this.plContextMenu.Size = new System.Drawing.Size(181, 70);
-            // 
-            // kickToolStripMenuItem
-            // 
-            this.kickToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cheatingToolStripMenuItem,
-            this.scammingToolStripMenuItem});
-            this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
-            this.kickToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.kickToolStripMenuItem.Text = "Kick";
-            this.kickToolStripMenuItem.Click += new System.EventHandler(this.kickToolStripMenuItem_Click);
-            // 
-            // cheatingToolStripMenuItem
-            // 
-            this.cheatingToolStripMenuItem.Name = "cheatingToolStripMenuItem";
-            this.cheatingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cheatingToolStripMenuItem.Text = "Cheating";
-            this.cheatingToolStripMenuItem.Click += new System.EventHandler(this.cheatingToolStripMenuItem_Click);
-            // 
-            // scammingToolStripMenuItem
-            // 
-            this.scammingToolStripMenuItem.Name = "scammingToolStripMenuItem";
-            this.scammingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.scammingToolStripMenuItem.Text = "Scamming";
-            // 
-            // viewProfileToolStripMenuItem
-            // 
-            this.viewProfileToolStripMenuItem.Name = "viewProfileToolStripMenuItem";
-            this.viewProfileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewProfileToolStripMenuItem.Text = "View Profile";
-            this.viewProfileToolStripMenuItem.Click += new System.EventHandler(this.viewProfileToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -2576,6 +2741,10 @@
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
             this.tabMisc.ResumeLayout(false);
+            this.materialCard14.ResumeLayout(false);
+            this.materialCard14.PerformLayout();
+            this.materialCard13.ResumeLayout(false);
+            this.materialCard13.PerformLayout();
             this.materialCard10.ResumeLayout(false);
             this.materialCard10.PerformLayout();
             this.materialCard9.ResumeLayout(false);
@@ -2593,7 +2762,9 @@
             this.materialCard5.ResumeLayout(false);
             this.materialCard5.PerformLayout();
             this.tabStats.ResumeLayout(false);
-            this.tabStats.PerformLayout();
+            this.plContextMenu.ResumeLayout(false);
+            this.pnlStatControls.ResumeLayout(false);
+            this.pnlStatControls.PerformLayout();
             this.tabTrade.ResumeLayout(false);
             this.tabTrade.PerformLayout();
             this.materialCard12.ResumeLayout(false);
@@ -2617,7 +2788,6 @@
             this.cardLog.PerformLayout();
             this.cardRcon.ResumeLayout(false);
             this.cardRcon.PerformLayout();
-            this.plContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2767,6 +2937,16 @@
         private System.Windows.Forms.ToolStripMenuItem cheatingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scammingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewProfileToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlStatControls;
+        private System.Windows.Forms.ColumnHeader colTeam;
+        private MaterialSkin.Controls.MaterialCard materialCard13;
+        private MaterialSkin.Controls.MaterialCheckbox chkMiscOverlay;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialCheckbox chkMiscPlayerlist;
+        private MaterialSkin.Controls.MaterialCheckbox chkMiscTimer;
+        private MaterialSkin.Controls.MaterialCard materialCard14;
+        private MaterialSkin.Controls.MaterialCheckbox chkMiscScanner;
+        private MaterialSkin.Controls.MaterialLabel materialLabel27;
     }
 }
 
