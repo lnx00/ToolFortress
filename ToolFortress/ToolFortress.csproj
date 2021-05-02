@@ -72,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertBox.Designer.cs">
+      <DependentUpon>AlertBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogReader.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -108,6 +114,9 @@
     <Compile Include="TF2\Interpreter.cs" />
     <Compile Include="TF2\LogParser.cs" />
     <Compile Include="TF2\Utils.cs" />
+    <EmbeddedResource Include="AlertBox.resx">
+      <DependentUpon>AlertBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>

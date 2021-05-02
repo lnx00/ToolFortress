@@ -42,8 +42,6 @@ namespace ToolFortress
         private Process _tfProcess;
 
         private GLabel _plLabel;
-        private List<string> _msgQueue = new List<string>();
-        private GLabel msgBox;
 
         public Overlay()
         {
@@ -71,19 +69,6 @@ namespace ToolFortress
                 this.Size = new Size(tfRect.Right, tfRect.Bottom);
 
                 CreateLabel("ToolFortress", 20, 60, 22);
-
-                // Initialize message drawer
-                msgBox = new GLabel
-                {
-                    Location = new Point(this.Width - 500, 10),
-                    Size = new Size(490, this.Height - 20),
-                    AutoSize = false,
-                    TextAlign = ContentAlignment.BottomRight,
-                    Text = "",
-                    Font = new Font("Consolas", 18, FontStyle.Regular),
-                    BackColor = Color.Transparent,
-                    ForeColor = Color.White
-                };
             }
         }
 
@@ -116,20 +101,30 @@ namespace ToolFortress
             return label;
         }
 
-        public void PushMessage(string pMessage)
+        /* Add a new alert box */
+        public void PushAlert(string pTitle, string pMessage, int pTimeout = 5000)
         {
-            _msgQueue.Add(pMessage);
-            UpdateMessages();
+            AlertBox alertBox = new AlertBox(pTitle, pMessage);
+            alertBox.Dock = DockStyle.Bottom;
+
+            // This is very stupid, but it works for now...
+            this.pnlAlerts.Invoke((MethodInvoker)delegate
+            {
+                this.pnlAlerts.Controls.Add(alertBox);
+                new Thread(() =>
+                {
+                    Thread.Sleep(pTimeout);
+                    this.pnlAlerts.Invoke((MethodInvoker)delegate
+                    {
+                        this.pnlAlerts.Controls.Remove(alertBox);
+                    });
+                }).Start();
+            });
         }
 
         public void UpdatePlayerlist(String[] pPlayerlist)
         {
             _plLabel.Text = string.Join("\n", pPlayerlist);
-        }
-
-        private void UpdateMessages()
-        {
-            msgBox.Text = string.Join("\n\n", _msgQueue.ToArray());
         }
 
         /* Custom label with optimized gfx */

@@ -620,7 +620,7 @@ namespace ToolFortress
                     Game.SendPartyMessage("Enemy at sewer!");
                     if (chkMiscOverlay.Checked)
                     {
-                        _overlay.PushMessage("Enemy at sewer!");
+                        _overlay.PushAlert("Chat Scanner", "Enemy at sewers reported!");
                     }
                 }
 
@@ -629,7 +629,7 @@ namespace ToolFortress
                     Game.SendPartyMessage("Enemy at intel!");
                     if (chkMiscOverlay.Checked)
                     {
-                        _overlay.PushMessage("Enemy at intel!");
+                        _overlay.PushAlert("Chat Scanner", "Enemy at intel reported!");
                     }
                 }
 
@@ -638,7 +638,7 @@ namespace ToolFortress
                     Game.SendPartyMessage("Enemy at bridge!");
                     if (chkMiscOverlay.Checked)
                     {
-                        _overlay.PushMessage("Enemy at bridge!");
+                        _overlay.PushAlert("Chat Scanner", "Enemy at bridge reported!");
                     }
                 }
             }
