@@ -27,5 +27,5 @@ ToolFortress is 100% VAC safe and can't get you banned. Just like [TF2 Bot Detec
 ![Misc](https://i.imgur.com/GgZk0qp.png)
 
 ## Credits
-[lnx00](https://github.com/lnx00)
-[Leo Bottaro](https://github.com/leocb) (Material Skin)
+- [lnx00](https://github.com/lnx00)
+- [Leo Bottaro](https://github.com/leocb) (Material Skin)
