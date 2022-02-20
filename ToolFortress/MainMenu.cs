@@ -104,21 +104,23 @@ namespace ToolFortress
         private void btnStartGame_Click(object sender, EventArgs e)
         {
             // Start TF2 and start a Rcon-Server
-            Process.Start("steam://run/440//"
-                + " -usercon"
-                + " +developer 1 +alias developer"
-                + " +contimes 0 +alias contimes"
-                + " +ip 0.0.0.0 +alias ip"
-                + " +sv_rcon_whitelist_address " + Settings.RCON_IP + " +alias sv_rcon_whitelist_address"
-                + " +sv_quota_stringcmdspersecond 1000000 +alias sv_quota_stringcmdspersecond"
-                + " +rcon_password " + Settings.RCON_PASSWORD + " +alias rcon_password"
-                + " +hostport " + Settings.RCON_PORT + " +alias hostport"
-                + " +alias cl_reload_localization_files"
-                + " +net_start"
-                + " +con_timestamp 0 +alias con_timestamp"
-                + " +con_logfile console.log"
-                + " -condebug"
-                + " -conclearlog");
+            Process.Start(Settings.TF2_FOLDER + @"\hl2.exe", " dummy"
+                     + " -game tf" 
+                     + " -steam -secure" 
+                     + " -usercon" 
+                     + " +developer 1 +alias developer" 
+                     + " +contimes 0 +alias contimes"
+                     + " +ip 0.0.0.0 +alias ip"
+                     + " +sv_rcon_whitelist_address " + Settings.RCON_IP + " +alias sv_rcon_whitelist_address"
+                     + " +sv_quota_stringcmdspersecond 1000000 +alias sv_quota_stringcmdspersecond"
+                     + " +rcon_password " + Settings.RCON_PASSWORD + " +alias rcon_password"
+                     + " +hostport " + Settings.RCON_PORT + " +alias hostport"
+                     + " +alias cl_reload_localization_files"
+                     + " +net_start"
+                     + " +con_timestamp 0 +alias con_timestamp"
+                     + " +con_logfile console.log"
+                     + " -condebug"
+                     + " -conclearlog");
         }
 
         private void OnLogMessage(string line)
@@ -415,6 +417,8 @@ namespace ToolFortress
         {
             if (switchCnEnable.Checked)
             {
+                MessageBox.Show("ToolFortress Connect enables various online features.\nKeep in mind that attackers might be able to run unauthorized in-game command through this service.");
+
                 connectModule.Enable();
                 connectModule.OnUserUpdate += UpdateUserList;
                 pnlCnLobby.Enabled = true;

@@ -16,8 +16,8 @@ namespace ToolFortress
         public static ushort RCON_PORT = 2541;
         public static string TF2_FOLDER = @"G:\Steam\steamapps\common\Team Fortress 2\";
         public static string TF2_STEAMID3 = "[U:1:347654006]";
-        public static string FB_AUTHSECRET = "u4wcpfXoQ1qHiT4szOwuE0l6jUdJaPXS4Y5Z4J99";
-        public static string FB_BASEPATH = "https://tfconnect-6104f.firebaseio.com/";
+        public static string FB_AUTHSECRET = "<Your Auth Secret>";
+        public static string FB_BASEPATH = "https://your-firebase.firebaseio.com/";
         public static string FB_USERNAME = "";
 
         /* FEATURES */
